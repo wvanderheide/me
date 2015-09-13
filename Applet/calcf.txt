@@ -1,0 +1,556 @@
+// March 25, 1999
+// Fraction Calculator
+
+
+// This class uses the rational2 class found at the end of this document
+
+
+import java.awt.*;
+import java.awt.event.*;
+import java.applet.Applet;
+import java.text.DecimalFormat;
+
+
+public class CalcF extends Applet implements ActionListener
+{
+	Panel no,w,et,s;
+
+	rational2 r;
+	Label promptn, promptd, promptn2, promptd2,guide,blank;
+	TextField inputn, inputd,inputn2, inputd2;
+	Button add, sub, mul, div,decimal,clear;
+	int n,n2,d,d2,search,search2,count=0;
+	int align;
+	String s_all,s_all2,s_all3,s_n,s_n2,s_d,s_d2;
+	String temp1,temp2,temp3;
+	
+	
+  
+   public void init()
+   {
+	temp1="Not a Fraction";
+	temp2=temp1;
+	temp3=temp2;
+	align = FlowLayout.LEFT;
+	//setBackground(Color.gray);
+	w=new Panel();
+	//w.setBackground(Color.white);
+	w.setLayout(new GridLayout(4,2));
+
+	et=new Panel();
+	//et.setBackground(Color.white);
+	et.setLayout(new GridLayout(5,1));
+
+	s=new Panel();
+	//s.setBackground(Color.white);
+	s.setLayout(new FlowLayout(align));
+
+	
+		
+      	r=new rational2();
+
+	clear = new Button("C");
+	clear.setBackground(Color.red);
+	clear.addActionListener(this);
+
+	add = new Button(" + ");
+	add.setBackground(Color.orange);
+	add.addActionListener(this);
+
+	sub = new Button(" - ");
+	sub.setBackground(Color.orange);
+	sub.addActionListener(this);
+
+	mul = new Button(" * ");
+	mul.addActionListener(this);
+	mul.setBackground(Color.orange);
+
+	div = new Button(" / ");
+	div.addActionListener(this);
+	div.setBackground(Color.orange);
+
+	decimal = new Button("Decimal/Fraction");
+	decimal.setBackground(Color.orange);
+	decimal.addActionListener(this);
+	
+
+	promptn=new Label("First Fraction  ");
+	promptd=new Label("Second Fraction  ");
+
+	promptn2=new Label("Example  ");
+	promptd2=new Label(" = ");
+
+	guide=new Label("Enter Fractions");
+	blank = new Label("      ");
+
+	inputn=new TextField(15);
+	//inputn.setBackground(Color.red);
+	inputd=new TextField(15);
+
+
+	inputn2=new TextField("3/4",15);
+	inputn2.setEditable(false);
+	inputn2.setBackground(Color.white);
+
+	inputd2=new TextField(15);
+	inputd2.setEditable(false);
+	inputd2.setBackground(Color.white);
+	
+	w.add(blank);
+	w.add(guide);
+	w.add( promptn2);
+	w.add( inputn2 );
+	w.add( promptn);
+	w.add( inputn);
+	w.add( promptd);
+	w.add( inputd);
+
+	et.add(clear);
+	et.add(add);
+	et.add(sub);
+	et.add(mul);
+	et.add(div);
+
+	s.add( promptd2);
+	s.add( inputd2);
+	s.add(decimal);
+	
+	setLayout( new BorderLayout());
+	add(w,BorderLayout.WEST);
+	add(et,BorderLayout.EAST);
+	add(s,BorderLayout.SOUTH);
+
+	setLayout(new FlowLayout(align));
+	validate();
+	
+   }
+
+
+    public void actionPerformed( ActionEvent e )
+   { // begin actionPerformed method
+	double dec1, dec2, dec3;
+
+if (e.getSource() == clear)
+	{
+	inputn.setText("");
+	inputd.setText("");
+	inputd2.setText("");
+	temp1="";
+	temp2=temp1;
+	temp3=temp2;
+	}
+
+else if (e.getSource() != decimal ) 
+{	int c;
+
+
+	s_all = inputn.getText();
+	s_all = s_all.trim();
+
+	search=s_all.indexOf( (int) '/');
+
+
+	for(int i=0; i<s_all.length();i++)
+		{
+		c=(int)s_all.charAt(i);
+		if (c!=(int)' ') // (int) ' ' is ascii for blank
+			{if (c<47 | c>57 ) {search = -1;break;}}
+		}
+	
+
+
+	if (search ==-1) inputn.setText("Not a Fraction");
+	
+	else
+	{
+	s_n = s_all.substring(0,search);
+	s_n = s_n.trim();
+
+
+	n=Integer.parseInt(s_n);
+
+	search+=1;
+	s_d = s_all.substring(search);
+	s_d = s_d.trim();
+	d=Integer.parseInt(s_d);
+	
+
+	r.setFraction( n,d );
+	n = r.getN();
+	d = r.getD();
+
+	s_all = Integer.toString(n)+"/"+Integer.toString(d);
+	inputn.setText(s_all);
+	}
+	
+
+	s_all2 = inputd.getText();
+	s_all2 = s_all2.trim();
+	search2=s_all2.indexOf( (int) '/');
+
+
+	for(int i=0; i<s_all2.length();i++)
+		{
+		c=(int)s_all2.charAt(i);
+		if (c!=(int)' ') // (int) ' ' is ascii for blank
+			{if (c<47 | c>57 ) {search2 = -1;break;}}
+		}
+	
+
+	if (search2 ==-1) inputd.setText("Not a Fraction");
+	else
+	{
+
+	s_n2 = s_all2.substring(0,search2);
+	s_n2 = s_n2.trim();
+	n2=Integer.parseInt(s_n2);
+
+	search2+=1;
+	s_d2 = s_all2.substring(search2);
+	s_d2 = s_d2.trim();
+	d2=Integer.parseInt(s_d2);
+	
+
+	r.setFraction( n2,d2 );
+	n2 = r.getN();
+	d2 = r.getD();
+
+
+	s_all2 = Integer.toString(n2)+"/"+Integer.toString(d2);
+	inputd.setText(s_all2);
+	}
+	
+
+
+     if (search != -1 & search2 !=-1)
+     {
+	if (e.getSource() == add  )
+	{
+	if (d==0 & d2==0) inputd2.setText("Error");
+	else inputd2.setText(r.sum(n,d,n2,d2));
+	}
+
+	else if (e.getSource() == sub)
+	{
+	if (d==0 & d2==0) inputd2.setText("Error");
+	else inputd2.setText(r.diff(n,d,n2,d2));
+	}
+
+	else if (e.getSource() == mul)
+	{
+	if (d==0 & d2==0) inputd2.setText("Error");
+	else inputd2.setText(r.mul(n,d,n2,d2));
+	}
+
+	else if (e.getSource() == div)
+	{
+	if (d==0 & d2==0) inputd2.setText("Error");
+	else inputd2.setText(r.div(n,d,n2,d2));
+	}
+
+     }
+     else {inputd2.setText("");}
+}
+
+else  //e.getSource() == decimal)
+{ //start else for e.getSource() == decimal 
+
+
+
+	s_all= inputn.getText();
+	s_all2= inputd.getText();
+	s_all3= inputd2.getText();
+
+	// Test if inputn contains a fraction if so convert it to decimal
+	if (s_all.indexOf( (int) '/')!=-1)
+	{
+	temp1 = s_all;  // set temp to later restore fraction
+	
+
+	search=s_all.indexOf( (int) '/');
+	s_n = s_all.substring(0,search);
+	n=Integer.parseInt(s_n);
+
+	search+=1;
+	s_d = s_all.substring(search);
+	d=Integer.parseInt(s_d);
+
+	dec1=(double)n/(double)d;
+	inputn.setText(Double.toString(dec1));	
+	}
+
+
+	 
+	// Test if inputd contains a fraction if so convert it to decimal
+	if (s_all2.indexOf( (int) '/')!=-1)
+	{
+	temp2 = s_all2;  // set temp to later restore fraction
+	
+
+	search=s_all2.indexOf( (int) '/');
+	s_n = s_all2.substring(0,search);
+	n=Integer.parseInt(s_n);
+
+	search+=1;
+	s_d = s_all2.substring(search);
+	d=Integer.parseInt(s_d);
+
+	dec1=(double)n/(double)d;
+	inputd.setText(Double.toString(dec1));	
+	}
+
+
+
+	// Test if inputd2 contains a fraction if so convert it to decimal
+	if (s_all3.indexOf( (int) '/')!=-1)
+	{
+	temp3 = s_all3;  // set temp to later restore fraction
+	
+
+	search=s_all3.indexOf( (int) '/');
+	s_n = s_all3.substring(0,search);
+	n=Integer.parseInt(s_n);
+
+	search+=1;
+	s_d = s_all3.substring(search);
+	d=Integer.parseInt(s_d);
+
+	dec1=(double)n/(double)d;
+	inputd2.setText(Double.toString(dec1));	
+	}
+
+
+
+	// Check inputn for decimal
+	// test to see if s_all is a decimal, if it is then restore
+	// the fraction, else leave it alone 
+	
+	search=s_all.indexOf( (int) '.');
+	if (search != -1) // then it is a decimal
+		{inputn.setText(temp1);
+		temp1=inputn.getText();}
+	//else do nothing, if it is not a decimal
+
+
+
+	// test to see if s_all is a decimal, if it is then restore
+	// the fraction, else leave it alone
+	
+	search=s_all2.indexOf( (int) '.');
+	if (search != -1) // then it is a decimal
+		{inputd.setText(temp2); 
+		temp2=inputd.getText();}
+	//else do nothing, if it is not a decimal
+
+
+	// test to see if s_all is a decimal, if it is then restore
+	// the fraction, else leave it alone
+	
+	search=s_all3.indexOf( (int) '.');
+	if (search != -1) // then it is a decimal
+		{inputd2.setText(temp3); 
+		temp3=inputd2.getText();}
+	//else do nothing, if it is not a decimal
+	
+
+}//  e.getSource() == decimal;    close
+
+	
+
+
+	repaint();
+	
+   }// close method
+
+ 
+}// close class
+
+
+
+
+
+/********************************************************
+*************               rational2.class          *****
+*********************************************************/
+
+
+
+//import java.text.DecimalFormat;
+
+public class rational2
+{
+private int numerator;
+private int denominator;
+   
+
+// rational22 constructor(s)
+
+public rational2() { setFraction( 1, 1 ); }
+public rational2(int num, int den) { setFraction( num, den ); }
+   
+   
+public void setFraction( int num, int den )
+{
+numerator = num;
+denominator = den;
+reduce();
+}
+
+
+public int getN(){return numerator;}
+
+public int getD(){return denominator;}
+
+public String sum(int x, int y, int a, int b)
+{
+numerator=x*b+y*a;
+denominator=b*y;
+
+if (numerator == 0) return "0";
+if (denominator==0) return "Infinity";
+if (numerator ==1 & denominator ==1) return "1";
+
+reduce();
+return ( String.valueOf(numerator)+"/"+String.valueOf(denominator) );
+}
+
+public String diff(int x, int y, int a, int b)
+{
+numerator=x*b-y*a;
+denominator=b*y;
+
+if (numerator == 0) return "0";
+if (denominator==0) return "Infinity";
+if (numerator ==1 & denominator ==1) return "1";
+
+reduce();
+return ( String.valueOf(numerator)+"/"+String.valueOf(denominator) );
+}
+
+public String mul(int x, int y, int a, int b)
+{
+numerator=x*a;
+denominator=b*y;
+if (numerator == 0) return "0";
+if (denominator==0) return "Infinity";
+if (numerator ==1 & denominator ==1) return "1";
+reduce();
+return ( String.valueOf(numerator)+"/"+String.valueOf(denominator) );
+}
+
+public String div(int x, int y, int a, int b)
+{
+numerator=x*b;
+denominator=a*y;
+
+if (numerator == 0) return "0";
+if (denominator==0) return "Infinity";
+if (numerator ==1 & denominator ==1) return "1";
+reduce();
+return ( String.valueOf(numerator)+"/"+String.valueOf(denominator) );
+}
+
+
+
+/******************************************************
+*** Below is the function used to reduce fractions, ***
+*** Note this function will only reduce fractions   ***
+*** that are multiplies of 31 or less.  It is       ***
+*** based on the first 11 prime numbers. It could   ***
+*** easily be extended to include larger prime      ***
+*** numbers, but 31 seems to work fine for this     ***
+*** exercise.					    ***
+*******************************************************/
+
+private void reduce()
+{
+  if (numerator%2==0 & denominator%2==0)
+	{
+	while (numerator%2==0 & denominator%2==0)
+		{
+		numerator=numerator/2;
+		denominator=denominator/2;
+		}
+	}//end if
+
+  if (numerator%3==0 & denominator%3==0)
+	{
+	while (numerator%3==0 & denominator%3==0)
+		{
+		numerator=numerator/3;
+		denominator=denominator/3;
+		}
+	}//end if
+
+  if (numerator%5==0 & denominator%5==0)
+	{
+	while (numerator%5==0 & denominator%5==0)
+		{
+		numerator=numerator/5;
+		denominator=denominator/5;
+		}
+	}//end if
+
+  if (numerator%7==0 & denominator%7==0)
+	{
+	while (numerator%7==0 & denominator%7==0)
+		{
+		numerator=numerator/7;
+		denominator=denominator/7;
+		}
+	}//end if
+
+
+  if (numerator%11==0 & denominator%11==0)
+	{
+	while (numerator%11==0 & denominator%11==0)
+		{
+		numerator=numerator/11;
+		denominator=denominator/11;
+		}
+	}//end if
+
+
+  if (numerator%13==0 & denominator%13==0)
+	{
+	while (numerator%13==0 & denominator%13==0)
+		{
+		numerator=numerator/13;
+		denominator=denominator/13;
+		}
+	}//end if
+
+  if (numerator%17==0 & denominator%17==0)
+	{
+	while (numerator%17==0 & denominator%17==0)
+		{
+		numerator=numerator/17;
+		denominator=denominator/17;
+		}
+	}//end if
+
+
+  if (numerator%19==0 & denominator%19==0)
+	{
+	while (numerator%19==0 & denominator%19==0)
+		{
+		numerator=numerator/19;
+		denominator=denominator/19;
+		}
+	}//end if
+
+
+  if (numerator%31==0 & denominator%31==0)
+	{
+	while (numerator%31==0 & denominator%31==0)
+		{
+		numerator=numerator/31;
+		denominator=denominator/31;
+		}
+	}//end if
+
+}
+
+   
+}// close class
+

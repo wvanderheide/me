@@ -1,0 +1,45 @@
+<html>
+<HEAD>
+
+<SCRIPT LANGUAGE="JavaScript">
+
+timeout =5; // Close window after __ number of seconds?
+// 0 = do not close, anything else = number of seconds
+
+function Start(URL, WIDTH, HEIGHT) {
+timeX = prompt("Enter the time, in seconds, you would like the pop-up to remain on: ")	
+if(isFinite(timeX) == true){
+		timeout = timeX
+		windowprops = "left=50,top=50,width=" + (WIDTH+50) + ",height=" + (HEIGHT+50);
+		
+		text = "<html><head><title>Preview</title></head><body bgcolor='white'";
+		
+		if (timeout != 0) text +=" onLoad=\"setTimeout('window.close()', " + timeout*1000 + ");\"";
+		
+		text += "><center><img src='" + URL + "'>";
+		
+		if (timeout != 0) text +="<br><font face='arial, helvetica' size='-1'>Preview closes after " + timeout + " seconds.</font>";
+		
+		text += "</center></body></html>";
+		
+		preview = window.open("", "preview", windowprops);
+		preview.document.open();
+		preview.document.write(text);
+		preview.document.close();
+		}
+else{
+	alert(timeX + " is a not number.\n\nPlease try again!")
+	
+	}
+
+}
+//  End -->
+</script>
+</HEAD>
+
+
+<BODY>
+
+<a href="javascript:Start('http://javascript.internet.com/img/logo.gif', 267, 103)";>click</a>
+</body>
+</html>

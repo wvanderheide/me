@@ -1,0 +1,376 @@
+<html>
+
+<head>
+<title>Magnify Image</title>
+<script LANGUAGE="JavaScript">
+<!--
+browser = navigator.appName;
+version = parseInt(navigator.appVersion);
+
+n4 = (browser=="Netscape" && version==4)? true:false;
+n5 = (browser=="Netscape" && version==5)? true:false;
+
+//for Netscape 6 or greater, uses version 5 settings
+// for  Netscape 6 version = 5, but the script doesn't work
+//n6 = (browser=="Netscape" && version>5)? true:false;if (browser=="Netscape" && version>5){
+
+
+netscape = (n4 || n5)? true:false;
+
+ie4 = (navigator.userAgent.indexOf("MSIE 4")!=-1)? true:false;
+ie5 = (navigator.userAgent.indexOf("MSIE 5")!=-1)? true:false;
+
+//Added for IE 6
+ie6 = (navigator.userAgent.indexOf("MSIE 6") !=-1)? true:false;
+//Added for IE 6
+if (ie6 != false) {ie5 = ie6}
+ie = (ie4 || ie5)? true:false;
+
+//dhtml = (netscape || ie)? true:false;
+
+
+pageloaded = false;
+div = new Array();
+
+// The four variables below may be altered to change the behaviour of the magnifier.
+xoffset = 70
+yoffset = 85
+factor = 2;
+radius = 90;
+
+// xoffset and yoffset are the left and top values of div1.  If you change these values, be sure to make identical changes to the left and top values in the style sheet for div1.
+// factor is the magnification factor of the magnifier.  If you change this value, make sure that you change the width and/or height of the image in div1.  Width and/or height of the image in div1 must equal the width and/or height of the image in div3 divided by factor.
+// radius is half the width (and half the height) of the magnification frame.  If you change this value, make sure that you also change the table width and image width and height in div7, and the width and height values and the right and bottom clip values in the style sheets for div4 and div7.
+
+document.onmousedown = mouseDown
+document.onmousemove = mouseMove 
+document.onmouseup = mouseUp
+if (n4) {
+document.captureEvents(Event.MOUSEDOWN | Event.MOUSEMOVE | Event.MOUSEUP)
+}
+dragActive = false
+
+function mouseDown(e) {
+	if (pageloaded) {
+	dragActive = mouseOver(e);
+	dragClickX = x - div[7].xpos;
+	dragClickY = y - div[7].ypos;
+	if (dragActive) {
+	x = eventXcoord(e);
+	y = eventYcoord(e);
+	return false
+	}
+	else return true
+	}}
+
+function mouseMove(e) {
+	if (dragActive) {
+	// hideObject(div[5]);
+	hideObject(div[8]);
+	x = eventXcoord(e);
+	y = eventYcoord(e);
+	div[7].xpos = x - dragClickX;
+	div[7].ypos = y - dragClickY;
+	shiftTo(div[7],div[7].xpos,div[7].ypos)
+	clipBy(div[3],
+	factor*(div[7].ypos - yoffset + radius) - radius,
+	factor*(div[7].xpos - xoffset + radius) + radius,
+	factor*(div[7].ypos - yoffset + radius) + radius,
+	factor*(div[7].xpos - xoffset + radius) - radius);
+	shiftTo(div[3],
+	(1-factor)*(div[7].xpos - xoffset + radius) + xoffset,
+	(1-factor)*(div[7].ypos - yoffset + radius) + yoffset);
+	shiftTo(div[4],div[7].xpos,div[7].ypos);
+	return false
+	}
+	else return true
+	}
+
+function mouseUp(e) {
+	x = eventXcoord(e);
+	y = eventYcoord(e);
+	dragActive = false;
+	shiftTo(div[8],div[7].xpos,div[7].ypos+20);
+	showObject(div[8]);
+	return true;
+	}
+
+function mouseOver(e) {
+	var hit= false;
+	x = eventXcoord(e);
+	y = eventYcoord(e);
+	if (x>=div[7].xpos && x<=div[7].xpos+div[7].w && y>=div[7].ypos && y<=div[7].ypos+div[7].h) {
+	hit = true;
+	}
+	return hit;
+	}
+
+function pageLoaded() {
+	if (n4 || ie) {
+	pageloaded = true;
+	initLayers(8);
+	hideObject(div[2]);
+	}}
+
+//-->
+</script>
+
+<script LANGUAGE="JavaScript1.2">
+
+var local = false;
+
+function initLayers(n) {
+	for (var i = 1; i <= n; i++) {
+	if (n4) {
+	div[i] = eval("document.div" + i);
+	div[i].xpos = div[i].left;
+	div[i].ypos = div[i].top;
+	div[i].w = div[i].clip.width;
+	div[i].h = div[i].clip.height;
+	}
+	if (ie4) {
+	div[i] = eval("div" + i);
+	div[i].xpos = div[i].style.pixelLeft;
+	div[i].ypos = div[i].style.pixelTop;
+	div[i].w = div[i].style.pixelWidth;
+	div[i].h = div[i].style.pixelHeight;
+	}
+	if (ie5) {
+	div[i] = eval("div" + i);
+	div[i].xpos = div[i].offsetLeft;
+	div[i].ypos = div[i].offsetTop;
+	div[i].w = div[i].offsetWidth;
+	div[i].h = div[i].offsetHeight;
+	}
+	if (n5) {
+	div[i] = document.getElementById("div" + i);
+	div[i].xpos = parseInt(div[i].style.left)
+	div[i].ypos = parseInt(div[i].style.top)
+	div[i].w = parseInt(div[i].style.width)
+	div[i].h = parseInt(div[i].style.height)
+//	div[i].style.x = parseInt(div[i].style.left)
+//	div[i].style.y = parseInt(div[i].style.top)
+//	div[i].style.w = parseInt(div[i].style.width)
+//	div[i].style.h = parseInt(div[i].style.height)
+}}}
+
+function shiftTo(object,x,y) {
+	object.xpos = x;
+	object.ypos = y;
+
+	if (ie) {
+	object.style.pixelLeft = object.xpos;
+	object.style.pixelTop = object.ypos;
+	}
+	if (n4) {
+	object.left = object.xpos;
+	object.top = object.ypos;
+	}
+	if (n5) {
+	object.style.left = object.xpos;
+	object.style.top = object.ypos;
+	}}
+
+function clipBy(object,t,r,b,l) {
+	if (n4) {
+	object.clip.top = t;
+	object.clip.right = r;
+	object.clip.bottom = b;
+	object.clip.left = l;
+	}
+	if (ie) {
+	object.style.clip = "rect(" + t + "px "+ r + "px " + b + "px " + l + "px)";
+	}
+	}
+
+function showObject(object) {
+	if (n4) object.visibility = "show";
+	if (ie) object.style.visibility = "visible";
+	}
+
+function hideObject(object) {
+	if (n4) object.visibility = "hide";
+	if (ie) object.style.visibility = "hidden";
+	}
+
+function showNestedLayer(id,parent) {
+	if (n4) document.layers[parent].document.layers[id].visibility = "show"
+	else if (ie) document.all[id].style.visibility = "visible"
+	}
+
+function hideNestedLayer(id,parent) {
+	if (n4) document.layers[parent].document.layers[id].visibility = "hide"
+	else if (ie) document.all[id].style.visibility = "hidden"
+	}
+
+function eventXcoord(e) {
+	if (n4) { var x = e.pageX }
+	if (ie) { var x = event.x + document.body.scrollLeft }
+	return x;
+	}
+
+function eventYcoord(e) {
+	if (n4) { var y = e.pageY }
+	if (ie) { var y = event.y + document.body.scrollTop }
+	return y;
+	}
+
+function canvasWidth() {
+	if (n4) { x = innerWidth; }
+	if (n5) x = 800;
+	if (ie) { x = document.body.clientWidth; }
+	return x;
+	}
+
+function canvasHeight() {
+	if (n4) {
+	x = innerHeight;
+	}
+	if (ie) {
+	x = document.body.clientHeight;
+	}
+	if (n5) x = 500;
+	return x;
+	}
+
+function layerWrite(object,content) {
+	if (n4) {
+	var lyr = object.document;
+	lyr.open();
+	lyr.write(content);
+	lyr.close();
+	}
+	else if (ie) object.innerHTML = content;
+	}
+
+function setZIndex(object,z) {
+	if (ie) {object.style.zIndex = z;}
+	if (n4) {object.zIndex = z;}
+	}
+
+function getZIndex(object) {
+	var z;
+	if (ie) {z = object.style.zIndex;}
+	if (n4) {z = object.zIndex;}
+	return z;
+	}
+	
+function ddMouseDown(e) {
+	if (interactive) {
+	currentObj = whichObj(e);
+	if (currentObj != null) {
+	dragObj = div[currentObj]
+	dragActive = true;
+	x = eventXcoord(e);
+	y = eventYcoord(e);
+	dragClickX = x - dragObj.xpos
+	dragClickY = y - dragObj.ypos
+	return false;
+	}
+	else return true;
+	}}
+
+function ddMouseMove(e) {
+	if (interactive) {
+	if (dragActive) {
+	x = eventXcoord(e);
+	y = eventYcoord(e);
+	dragObj.xpos = x - dragClickX
+	dragObj.ypos = y - dragClickY
+	shiftTo(dragObj,dragObj.xpos,dragObj.ypos)
+	return false
+	}
+	else return true;
+	}}
+
+function ddMouseUp(e) {
+	if (interactive) {
+	x = eventXcoord(e);
+	y = eventYcoord(e);
+	dragActive = false;
+	return true;
+	}}
+
+function whichObj(e) {
+	var hit= null;
+	x = eventXcoord(e);
+	y = eventYcoord(e);
+	for (var i= 1; i < div.length; i++) {
+	if ((x>=div[i].xpos && x<=div[i].xpos+div[i].w && y>=div[i].ypos && y<=div[i].ypos+div[i].h)) {
+	hit= i;
+	break;
+	}
+	}
+	return hit;
+	}
+</script>
+<style TYPE="text/css">
+<!--
+#div1 {position:absolute; left:75; top:90;  z-index:0;} 
+#div2 {position:absolute; left:175; top:100; width:200; height:30; clip:rect(0,200,30,0); z-index:1;}
+#div3 {position:absolute; clip:rect(0,0,0,0); z-index:3;}
+#div4 {position:absolute; left:440; top:90; width:180; height:180; clip:rect(0,180,180,0); z-index:2; background-color:#ffffff; layer-background-color:#ffffff;}
+#div5 {position:absolute; left:25; top:0; width:650; height:35; clip:rect(0,650,35,0); z-index:4;}
+#div6 {position:absolute; left:373; top:75; width:76; height:30; clip:rect(0,180,180,0); z-index:5;}
+#div7 {position:absolute; left:440; top:90; width:180; height:180; clip:rect(0,180,180,0); z-index:6;}
+#div8 {position:absolute; left:440; top:130; width:180; height:100; clip:rect(0,170,100,0); z-index:7;}
+-->
+</style>
+</head>
+
+<body BGCOLOR="#ffffff" scroll="no" onscroll="window.scroll(0,0)" onLoad="pageLoaded();window.resizeTo(680,480);window.focus();" link="red" vlink="red" alink=white>
+
+
+<script LANGUAGE="JavaScript">
+ n6=navigator.userAgent.indexOf("Netscape6")*1
+ //alert(n6)
+
+if (n6 > -1){
+document.writeln("<font color=red><b>Sorry, this code will not work in NetScape 6 or higher.\n\nPlease switch browsers.</b></font>")
+}
+
+</script>
+
+<div ID="div1">
+	<!--Face-->
+	<br>
+	<IMG SRC="face.jpg" HEIGHT="368" BORDER="0"><!-- See div3 below for the size (height) of the magnified image-->
+</div>
+
+<div ID="div2">
+<span CLASS="basic">
+<p><i><b>Loading... please wait.</b></i></p></span>
+</div>
+
+<div ID="div3">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td>
+    <!--<font size=+6>Face</font><br>-->
+    <IMG SRC="face.jpg" HEIGHT="736" BORDER="0"></td>
+  </tr>
+</table>
+</div>
+<div ID="div4">
+
+<p>&nbsp;</p>
+</div>
+<div ID="div5"></div>
+<div ID="div6"></div>
+<div ID="div7">
+<table border="3" cellspacing="0" cellpadding="0" width="180">
+  <tr>
+    <td align="center"><table border="3" cellspacing="0" cellpadding="0">
+      <tr>
+        <td align="center"><img src="shim.gif" width="164" height="164"></td>
+      </tr>
+    </table>
+    </td>
+  </tr>
+</table>
+</div>
+<div id="div8">
+<center><font face="Verdana,Arial" size="+1" color="Navy"><b>Magnifier</b></font><br><span style='background-color:white; font-family : verdana; font-size=12px'><b><font size="-6" color=red face="Verdana,Arial" ><br>DRAG ME</font></b></span></center>
+</div>
+</body>
+</html>

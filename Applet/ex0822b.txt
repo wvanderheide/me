@@ -1,0 +1,149 @@
+
+// April 7, 1999
+// Problem 8-22b
+
+
+import java.awt.*;
+import java.awt.event.*;
+import java.applet.Applet;
+
+public class ex0822b extends Applet
+		implements ActionListener
+{
+
+int	length,
+	index,
+	count1,
+	count2,
+        count3,
+        count4,
+        count5,
+        count6,
+        count7,
+        count8,
+        count9,
+        count10,
+	countbig;
+
+String		s,s2;
+Label		prompt;
+TextField	input;
+
+
+public void init()
+{
+prompt = new Label("Type text and press \"ENTER\"");
+input = new TextField(20);
+input.addActionListener(this);
+
+add(prompt);
+add(input);
+}//close init
+
+
+public void actionPerformed(ActionEvent e)
+{
+s=input.getText();
+s=s.concat(" *");
+counter();
+repaint();
+}// close action
+
+
+public void counter()
+{
+index=s.indexOf(" ");
+do{
+s2=s.substring(0,index);
+length=s2.length();
+s=s.substring(index+1);
+
+switch (length)
+{
+case 0:
+	break;
+
+case 1:
+	++count1;break;
+case 2:
+	++count2;break;
+case 3:
+	++count3;break;
+
+case 4:
+        ++count4;break;
+case 5:
+        ++count5;break;
+case 6:
+        ++count6;break;
+
+case 7:
+        ++count7;break;
+case 8:
+        ++count8;break;
+case 9:
+        ++count9;break;
+case 10:
+        ++count10;break;
+
+
+default:
+	++countbig;break;
+}//close switch
+
+index=s.indexOf(" ");
+}while(index!=-1);
+}// close counter
+
+
+public void paint (Graphics g)
+{
+int y=130,x=30;
+
+if (index==-1)
+{
+g.drawString("Word",30,90);
+g.drawString("Length",30,100);
+g.drawString("Count",100,100);
+
+
+for (int i=1;i<=10;i++)
+{g.drawString(" "+ i,x,y); y+=20;}
+
+
+g.drawString("+",50,330);
+g.drawString("10",x,330);
+
+x=100;
+
+g.drawString(" "+count1,x,130);
+g.drawString(" "+count2,x,150);
+g.drawString(" "+count3,x,170);
+g.drawString(" "+count4,x,190);
+g.drawString(" "+count5,x,210);
+g.drawString(" "+count6,x,230);
+g.drawString(" "+count7,x,250);
+g.drawString(" "+count8,x,270);
+g.drawString(" "+count9,x,290);
+g.drawString(" "+count10,x,310);
+
+g.drawString(" "+countbig,x,330);
+
+
+
+count1=0;
+count2=0;
+count3=0;
+count4=0;
+count5=0;
+count6=0;
+count7=0;
+count8=0;
+count9=0;
+count10=0;
+countbig=0;
+
+}//close if
+}//close paint
+
+}//end class

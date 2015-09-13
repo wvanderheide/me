@@ -1,0 +1,184 @@
+
+// April 7, 1999
+// Problem 8-22c
+
+
+
+import java.awt.*;
+import java.awt.event.*;
+import java.applet.Applet;
+
+public class ex0822d extends Applet
+		implements ActionListener
+{
+
+int	length,
+	index,
+	count1,
+	wordcount[];
+
+String		word[],s,s2;
+Label		prompt;
+TextField	input;
+
+
+public void init()
+{
+prompt = new Label("Type text and press \"ENTER\"");
+input = new TextField(20);
+input.addActionListener(this);
+
+word=new String[100];
+wordcount = new int[100];
+
+add(prompt);
+add(input);
+}//close init
+
+
+public void actionPerformed(ActionEvent e)
+{
+s=input.getText();
+s=s.concat(" *");
+words();
+compare();
+abc();
+repaint();
+}// close action
+
+
+
+public void words()
+{
+index=s.indexOf(" ");
+do{
+	count1++;  // count number of words in sentence
+
+	s2=s.substring(0,index); // get word
+	
+	s=s.substring(index+1);	// remove word from sentence
+
+	word[count1]=s2;	// store separte word in array
+	
+	index=s.indexOf(" ");
+}while(index!=-1);
+}// close words
+
+
+public void compare()
+{
+reset();  // initialize wordcounter
+
+for(int i=1;i<=count1;i++)
+{
+	for(int j=i+1;j<=count1;j++)
+	{
+	if(word[i].compareTo(word[j])==0) // same word
+		{wordcount[i]++;wordcount[j]++;}
+	}//close inner for
+
+}// close outer for
+}//close compare
+
+
+public void reset()
+{
+for(int k=1;k<=count1;k++)
+{wordcount[k]=1;} // set wordcount to 1 (i.e at least 1 of each word)
+}// close reset
+
+
+public void abc()
+{
+
+int flag=1,temp2;		// flag = 1 to enable initial pass
+String temp;
+
+for (int pass = count1; pass>1; pass--)
+				/*  Pass equals the maxium number of times
+				    the array elements would have to be 
+				    compared to result in a low to high sorted
+				    array.  */
+{ // outer "for loop" brace
+	if (flag==0) break;	// No elements after 1 and 2 were swapped, 
+				// so array is sorted thus break
+	else			// initial pass or elements aren't in order
+	{ // opening else brace
+
+	flag =0;		// set flag to false, if swaps between 
+				// elements 2 or greater are made flag
+				// will be reset to true.
+	
+		for (int i = 1; i<pass; i++)  	// i is the array index number
+						// max(i+1) = pass
+
+		{ // open inner for
+		
+		if (word[i].compareTo(word[i+1])>0) 
+			{
+			temp = word[i];
+			word[i]=word[i+1];
+			word[i+1]=temp;
+
+			temp2=wordcount[i];
+			wordcount[i]=wordcount[i+1];
+			wordcount[i+1]=temp2;
+
+			if (i!=0) flag=1; /* if the switch only occurs
+					     between the first and second
+					     elements, then we don't want
+					     to set the flag to 1, as we
+					     then would have to make an
+					     additional pass to reset the
+					     flag to zero.  When the switch
+					     only occurs between elements 1 
+					     and 2, the array is sorted and
+					     thus flag=0. */
+			}
+		} //close inner for
+
+	} //close else brace
+
+} // outer for loop closing brace
+
+}// close abc
+
+
+public void paint (Graphics g)
+{
+int y=150,x=30,x2=150;
+
+if (index==-1)
+{
+g.drawString("Word",x,100);
+g.drawString("Count",x2,100);
+
+word[0]="";
+
+for (int i=1;i<=count1;i++)
+{
+	if (word[i].compareTo(word[i-1]) !=0)
+		{g.drawString(" "+word[i],x,y); 
+		 g.drawString(" "+wordcount[i],x2,y);
+		 y+=20;}
+
+}
+
+g.drawString("NOTE: Words were sorted in lexicographical",x,y+20);
+g.drawString("order; based on the Ascii Character Set.",x,y+33);
+g.drawString("Thus captial letters come before small letters.",x,y+33+13);
+
+count1=0;
+
+}//close if
+
+
+else{
+g.drawString("Note: Text should be typed without ",30,y+45);
+g.drawString("punctuation and each,word should be",30,y+45+12);
+g.drawString("seperated by only one blank.",30,y+45+24);}
+
+}//close paint
+
+
+}//end class

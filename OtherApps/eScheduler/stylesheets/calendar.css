@@ -1,0 +1,60 @@
+<!--
+
+A {
+font-size :8pt;
+font-family :  verdana, arial;
+text-decoration : none;
+color : #990000
+}
+
+A:link {color : #990000;  }
+A:visited {color : #990000;}
+A:active {color : red;}
+a:hover{text-decoration:underline; color:"#999966";}
+
+body {font-weight : 700; font-size : 8pt; font-family :  verdana, arial; color : black;}
+
+.bg {font-weight : 700; font-size : 8pt; font-family :  verdana, arial; color : #990000; background : #dddddd}
+
+
+.head {font-weight : 700; font-size : 12pt; font-family :  verdana, arial; color : white;}
+
+Th {font-weight : 700; font-size : 10pt; font-family :  verdana, arial; color : white; background-color : black;}
+TD {font-weight : 700; font-size : 8pt; font-family :  verdana, arial;}
+
+
+select {font-weight : 700; font-size : 8pt; font-family :  verdana, arial;} 
+
+input {font-weight : 700; font-size : 8pt; font-family : verdana, arial; color : black;}
+
+option {font-weight : 700; font-size : 8pt; font-family :  verdana, arial; color : black;}
+
+
+textarea {font-weight : 700; font-size : 8pt; font-family :  verdana, arial; color : black;}
+
+
+#id {font-weight : 700; font-size : 8pt; font-family :  verdana, arial; color : Navy;}
+
+
+#id2 {font-weight : 700; font-size : 8pt; font-family :  verdana, arial; color : White; background :#670003 }
+
+
+#id3 { font-size : 7pt; font-family :  verdana, arial; color : black; }
+
+#time { font-size : 6pt; font-family :  arial; color :#670003; }
+
+
+
+#label {font-weight : 700; font-size : 8pt; font-family :  verdana, arial; color : #670003; line-height : 200%; }
+
+#title
+{font-size : 16pt;
+font-weight : bold;
+font-family :  verdana, arial;
+color : #670003;
+line-height : 200%;
+}
+
+-->
+
+

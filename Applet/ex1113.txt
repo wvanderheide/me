@@ -1,0 +1,200 @@
+// Walter VanderHeide
+// IST 198
+// April 28. 1999
+// ex1113
+
+/**********************************************
+	This program uses an ADT -- canvas1113
+	see end of ex1113 for canvas1113
+**********************************************/
+
+import java.applet.Applet;
+import java.awt.*;
+import java.awt.event.*;
+
+public class ex1113 extends Applet 
+
+     /*	AdjustmentListener is the interface use to 
+	handle scrollbar actions */
+
+	implements AdjustmentListener 
+{
+	
+Font font1;
+
+	// initial values to pass to c.setcolors
+int r=0,g=0,b=0;
+	// canvas to draw rectangle on
+canvas1113 c;
+	// used to set the RGB values
+Scrollbar redbar,greenbar,bluebar; 	
+
+	// used to display the RGB values
+TextField red_,green_,blue_;
+Label dummy,dummy2,dummy3,red,green,blue;
+
+Panel one,two,three,four,five;
+
+
+
+public void init() 
+{
+//setLayout(new GridLayout(2,1) ); //applet layout //defaults to flow
+//setBackground(Color.gray); //applet background
+
+
+one = new Panel();
+one.setLayout(new GridLayout(4,1) );
+
+two= new Panel();
+two.setLayout(new GridLayout(4,1) );
+
+three= new Panel();
+three.setLayout(new GridLayout(4,1) );
+
+four= new Panel();
+//four.setLayout(new GridLayout(4,1) );
+
+five= new Panel();
+//five.setLayout(new GridLayout(1,2) );
+
+
+font1 = new Font ("SansSerif",Font.BOLD,14);
+setFont(font1);
+
+//font2 = new Font ("SansSerif",Font.BOLD+Font.ITALIC,18);
+
+
+c=new canvas1113();
+c.setSize(80,100); //set size of canvas
+
+redbar=new Scrollbar( Scrollbar.HORIZONTAL,0,1,0,255);
+greenbar=new Scrollbar( Scrollbar.HORIZONTAL,0,1,0,255);
+bluebar=new Scrollbar( Scrollbar.HORIZONTAL,0,1,0,255);
+
+
+	// set up AdjustmentListener to listen to scrollbar events
+redbar.addAdjustmentListener(this);
+greenbar.addAdjustmentListener(this);
+bluebar.addAdjustmentListener(this);
+
+redbar.setBounds(0,0,200,15); // this only works when applet layout is null
+greenbar.setBounds(0,15,200,15); 
+bluebar.setBounds(0,30,200,15); 
+
+red_=new TextField("0",5);
+green_=new TextField("0",5);
+blue_=new TextField("0",5); 
+
+
+dummy=new Label("Change the color by adjusting the scrollbars");
+dummy2=new Label("  Value");
+dummy3=new Label("Color ");
+
+
+red=new Label("RED ");
+green=new Label("GREEN ");
+blue=new Label("BLUE ");
+
+
+	// prevent user from change values in textfields
+red_.setEditable(false);
+green_.setEditable(false);
+blue_.setEditable(false);
+
+	//add textfield and scrollbars to panels
+one.add(dummy);
+one.add(redbar);
+one.add(greenbar);
+one.add(bluebar);
+
+two.add(dummy2);
+two.add(red_);
+two.add(green_);
+two.add(blue_);
+
+three.add(dummy3);
+three.add(red);
+three.add(green);
+three.add(blue);
+
+four.add(three);
+four.add(one);
+four.add(two);
+
+five.add(c); // add canvas
+
+add(four);
+
+//add(three);add(one);add(two);add(five);
+
+add(five);
+
+}//close init
+
+
+	// when a scrollbar is adjusted this method is called
+public void adjustmentValueChanged( AdjustmentEvent e )
+{
+if (e.getSource()==redbar) 
+	{
+	red_.setText(String.valueOf(e.getValue()));
+	r=e.getValue();
+	}
+else if (e.getSource()==bluebar) 
+	{
+	blue_.setText(String.valueOf(e.getValue()));
+	b=e.getValue();
+	}
+else 
+	{
+	green_.setText(String.valueOf(e.getValue()));
+	g=e.getValue();
+	}
+
+c.setcolors(r,g,b); // pass scrollbar values to setcolors
+
+}// adjustment
+
+
+}//close class
+
+
+/************************************************
+		Canvas1113
+************************************************/
+
+//Walter VanderHeide
+// A customized Canvas class
+
+
+
+
+import java.awt.*;
+
+public class canvas1113 extends Canvas 
+{
+   
+private int red, green, blue;
+
+
+public canvas1113()  // constructor
+	{setcolors(0,0,0);} // default color is black (0,0,0)
+
+  
+public void paint( Graphics g )
+{
+g.setColor(new Color(red,green,blue));
+g.fillRect( 20, 20, 80, 100 );  
+}
+
+
+public void setcolors(int r, int g, int b)
+	{red =r; 
+	 green=g;
+	 blue=b;
+	
+	repaint();}
+
+}//close class
+

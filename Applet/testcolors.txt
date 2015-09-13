@@ -1,0 +1,87 @@
+// Fig. 9.7: ShowColors.java
+// Demonstrating setting and getting a Color.
+import java.applet.Applet;
+import java.awt.*;
+import java.awt.event.*;
+
+
+		
+public class testcolors extends Applet 
+		implements ActionListener
+{
+
+	Panel w,e,top;	
+
+  	int red, green, blue;
+	Label promptr,promptg,promptb,title,range;
+	TextField inputr,inputg,inputb;
+
+
+public void init()
+{
+
+w=new Panel();
+w.setLayout(new GridLayout(4,1) );
+
+e=new Panel();
+e.setLayout( new GridLayout(4,1) );
+
+//top= new Panel();
+//top.setLayout ....defaults to FLOWLAYOUT.
+
+range = new Label("    0-255");
+title = new Label("Set the Color");
+promptr = new Label("Red  ");
+promptg = new Label("Green");
+promptb = new Label("Blue ");
+
+inputr = new TextField("0",10);
+inputr.addActionListener(this);
+
+inputg = new TextField("0",10);
+inputg.addActionListener(this);
+
+inputb= new TextField("0",10);
+inputb.addActionListener(this);
+
+w.add(title);
+w.add(promptr);
+e.add(range);
+e.add(inputr);
+w.add(promptg);
+e.add(inputg);
+w.add(promptb);
+e.add(inputb);
+
+
+
+
+add(w);
+add(e);
+
+//setLayout(new FlowLayout(FlowLayout.LEFT) );
+validate();
+
+}//close init
+
+
+public void actionPerformed(ActionEvent e)
+{
+red=Integer.parseInt( inputr.getText() );
+green=Integer.parseInt( inputg.getText() );
+blue=Integer.parseInt( inputb.getText() );
+
+repaint();
+}// close action
+
+
+
+public void paint ( Graphics g )
+   {
+      g.setColor( new Color( red, green, blue ) );
+      g.drawString( "ABCDEFGHIJKLMNOPQRSTUVWXYZ", 20, 133 );
+      showStatus( "Current RGB: " + g.getColor() );
+   } 
+
+
+}// close class

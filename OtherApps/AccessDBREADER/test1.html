@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<script language="VBScript" src="sharedVBProcedures.vbs"></script>
+	<script language="JavaScript1.2">
+		function Test(){
+			if (navigator.appName.indexOf("Microsoft") == -1){
+				alert("This application will not in " + navigator.appName + "\n\nPlease use Microsoft Internet Explorer instead")
+				}
+		}
+	</script>
+</head>
+
+<body>
+<font face="Arial" color="Maroon" size="+2">Access DataBase Reader</font>
+<form name="form1" method="post" onSubmit="ProcessData()" >
+	<font face="Arial" size="-2" color="Black">(Browse to the DataBase you wish to view)</font><br>
+	<input type="file" name="DBName">
+	<br>
+	<input type="submit" name="submitName" value="Submit" onClick="Test()">
+	<p>
+		<font face="Arial"  color="Black">Note: The database selected must have read permissions on the msysobjects table, in order for this application to work.
+		<br>
+		<br>
+		To set the permissions on the msysobjects table do the following:
+		<ol>
+		<li>First, open the Access DB on your computer.
+		<li>Next, make the system tables visible by selecting "options" from the tools menu and clicking the view tab and then checking show for system objects.
+		<li>Finally, set the permissions to read, by selecting "security " from the tools menu. And then choosing "User and Group Permissions".  Find the object (table) of interest and set it's permissions. In this case the object of interest is the msysobjects table.
+		</ol>
+		</font>
+
+	</p>
+</form>
+
+
+</body>
+</html>

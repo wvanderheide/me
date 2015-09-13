@@ -1,0 +1,174 @@
+
+// Walter VanderHeide
+// IST 198
+// April 14, 1999
+// Problem 31 of Chapter 9
+
+
+import java.applet.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class ex0931 extends Applet
+		implements ActionListener
+{
+final int timer=1500;
+final int xa=30,ya=30,ha=600,wa=600;
+int xh,xt, yh, yt;
+int count, startf,winf;
+Button start;
+Label blank;
+
+public void init()
+{
+xh=xa;xt=xa;yh=(int)(wa/2);yt=(int)(wa/2);
+//setSize(400,400);
+blank = new Label("                ");
+add(blank);
+
+start = new Button("Go");
+start.addActionListener(this);
+add(start);
+}// close init
+
+public void actionPerformed(ActionEvent e)
+{
+//if (e.getSource()==start)
+	//{
+	winf=0;
+	startf=1; //1 for true
+	count = -1;
+	repaint();
+	//}
+}//close action
+
+public void paint(Graphics g)
+{
+count+=1;
+	
+g.fillArc(xa,ya,ha,wa,90,90);
+g.setColor(Color.green);
+g.fillArc(xa*4,ya*4,(int)(ha/1.5),(int)(wa/1.5),90,90);
+g.setColor(Color.black);
+
+
+if (startf==1) //avoid painting until start is pressed
+{
+	if (count==0) //first paint after hitting "go"
+	{
+	for(int abc=1;abc<timer*5;abc++){//slow things down
+	g.drawString("BANG!!",20,20);
+	g.drawString("AND THEY'RE OFF!!!!!",10,40);
+
+	g.setColor(Color.red);
+	g.drawString("-T- -H-",xh-10,yt);}//slow things down
+	
+	//g.setColor(Color.black);
+	
+	slowdown();slowdown();slowdown();
+
+
+	position();//get new position
+	}//close if (count==0)
+
+
+	if (count>=1)  //race is on
+	{
+	
+	
+	//g.fillArc(xa,ya,ha,wa,90,90);
+
+		if (xh!=xt & yh!=yt) //racers not at same spot
+			{
+		for(int abc2=1;abc2<timer;abc2++){
+			 g.setColor(Color.red);
+			 g.drawString("H",xh,yh);
+			 g.setColor(Color.magenta);
+			 g.drawString("T",xt,yt);
+			 g.setColor(Color.black);}
+
+			}
+		else 
+			{
+			g.setColor(Color.green);
+			for(int abc3=1;abc3<(timer*10);abc3++){
+			g.drawString("OUCH",xt,yh);}//racers on same spot
+			g.setColor(Color.black);
+
+			}
+		
+		
+		
+		if (xh==(int)(wa/2) & xt==(int)(wa/2) )
+			g.drawString("It is a TIE!!!",20,20);
+
+		else if (xh==(int)(wa/2))
+			{g.drawString("Hare WINS!!!",20,20);
+			 winf=1;
+			 xh=xa;xt=xa;yh=wa/2;yt=wa/2;
+			}	
+		else if (xt==(int)(wa/2))
+			{g.drawString("Tortise WINS!!!",20,20);
+			 winf=1;
+			 xh=xa;xt=xa;yh=wa/2;yt=wa/2;
+			}
+
+	
+	if (xh<ha/2 & xt<ha/2 & winf!=1) position(); //get new position
+
+	
+	}//close if (count>=1)
+
+}//close if startf==1 of paint
+}//close paint
+
+
+public void position()
+{
+double randomT, randomH;
+int nextT, nextH;
+
+
+randomT=Math.random();//random number 0-1<
+
+if (randomT<0.5) nextT=3; //fast plod
+else if (randomT>=0.5 & randomT<0.7) nextT=-6; //slip
+else nextT=1; // slow plod
+
+xt+=nextT;
+if (xt>ha/2) xt=ha/2;
+if (xt<xa) xt=xa;
+yt=ya+(int)(wa/2)-(int)( Math.sqrt( (int)(wa/2)*(int)(wa/2)-(xa+(int)(wa/2)-xt)*(xa+(int)(wa/2)-xt)  ) );
+
+
+
+randomH=Math.random();
+
+if (randomH<0.2) nextH=0; //sleep
+else if (randomH>=0.2 & randomH<0.4) nextH=9;//big hop
+else if (randomH>=0.4 & randomH<0.5) nextH=-12; //big slip
+else if (randomH>=0.5 & randomH<0.8) nextH=1; //small hop
+else nextH=-2; //small slip
+
+xh+=nextH;
+if (xh>ha/2) xh=ha/2;
+if (xh<xa) xh=xa;
+yh=ya+(int)(wa/2)-(int)( Math.sqrt( (int)(wa/2)*(int)(wa/2)-(xa+(int)(wa/2)-xh)*(xa+(int)(wa/2)-xh)  ) );
+slowdown();
+repaint();
+}//close position
+
+
+public void slowdown()
+{
+int x=32000;
+
+for (int y=1;y<500;y++)
+{
+	for (int i = 1; i<32000;i++){x-=1;}
+  x=32000;
+}// outer for
+}//close slowdown
+
+}//close class
+

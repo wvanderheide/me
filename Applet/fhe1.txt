@@ -1,0 +1,119 @@
+
+// Load an array of images, loop through the array,
+// and display each image.
+import java.applet.Applet;
+import java.awt.*;
+
+public class fhe1 extends Applet implements Runnable {
+   private Image deitel[];
+	int x=19;
+   private int totalImages = 20,  // total number of images
+               currentImage = 0,  // current image subscript
+               sleepTime = 200;    // milliseconds to sleep
+
+   // The next two objects are for double-buffering
+   private Graphics gContext; // off-screen graphics context 
+   private Image buffer;      // buffer in which to draw image
+
+   private MediaTracker imageTracker; // used to track images
+
+   private Thread animate;      // animation thread
+
+   // load the images when the applet begins executing
+   public void init()
+   {
+      deitel = new Image[ totalImages ];
+      buffer = createImage( 299, 224 ); // create image buffer
+      gContext = buffer.getGraphics(); // get graphics context
+
+      // set background of buffer to white
+      gContext.setColor( Color.white );
+      gContext.fillRect( 0, 0, 299, 224 );
+
+      imageTracker = new MediaTracker( this );
+
+      for ( int i = 0; i <totalImages; i++ ) {
+         deitel[ i ] = getImage( getDocumentBase(),
+            "fhe" + i + ".gif" );
+
+         // track loading image
+         imageTracker.addImage( deitel[ i ], i );
+      }
+
+
+      try {
+         imageTracker.waitForID( 0 );
+      }
+      catch( InterruptedException e ) { }
+   }                                     
+
+   // start the applet
+   public void start()
+   {
+      // always start with 1st image
+      gContext.drawImage( deitel[ 0 ], 0, 0, this );
+      currentImage = 0;
+
+      // create a new animation thread when user visits page
+      if ( animate == null ) {
+         animate = new Thread( this );
+         animate.start();
+      }
+   }
+
+   // terminate animation thread when user leaves page
+   public void stop()
+   {
+      if ( animate != null ) {
+         animate.stop();
+         animate = null;
+      }
+   }
+
+   // display the image in the Applet's Graphics context
+   public void paint( Graphics g )
+   {
+      g.drawImage( buffer, 0, 0, this );
+   }
+
+   // override update to eliminate flicker
+   public void update( Graphics g ) { paint( g ); }
+
+   public void run()
+   {
+      while ( true ) {
+         if ( imageTracker.checkID( currentImage, true ) ) {
+            // clear previous image from buffer
+            gContext.fillRect( 0, 0, 299, 224 );
+          
+            // draw new image in buffer
+            gContext.drawImage(
+               deitel[currentImage ], 0, 0, this );
+   
+            currentImage = ( currentImage + 1 ) % totalImages;
+         }
+
+         try {
+            Thread.sleep( sleepTime );
+         }
+         catch ( InterruptedException e ) {
+            showStatus( e.toString() );
+         }
+	
+
+	if ( currentImage ==1 | currentImage == 11)//sleep longer, again
+	{
+
+         try {
+            Thread.sleep( sleepTime*8 );
+         }
+         catch ( InterruptedException e ) {
+            showStatus( e.toString() );
+         }
+	}
+	
+         repaint();  // display buffered image
+      }
+   }
+}
+                                        

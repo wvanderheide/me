@@ -1,0 +1,70 @@
+
+// February 17/99
+// Problem 4-30
+
+
+import java.applet.Applet; 	// import Applet Class, actually optional, instead the full name can be used, see below, and compare to programs in book. See pg 32
+import java.awt.*;		// import abstract windowing toolkit package
+import java.awt.event.*;	// import awt.event package
+
+
+
+public class ex0430 extends Applet
+		implements ActionListener 
+{
+
+	boolean tf;//,head=true,tail=false;
+	int	headcount=0,tailcount=0, total=0;
+	double 	random;
+	Button 	toss;
+
+
+//GUI
+	public void init()
+	{
+	
+	toss = new Button ("TOSS");
+	add (toss);
+	toss.addActionListener(this);
+	}
+
+//Flip
+	public boolean flip()
+	{ 
+	
+	random=Math.random();
+	if (random < 0.5) {showStatus ("It's a head");return true;}	//true for head
+	else {showStatus ("It's a tail");return false;	}	//false for tail	
+
+	}
+
+//Paint
+	public void paint (Graphics g)
+	{ 
+	
+		 
+	g.drawString("Number of heads is " + headcount,30,60);
+
+	g.drawString("Number of tails is " + tailcount,30,80);
+
+	g.drawString("__________________________________________________",0,100);
+
+
+	g.drawString("Total number of tosses is " + total,30,120);
+	
+	}
+
+//Action Listener
+	public void actionPerformed (ActionEvent e)
+	{
+
+	tf=flip();
+	total = total + 1;
+	if (tf==true) headcount=headcount+1;
+	else tailcount=tailcount+1;	
+	repaint();
+	}
+
+
+
+}

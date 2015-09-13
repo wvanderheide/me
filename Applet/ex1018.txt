@@ -1,0 +1,114 @@
+// Walter VanderHeide
+// IST 198
+// April 21, 1999
+// EX 10-18
+
+
+// select the shape to be drawn with c,o,r,l //default is c
+// click the mouse to draw the shape at the pointer location
+
+import java.applet.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class ex1018 extends Applet
+	implements MouseListener, KeyListener
+{
+String key;
+int x=200;
+int y=200;
+Font font1,font2;
+
+
+public void init()
+{
+key = new String("C");
+font1 = new Font ("SansSerif",Font.BOLD,12);
+font2 = new Font ("SansSerif",Font.BOLD+Font.ITALIC,18);
+
+ 
+addKeyListener( this ); // allow applet to process Key events
+	
+
+requestFocus(); // make applet the active component for key events
+ 	
+addMouseListener(this);
+}// close init
+
+
+
+public void paint( Graphics g )
+{
+int xp =(int)(Math.random()*150);
+int yp =(int)(Math.random()*100);
+
+g.setFont(font1);
+
+g.setColor(Color.black);
+g.drawString("Press \"C\" for Circle, \"O\" for Oval, \"R\" for Rectangle, or \"L\" for Line.",10,20);
+g.drawString("Then point and press the mouse at the point of placement.",10,35);
+
+
+g.setColor(new Color(	(int)(Math.random()*255),   //red
+			(int)(Math.random()*255),   //green
+			(int)(Math.random()*255))); //blue
+
+if (key.equals("C")) {g.fillOval(x,y,xp,xp);}
+else if (key.equals("O")) {g.fillOval(x,y,xp,yp);}
+else if (key.equals("R")) {g.fillRect(x,y,xp,yp);}
+else if (key.equals("L")) {g.drawLine(x,y,xp*4,yp);}
+else {	
+	g.setFont(font2);
+
+	g.setColor(new Color(	(int)(Math.random()*255),   //red
+				(int)(Math.random()*255),   //green
+				(int)(Math.random()*255))); //blue
+
+	g.drawString(" "+key,x,y);
+
+	g.setFont(font1);
+	g.setColor(Color.black);	
+	g.drawString(" is ",x+20,y);
+	g.setFont(font2);
+	g.setColor(Color.red);	
+	g.drawString(" NOT ",x+30,y);
+	g.setFont(font1);
+	g.setColor(Color.black);	
+	g.drawString(" a valid choice!!",x+75,y);
+     } 	
+}//close paint
+
+   public void keyPressed( KeyEvent e )
+   {key=  e.getKeyText(e.getKeyCode() ); }
+
+   public void keyReleased( KeyEvent e )
+   {}
+
+   public void keyTyped( KeyEvent e )
+   {}
+
+ 
+
+
+// MouseListener event handlers
+
+   public void mouseClicked( MouseEvent e )
+      { }
+
+   public void mousePressed( MouseEvent e )
+      { x=e.getX();y=e.getY(); repaint();}
+
+   public void mouseReleased( MouseEvent e )
+      {}
+
+   public void mouseEntered( MouseEvent e )
+      { showStatus( "Mouse in applet area" ); }
+
+   public void mouseExited( MouseEvent e )
+      { showStatus( "Mouse outside applet area" ); }
+
+
+
+
+
+}//close class

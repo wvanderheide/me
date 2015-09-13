@@ -1,0 +1,49 @@
+
+// This program uses a button to load a document from a URL.
+import java.awt.*;
+import java.awt.event.*;
+import java.net.*;   // pay attention to this import
+import java.applet.Applet;
+
+public class urlstuff extends Applet
+             implements ActionListener {
+
+Button go;
+URL url;
+String abc,title;
+
+
+public void init()
+{
+/* abc = new String("http://www.geocities.com");  class string 
+										can not be reset
+										there for can't
+										have a default*/
+
+setBackground(Color.white );
+
+title = getParameter("label"); // "label" value comes from html	
+				// for more info on Para tag see
+				// pg 750 Deitel book.
+go = new Button(title);
+//go.setBackground(new Color(156,156,156) );
+go.addActionListener(this);
+add(go);
+
+}//close init
+
+
+public void actionPerformed(ActionEvent e)
+{
+abc = getParameter("link"); // "abc" value comes from html
+try 
+	{ url = new URL(abc);System.out.println("abc = "+abc);}
+
+catch ( MalformedURLException ee ) 
+	{System.out.println("Malformed URL: " + abc);}
+        
+
+getAppletContext().showDocument(url);
+}
+
+}//close class

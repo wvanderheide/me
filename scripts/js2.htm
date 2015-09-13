@@ -1,0 +1,165 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Scripts 6-10</title>	
+	<link rel="stylesheet" href="../StyleSheet1.css" type="text/css">
+</head>
+
+<body>
+<table width="95%">
+<tr>
+<td>
+<!--Time and Date-->
+<p>
+<font color="white"><b>Script 6:</b></font> Time and date.
+<p>
+
+<script language="JavaScript">
+
+function time (){ 
+	var theDate = new Date();//instaniate a "date" object
+	var year=theDate.getYear( );
+	var month=theDate.getMonth( ) ;
+	var day=theDate.getDate( );
+	var hour=theDate.getHours( );
+	var min=theDate.getMinutes();
+	var GMT=theDate.toGMTString( ) 
+	
+	if (month==0) {month = "January";}
+	else if (month==1){month="February";}
+	else if (month==2){month="March";}
+	else if (month==3){month="April";}
+	else if (month==4){month="May";}
+	else if (month==5){month="June";}
+	else if (month==6){month="July";}
+	else if (month==7){month="August";}
+	else if (month==8){month="September";}
+	else if (month==9){month="October";}
+	else if (month==10){month="November";}
+	else if (month==11){month="December";}
+	
+	
+	document.write("Connection time:    <font color = white><b>"+hour+ ":" +min+ "</b></font><br>");
+	document.write("Connection date:    <font color = white><b>"+month+"-"+day+"-"+year+ "</b></font>");
+
+
+	lastmod = document.lastModified // get string of last modified date
+	lastmoddate = Date.parse(lastmod)// convert modified string to date
+	
+	document.write("<br>Last Modified : <font color = white><b>")
+	if(lastmoddate == 0){// unknown date (or January 1, 1970 GMT)
+	document.writeln("Unknown")
+	} else {
+	document.writeln(lastmod)
+	}
+	document.write("</b></font><br>");
+	
+}// end time function
+
+time(); //call the function
+</script>
+<br><span class="small">
+Note:&nbsp;&nbsp;The lastModified property is derived from the HTTP header data sent by the
+web server. Servers generally obtain this date by examining the file&#146;s
+modification date. The last modified date is not a required portion of the header, and some servers
+do not supply it. If the server does not return the last modified information,
+JavaScript receives a 0.  The code above checks the date returned by lastModified and prints out a value that corresponds to unknown if it receives a ZERO.</span>
+<!--End Time and DATE-->
+
+
+
+
+
+<!--Background setting Button-->
+<p>
+<font color="white"><b>Script 7:</b></font> 
+Change the background color.
+
+<li>Note:  I changed this page to use a style sheet, which sets the background color.  Hence the document.bgColor property can not be set via javascript.
+
+<form>
+<input type="button" value="White" onClick="document.bgColor='white'">
+
+<input type="button" value="Gray" onClick="document.bgColor='gray'">
+
+<input type="button" value="Original" onClick="document.bgColor='#232323'">
+</form>
+
+
+<!--END Background setting Button-->
+
+
+
+<!-- ------------------------------------------- Script 8 ------------------------------------------------- -->
+<script language="JavaScript1.2">
+function fFind(){
+window.find()
+}//end function
+//
+</script>
+<p>
+<font color="white"><b>Script 8:</b></font> Using the window.find() method.
+<p><form>
+<script language="JavaScript">
+	if(navigator.appName=="Netscape" && parseInt(navigator.appVersion)>=3){
+		document.write("<input type='button' name='x' value='Find (on this page)' onClick='fFind();'>")
+	}
+	else {
+	document.write("<input type='button' name='x' value='Find (on this page)' disabled><br>")
+	document.write(navigator.appName.toUpperCase() + " doesn't support the window.find method, try <b>Cntrl F</b> instead")}
+</script>
+</form>
+
+
+<!--scrolling banner-->
+<script language="JavaScript">
+function bannerwindow(){
+window.open("banner.html","banner","toolbar=no,width=100,height=100,resizable=yes");
+}
+</script>
+<p>
+<font color="white"><b>Script 9:</b></font> Scrolling banner.
+<p> 
+<a href="javascript:bannerwindow()">Click to invoke</a>.
+<br>
+<span class="small">NOTE:  Give the banner lots of time to load.</span>
+<p>
+<!--End scrolling banner-->
+
+
+<!--javascript animation advertisement-->
+<p>
+<font color="white"><b>Script 10:</b></font> 
+An animated banner.
+
+
+<p>
+
+<!-- ---------------------------------------------------------------------------------- It is important that the anchor tag come before the change function, and that the call to the change function come after its declaration------------------------------------------------------------------------------------ -->
+<a HREF="../resume/index.asp">
+<img src="image4.jpg" name="training" border="0" WIDTH="468" HEIGHT="60"></a>
+
+<script language="JavaScript">
+var images=new Array ("image1.jpg","image2.jpg","image3.jpg","image4.jpg")
+var count=0
+var num=4
+
+function change()
+{
+
+	count++
+	if (count==num){count=0}
+
+	document.training.src=images[count]
+	setTimeout("change()",1000)
+}
+
+change()
+</script>
+<!--END javascript animation advertisement-->
+</td></tr></table>
+
+
+</body>
+</html>

@@ -1,0 +1,91 @@
+// Walter VanderHeide
+// IST 198
+// April 14, 1999, revised May 20 1999
+// Problem 24 of Chapter 9
+
+
+import java.applet.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class ex0924 extends Applet
+		implements Runnable
+{
+int red,green,blue;
+int x1,y1,x2,y2,dum=1;
+Thread animate; // use a thread to enable start and stop
+
+
+
+   // start the applet
+   public void start()
+   {
+      // create a new animation thread when user visits page
+      if ( animate == null ) {
+         animate = new Thread( this );
+         animate.start();
+      }
+   }
+
+   // terminate animation thread when user leaves page
+   public void stop()
+   {
+      if ( animate != null ) {
+         animate.stop();
+         animate = null;
+      }
+   }
+
+
+public void run()
+{   while ( true ) { repaint(); }  }//close run
+
+
+
+public void paint(Graphics g)
+{
+g.setColor(Color.lightGray);
+g.fillRect(0,0,300,300);
+
+         try {
+            Thread.sleep( 300 );
+         }
+         catch ( InterruptedException e ) {
+            showStatus( e.toString() );
+         }
+
+
+
+for (int i = 1; i<=100; i++)
+	{
+
+	red=(int)(Math.random()*255);
+	blue=(int)(Math.random()*255);
+	green=(int)(Math.random()*255);
+
+	g.setColor(new Color(red,green,blue) );
+
+	x1=(int)(Math.random()*300);
+	y1=(int)(Math.random()*300);
+	x2=(int)(Math.random()*300);
+	y2=(int)(Math.random()*300);
+      for(int j2=1;j2<5000;j2++){
+	g.drawLine(x1,y1,x2,y2);}
+
+	 try {
+            Thread.sleep( 20 );
+         }
+         catch ( InterruptedException e ) {
+            showStatus( e.toString() );
+         }
+
+	}//close inner for
+
+}//close paint
+
+
+
+
+}//close class
+
+

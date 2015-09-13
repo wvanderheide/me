@@ -1,0 +1,192 @@
+// Walter VanderHeide
+// IST 198
+// April 21, 1999
+// EX 10-29
+
+
+import java.applet.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class ex1029 extends Applet implements ItemListener
+{
+
+Choice color,shape,choosen_color,choosen_shape;
+Font font1,font2;
+int count=0;
+boolean b;
+
+
+public void init()
+{
+choosen_color = new Choice();
+
+color = new Choice();
+color.add("BLACK");
+color.add("WHITE");
+color.add("GRAY");
+color.add("RED");
+color.add("BLUE");
+color.add("GREEN");
+color.add("PINK");
+color.add("ORANGE");
+color.add("CYAN");
+color.add("YELLOW");
+color.add("RANDOM");
+
+color.addItemListener(this);
+
+add(color);
+
+
+shape = new Choice();
+shape.add("CIRCLE");
+shape.add("RECTANGLE");
+shape.add("OVAL");
+shape.add("RANDOM");
+
+shape.addItemListener(this);
+
+add(shape);
+
+
+font1 = new Font ("SansSerif",Font.BOLD,12);
+font2 = new Font ("SansSerif",Font.BOLD+Font.ITALIC,18);
+}// close init
+
+
+
+public void paint( Graphics g )
+{
+int xp,yp,x,y;
+double rand;
+
+g.setFont(font1);
+
+if (count>1)
+{//count if
+
+showStatus("choosen_color is "
+	+choosen_color.getSelectedIndex()
+	+" and choosen_shape is "
+	+choosen_shape.getSelectedIndex() );
+
+
+switch( choosen_color.getSelectedIndex() ) {//open switch
+
+	case 0:
+			g.setColor(Color.black); //black
+			break;
+	case 1:
+			g.setColor(Color.white); break;
+	case 2:
+			g.setColor(Color.gray); break;
+	case 3:
+			g.setColor(Color.red); break;
+
+	case 4:
+			g.setColor(Color.blue); 
+			break;
+	case 5:
+			g.setColor(Color.green); break;
+	case 6:
+			g.setColor(Color.pink); break;
+	case 7:
+			g.setColor(Color.orange); break;
+	case 8:
+			g.setColor(Color.cyan); break;
+	case 9:
+			g.setColor(Color.yellow); break;
+	case 10:	showStatus("Case 10 -- random colors");break;
+
+	default:
+			g.setColor(Color.darkGray); break;
+	}//close switch
+	
+
+for(int bb=1;bb<=20;bb++){
+	
+xp =(int)(Math.random()*150); //random width
+yp =(int)(Math.random()*100); // random height
+ x =(int)(Math.random()*300); // random x position
+ y =(int)(Math.random()*300); // random y position
+
+if (choosen_color.getSelectedIndex() !=10)
+	{
+	if (choosen_shape.getSelectedIndex()==1) //rectangle
+		{g.fill3DRect(x,y,xp,yp,b);
+		b=!b;}
+
+	else if (choosen_shape.getSelectedIndex()==2) //oval
+		g.fillOval(x,y,xp,yp);
+
+	else if (choosen_shape.getSelectedIndex()==3) //random shape
+		{
+		rand=Math.random();
+
+		if (rand<0.3333) {g.fill3DRect(x,y,xp,yp,b);b=!b;}
+		else if (rand>=0.3333 & rand<0.6666) g.fillOval(x,y,xp,yp);
+		else g.fillOval(x,y,xp,xp); 
+		}
+		
+
+	else //circle
+		g.fillOval(x,y,xp,xp); 
+	}
+
+else //random colors
+	{
+
+
+	g.setColor(new Color(	(int)(Math.random()*255),   //red
+			(int)(Math.random()*255),   //green
+			(int)(Math.random()*255))); //blue
+
+	if (choosen_shape.getSelectedIndex()==1) //rectangle
+		{g.fill3DRect(x,y,xp,yp,b);
+		b=!b;}
+
+	else if (choosen_shape.getSelectedIndex()==2) //oval
+		g.fillOval(x,y,xp,yp);
+
+	else if (choosen_shape.getSelectedIndex()==3) //random shape
+		{
+		rand=Math.random();
+
+		if (rand<0.3333) {g.fill3DRect(x,y,xp,yp,b);b=!b;}
+		else if (rand>=0.3333 & rand<0.6666) g.fillOval(x,y,xp,yp);
+		else g.fillOval(x,y,xp,xp); 
+		}
+		
+
+	else //circle
+		g.fillOval(x,y,xp,xp); 
+
+	}
+
+}//close for bb<=20
+
+
+
+}//count if
+
+count++;
+
+
+}//close paint
+
+
+
+
+public void itemStateChanged(ItemEvent e) //method of itemlistener
+{
+if (e.getSource()==color)
+	choosen_color=(Choice)e.getItemSelectable();
+if (e.getSource()==shape)
+	choosen_shape=(Choice)e.getItemSelectable();
+
+repaint();
+}//item state changed
+
+   
+}//close class

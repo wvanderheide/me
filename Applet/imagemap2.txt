@@ -1,0 +1,204 @@
+/* 	image map program
+	By clicking on various place in an 
+	object you can link to other websites
+*/
+
+import java.applet.Applet;
+import java.awt.*;
+import java.awt.event.*;
+import java.net.*;
+
+public class imagemap2 extends Applet
+             implements MouseListener, MouseMotionListener {
+Image picture, offi;
+Graphics offg;
+String abc;
+URL url;
+int Y,x;
+int flag1,flag2,flag3,flag4;
+
+Font font1;
+
+
+public void init()
+{
+
+font1 = new Font ("SansSerif",Font.BOLD,12);
+setFont(font1);
+
+addMouseListener( this );
+addMouseMotionListener( this );
+
+picture = getImage( getDocumentBase(), "imagemap.gif" ); // load image into picture
+
+offi = createImage(610,190); /*create offscreen Image object, which will
+					 hold the dots to be drawn. */
+
+
+offg = offi.getGraphics(); //create graphics object
+
+
+		/* Together offi and offg mimic 
+		   Graphics g (in the paint method).  The first holds the 
+		   dots to be drawn and the later provides the methods 
+		   like drawImage.
+
+		"createImage()" instantiates an Image object.
+
+		"getGraphics()" creates a graphics context for drawing to
+		an offscreen image. 
+		
+		"getGraphics()" is an Image method		*/
+
+
+flag1=1;
+flag2=0;
+flag3=0;
+flag4=0;
+}//close init
+
+
+public void update(Graphics g1){paint(g1);}
+	//g1 is supplied automatically by repaint(), g1 then is passed to
+	//g in paint.
+
+public void paint(Graphics g)
+{
+offg.setColor(new Color(51,11,204));
+offg.fillRect(0,0,610,190); // clear offg
+
+if (flag1 !=0)
+	{
+	offg.setColor(new Color(181,181,237));
+	offg.drawImage(picture,5,5,this);
+	offg.drawString("Korea Photos",50,165); 
+	offg.drawString("Home Page",255,165);
+	offg.drawString("Langley Page",450,165);
+	}
+else if (flag2!=0)
+	{
+	offg.drawImage(picture,5,5,this);
+	offg.setColor(new Color(255,255,255)); 
+	offg.drawString("Korea Photos",50,165); 
+	offg.setColor(new Color(181,181,237)); 
+	offg.drawString("Home Page",255,165);
+	offg.drawString("Langley Page",450,165);
+	}
+
+else if (flag3!=0)
+	{
+	offg.drawImage(picture,5,5,this); 
+	offg.setColor(new Color(255,255,255));  
+	offg.drawString("Home Page",255,165);
+	offg.setColor(new Color(181,181,237));
+	offg.drawString("Korea Photos",50,165);
+	offg.drawString("Langley Page",450,165);
+	}
+
+else if (flag4!=0)
+	{
+	offg.drawImage(picture,5,5,this); 
+	offg.setColor(new Color(255,255,255)); 
+	offg.drawString("Langley Page",450,165);
+	offg.setColor(new Color(181,181,237));
+	offg.drawString("Home Page",255,165);
+	offg.drawString("Korea Photos",50,165); 
+	}
+
+g.drawImage(offi,0,0,this); // draw the Image from the offi
+}//close paint
+
+
+
+   public void mouseMoved( MouseEvent e )
+   {  Y=e.getY();
+	x=e.getX();
+      translateLocation( x );
+	repaint();
+   }
+
+   public void mouseExited( MouseEvent e )
+   {
+	flag1=1;flag2=0;flag3=0;flag4=0;
+	repaint();
+   }
+
+
+
+public void mouseDragged( MouseEvent e ) {}
+public void mousePressed( MouseEvent e ) {}
+public void mouseReleased( MouseEvent e ) {}
+public void mouseEntered( MouseEvent e ) {}
+
+
+
+public void mouseClicked( MouseEvent e ) 
+{
+	if (Y>=0 && Y<=141)
+	{
+     	 if ( x >= 0 && x <206)
+     	 	{
+		abc = "http://www.geocities.com/Yosemite/Trails/9514/chinju.html";
+		try 
+			{ url = new URL(abc);System.out.println("abc = "+abc);}
+
+		catch ( MalformedURLException ee ) 
+			{System.out.println("Malformed URL: " + abc);} 
+			
+		getAppletContext().showDocument(url);
+		}//close inner if block	
+
+     	 else if ( x >=206 && x < 386 )
+    	     	{
+		abc = "http://www.geocities.com/Yosemite/Trails/9514";
+		try 
+			{ url = new URL(abc);System.out.println("abc = "+abc);}
+
+		catch ( MalformedURLException ee ) 
+			{System.out.println("Malformed URL: " + abc);} 
+			
+		getAppletContext().showDocument(url);
+		}//close inner if block	     	 
+
+	 else if ( x >=386 && x <=600 )	{
+		abc = "http://www.geocities.com/Yosemite/Trails/9514/langleylds2.html";
+		try 
+			{ url = new URL(abc);System.out.println("abc = "+abc);}
+
+		catch ( MalformedURLException ee ) 
+			{System.out.println("Malformed URL: " + abc);} 
+			
+		getAppletContext().showDocument(url);
+		}//close inner if block	
+     	 }
+
+	else //Y>141 or Y<0
+	{flag1=1;flag2=0;flag3=0;flag4=0;}
+
+}//mouse clicked
+
+
+
+public void translateLocation( int x )
+{
+      
+	if (Y>=0 && Y<=141)
+	{
+     	 if ( x >= 0 && x <206)
+     	   {flag1=0;flag2=1;flag3=0;flag4=0;}
+     	 else if ( x >=206 && x < 386)
+    	   {flag1=0;flag2=0;flag3=1;flag4=0;}
+     	 else if ( x >=386 && x <=600 )
+           {flag1=0;flag2=0;flag3=0;flag4=1;}
+     	 }
+
+	else //Y>141 or Y<0
+	{flag1=1;flag2=0;flag3=0;flag4=0;}
+
+   }
+
+
+
+
+}//close class
+

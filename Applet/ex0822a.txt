@@ -1,0 +1,70 @@
+
+// April 7, 1999
+// Problem 8-22a
+
+
+import java.awt.*;
+import java.awt.event.*;
+import java.applet.Applet;
+import java.text.DecimalFormat;
+
+
+public class ex0822a extends Applet
+		implements ActionListener 
+{
+
+int 		count,first;
+String		s,s2;
+Label 		prompt;
+TextField	input;
+
+public void init()
+{
+prompt = new Label("Enter text (and press \"ENTER\") ");	
+
+input = new TextField(20);
+input.addActionListener(this);
+
+add(prompt);
+add(input);
+}
+
+
+
+public void actionPerformed(ActionEvent e)
+{
+s=input.getText();
+s2=s.toUpperCase();
+repaint();
+}
+
+
+public void paint (Graphics g)
+{ 
+	int y = 130,x=30;
+	if (first!=0){
+	g.drawString("You entered:  "+s,30,80);
+	g.drawString("LETTER COUNT (case insensitive)",30,100);}
+	
+	first+=1;
+	
+
+
+	for (int j=65;j<=90;j++) // j = ascii value of uppercase letters
+		{
+		for(int i=0; i<s2.length();i++)
+			{if (s2.charAt(i)==j) count+=1;}
+		
+		g.drawString(" "+(char)j+"'s: " + count,x,y);
+		//repaint();
+		count=0;
+		y+=20;
+		if (j==77){ x=200;y=130;}
+		} //outer for
+}// close paint
+
+	
+
+
+
+}// close class

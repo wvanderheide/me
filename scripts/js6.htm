@@ -1,0 +1,200 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Scripts 26-30</title>
+	<link rel="stylesheet" href="../StyleSheet1.css" type="text/css">
+</head>
+
+<body>
+
+
+<table width="95%">
+
+<!-- ----------------------------------------------------------------------------------
+ Script 26
+------------------------------------------------------------------------------------ -->
+<tr>
+	<td>
+	<script language="JavaScript">
+	function mag(){
+		window.open('mag.html','banner','toolbar=no,width=680,height=480,resizable=no')
+	}//end function
+	</script>
+<font color = white><b>Script 26:</b></font> Magnifying Glass
+<br><br>
+
+<script LANGUAGE="JavaScript">
+ n6=navigator.userAgent.indexOf("Netscape6")*1
+ //alert(n6)
+
+if (n6 > -1){
+document.writeln("<font color=red><b>Sorry, this code will not work in NetScape 6 or higher.\n\nPlease switch browsers.</b></font>")
+}
+else{
+document.writeln("<a href=\"javascript:mag()\">Click here</a> to try the Magnifying Glass")
+}
+</script>
+
+
+	</td>
+</tr>
+
+
+<!-- ----------------------------------------------------------------------------------
+ Script 27
+------------------------------------------------------------------------------------ -->
+
+<tr><th>&nbsp;</th></tr>
+<tr>
+	<td>
+	<font color = white><b>Script 27:</b></font> Color Picker 
+	<br><bR>The script uses the DHTML showModalDialog() method to open another window and to return the color.
+	<br><br>
+	<script language="JavaScript1.2">
+	
+	var isNS = false;
+	var isIE = false;
+	if (document.layers) isNS=true;
+	if (document.all) isIE=true;
+	
+	function Pop(){
+	if (isIE) {
+	      mtext=document.ModalForm.OUT.value;
+	      modalValue=showModalDialog("ColorSelector.html", mtext, 'dialogWidth:530px;dialogHeight:300px;');
+		  if (modalValue == undefined){modalValue="#232323"}
+	      document.ModalForm.IN.value=modalValue;
+		  //document.bgColor = modalValue
+		  document.getElementById("div1").style.backgroundColor = modalValue; //'Gray';
+		 }
+	else{
+		alert("This only works in an IE browser");}
+	 }//end function
+	</script>
+	<form action="" name="ModalForm">
+		<input type="hidden" name="OUT" value="This text gets sent to the modal window">
+		<div id="div1">
+		<b>Div background color: </b><input type="text" name="IN" value="#232323">		
+		</div>
+		<script language=javascript>		
+		//for browser detection
+			var isNS = false;
+			var isIE = false;
+			if (document.layers) isNS=true;
+			if (document.all) isIE=true;
+			if (isIE) {
+				document.ModalForm.IN.value = document.bgColor
+				document.write("<br><a href=# onClick=\"Pop();\">Change background using Color Picker</a>") }
+			else{document.write("<font color=red>This only works in an IE browser</font>");}
+		</script>
+	</form>
+</td>
+</tr>
+
+<!-- ----------------------------------------------------------------------------------
+ Script 28
+------------------------------------------------------------------------------------ -->
+
+<tr><th>&nbsp;</th></tr>
+<tr>
+	<td>
+	<font color = white><b>Script 28:</b></font> Properties 
+		<a name=f1></a>
+	<br><br>
+	This script loops through all the properties of an HTML control
+	<br><br>
+	<script language="JavaScript1.2">
+	
+			function properties() {
+				msg='';
+				for (property in SelColor)
+				msg+= property+':'+SelColor[property] + '\n';
+				//document.write(msg);
+				document.f1.DisplayProperties.value = msg
+			}//end function
+			
+			if (isIE) {document.write("<a href=#f1 onClick='properties();'>Display Properties in TextArea</a><br>");}
+			else{document.write("<font color=red>This only works in an IE browser</font>");}
+		</script>
+		<INPUT TYPE=hidden SIZE=20 ID=SelColor><!-- for some reason this field can't be within form tags -->
+		<form name=f1>
+			<TEXTAREA NAME="DisplayProperties" ROWS=10 COLS=40>Click the link above to get a list of HTML control properties.</TEXTAREA>
+		</form>
+	</td>
+</tr>
+
+
+<!-- ----------------------------------------------------------------------------------
+ Script 29
+------------------------------------------------------------------------------------ -->
+<tr>
+	<td>
+	<font color = white><b>Script 29:</b></font> Web-based Content Editor and E-Mail Client 
+	<br><br>
+	<script language=javascript>		
+		//for browser detection
+			var isNS = false;
+			var isIE = false;
+			if (document.layers) isNS=true;
+			if (document.all) isIE=true;
+			if (isIE) {
+				document.write("<li><a href=\"ContentEditor/edit.htm\" target=\"_blank\">View Demo</a> (As downloaded from <i>http://www.aspalliance.com/Yusuf/Article10a.asp</i>) -- <b>This one is a content editor, like Front Page.</b>") 
+				
+				document.write("<li><a href=\"EMail_PopUp.asp\" target=\"_blank\">View Demo</a> (This one was made by me, by modifying the demo above) -- <b>This one is an email client, like Outlook.</b>") 
+				}
+			else{document.write("<font color=red>This only works in an IE browser</font>");}
+		</script>
+	</td>
+</tr>
+
+
+<!-- ----------------------------------------------------------------------------------
+ Script 30
+------------------------------------------------------------------------------------ -->
+<tr><th>&nbsp;</th></tr>
+<tr>
+	<td>
+	<font color = white><b>Script 30:</b></font> Easy to Implement DHTML Menu
+	<br><br>
+	<script language="JavaScript">		
+		var ns6=document.getElementById&&!document.all?1:0		
+		var ua=navigator.userAgent;
+		var opera=(ua.indexOf("Opera") > 0);
+		var submenu=''
+		
+		function expandMenu(selobj)  {		
+				
+	//You might modifiy this script so that in stead of sending it 'this' you send the name of the element you want to turn on/off
+	// in which case you'd change submenu eqaul to 	submenu = eval("document.all." + name + ".style")	
+			if (ns6||opera)  {
+				submenu=selobj.nextSibling.nextSibling.style;}  
+			else  {
+				submenu=document.all[selobj.sourceIndex+1].style;
+				}
+			
+			if (submenu.display=="none"){
+				submenu.display=""} //blank is menu "on"
+			else{
+				submenu.display="none"} //none is menu "off"
+		}//end function
+	</script>
+	<span style="cursor:pointer; cursor:hand; color:white; font-size:10pt; text-decoration: none; font-weight: bold;" onMouseOver="expandMenu(this)">Expand Menu -- On Mouse Over</span>
+<div style="display:none; color:eeeeee;border : solid 3px silver; width:300px">
+	<ul>
+		<li><a href="../calendar/index.aspx">Calendar</a>
+		<!-- In this example the position of  are layer is not definec, hence things shift down when ExpandMenu is called.
+				If you want to you can display the layer over other stuff by adding POSITION: absolute; LEFT: 1px;  TOP: 97px;" 
+				
+				// Adding an ID to the span tag below is also needed, if you want to be able turn this on/off by passing the id name.
+		-->
+		<li><span style="cursor:pointer; cursor:hand; color:white; text-decoration: none;" onClick ="expandMenu(this)">Expand Menu -- On Click</span><span style="display:none"><ul><li>More items could go here</ul></span>
+	</ul>
+</div>
+	<hr width=300 align=left>
+	</td>
+</tr>
+
+</table>
+
+</body>
+</html>

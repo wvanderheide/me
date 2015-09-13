@@ -1,0 +1,205 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Scripts 21-25</title>
+	<link rel="stylesheet" href="../StyleSheet1.css" type="text/css">
+</head>
+
+<body>
+
+
+<table width="95%">
+
+<!-- ----------------------------------------------------------------------------------
+ Script 21
+------------------------------------------------------------------------------------ -->
+<tr><td>
+<font color = white><b>Script 21:</b></font> This script attempts to stop the right click (i.e "Save Picture As..."), and it also disables 
+the clipboard.
+<br><br>
+<a href="NOSavePictureAs_AND_disabled_clipboard.htm" onclick="window.open(this.href,'abc','height=260,width=465,left=0,top=0,scrollbars=yes');return false;">Open Script 21</a>.
+
+
+</td></tr>
+<!--End of Right Click menu-->
+
+
+<!-- ----------------------------------------------------------------------------------
+ Script 22
+------------------------------------------------------------------------------------ -->
+<tr><th>&nbsp;</th></tr>
+<tr><td>
+<font color = white><b>Script 22:</b></font> Book Mark (IE-ONLY) - Click the button below to add a book mark to Yahoo.
+<br><br><input type="button" name="BookMark" value="Book Mark Yahoo" onClick="addbookmark()">
+<script language="JavaScript">
+
+function NoteForNonIE(){
+	if (navigator.appName.indexOf("Microsoft") == -1) {
+	var msg = "<DIV ALIGN=LEFT>Your browser (" + navigator.appName + ")"
+	msg += " is not compatible with this script. Instead, you "
+	msg += "should use Microsoft Internet Explorer 4.0 or above."
+	document.write("<LI>")
+	document.write(msg)
+	document.write("</DIV>")
+	return true
+	}
+	return false
+}//end function
+
+	function addbookmark(){
+	if (document.all){
+		window.external.AddFavorite("http://www.yahoo.com","Yahoo")}
+	}//end function
+</script>
+</td></tr>
+
+<!-- ----------------------------------------------------------------------------------
+ Script 23
+------------------------------------------------------------------------------------ -->
+
+
+<script language="JavaScript">	
+	function center(name, vis) //centers and displays an element (element 'name' is passed in)
+	{
+	var obj=eval("document.all." + name + ".style")
+	var contentobj=eval("document.all." + name)
+	
+	var x=0;
+	var y=200;
+	
+	x=Math.round((document.body.clientWidth/2)-(contentobj.clientWidth/2)-179)
+	
+	obj.pixelLeft=x
+	obj.pixelTop=y
+	obj.visibility=vis //"vis" is passed in as either Hidden or Visible
+	}//end of center()
+</script>
+<tr><th>&nbsp;</th></tr>
+<tr>
+	<td>
+		<font color = white><b>Script 23:</b></font> Using Layers
+		<script language="JavaScript1.2">
+			if (NoteForNonIE() == false){
+			document.write("<br><br>")
+			document.write("<img src='layerArea.jpg' width='332' height='122' border='0' alt=''>")}
+		</script>
+		
+				
+		<!--Layer 1-->
+		<span id="banner" style="HEIGHT: 109px; LEFT: 185px; POSITION: absolute; TOP: 135px; VISIBILITY: hidden; WIDTH: 320px; Z-INDEX: 2">
+		
+		<p>
+		   <table valign=center width="300">
+		    <tr>
+			     <td bgcolor=black align=center><big>Layer One</big></td>
+			 </tr>
+			 <tr><td>&nbsp;</td></tr>
+			 <tr>
+			 	<td align=center bgcolor=green><a href="../Intro/index.asp">Home</a> | <a href="js4.asp#search">Search</a> | <a href="../resume/index.asp">Resume</a></td>
+			</tr>
+			</table>
+		</span>
+		<!-- End Layer 1-->	
+		
+		<br>
+		<input type="button" name="x1" value="Add Layer" onClick="center('banner', 'visible')">
+		<input type="button" name="x2" value="Remove Layer" onClick="center('banner', 'hidden')">
+	</td>
+</tr>
+
+
+<!-- ----------------------------------------------------------------------------------
+ Script 24
+------------------------------------------------------------------------------------ -->
+<tr><th>&nbsp;</th></tr>
+<tr><td>
+
+<SCRIPT LANGUAGE="JavaScript">
+
+timeout =5; // Close window after __ number of seconds?
+// 0 = do not close, anything else = number of seconds
+
+function Start(URL, WIDTH, HEIGHT) {
+timeX = prompt("Enter the time, in seconds, you would like the pop-up to remain on: ")	
+if(isFinite(timeX) == true){
+		timeout = timeX
+		windowprops = "left=50,top=50,width=" + (WIDTH+50) + ",height=" + (HEIGHT+50);
+		
+		text = "<html><head><title>Preview</title></head><body bgcolor='white'";
+		
+		if (timeout != 0) text +=" onLoad=\"setTimeout('window.close()', " + timeout*1000 + ");\"";
+		
+		text += "><center><img src='" + URL + "'>";
+		
+		if (timeout != 0) text +="<br><font face='arial, helvetica' size='-1'>This pop-up window closes after " + timeout + " seconds.</font>";
+		
+		text += "</center></body></html>";
+		
+		preview = window.open("", "preview", windowprops);
+		preview.document.open();
+		preview.document.write(text);
+		preview.document.close();
+		}
+else{
+	alert(timeX + " is a not number.\n\nPlease try again!")
+	
+	}
+
+}
+//  End -->
+</script>
+<font color = white><b>Script 24:</b></font> Timed pop-up window.  
+<br><br>
+<a href="javascript:Start('image2.jpg', 470, 65)";>Click here</a> to open a pop-window that only stays open for the time you specify.
+	</td>
+</tr>
+
+
+<!-- ----------------------------------------------------------------------------------
+ Script 25
+------------------------------------------------------------------------------------ -->
+<tr><th>&nbsp;</th></tr>
+<tr><td>
+
+<script language="javascript">
+function fClear(field){
+	field.value ="";
+}//end f
+
+function fSubmit(obj){
+	//alert(obj.Email.value)
+	if (obj.Email.value.indexOf("@") != -1 && obj.Email.value.indexOf(".") != -1){
+		obj.action="mailto:vanman798@yahoo.com;" + obj.Email.value + "?subject=Hello from Walter VanderHeide"
+		//obj.submit();
+		return true;}
+	else{
+		alert(obj.Email.value + " is not a valid e-mail address")
+		obj.Email.focus();
+		return false;
+		}
+
+}//end function
+</script>
+
+<font color = white><b>Script 25:</b></font> E-mail form data via JavaScript.  This script also automatically clears the form fields when you begin typing.
+<br>
+<br>
+Fill out the form and click submit to have the data e-mailed to you. <div>You  must have your browser configured to send e-mail, in order for this to work.
+<form method="post" enctype="text/plain" onSubmit = "return fSubmit(this);"></div>
+<input type="text" value="First Name" name="First Name" onFocus="fClear(this);">
+<br>
+<input type="text" name="Last Name" value="Last Name" onFocus="fClear(this);">
+<br>
+<input type="text" name="Email" value="E-mail" onFocus="fClear(this);">
+
+<br>
+<input type="submit" value="Submit">&nbsp;<input type="Reset">
+</form>
+
+	</td>
+</tr>
+</table>
+
+</body>
+</html>

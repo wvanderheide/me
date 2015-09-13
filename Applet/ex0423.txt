@@ -1,0 +1,85 @@
+
+// February 17/99
+// Problem 4-23
+
+
+//import java.applet.Applet; 	// import Applet Class, actually optional, instead the full name can be used, see below, and compare to programs in book. See pg 32
+import java.awt.*;		// import abstract windowing toolkit package
+import java.awt.event.*;	// import awt.event package
+
+
+
+public class ex0423 extends java.applet.Applet
+		implements ActionListener {
+
+// Declarations
+	Button C;
+	Label opening,prompt,ForC,CorF; 	// these are references to label objects
+	TextField inputT,input1;// references to TextField objects 
+	int type,fah, cel; //variables
+	
+// the order in which the methods are defined doesn't matter. (i.e. init() could be last and f2c could be first
+	
+	
+// Method to: setup GUI and initialize 
+	public void init() 		//init is one of three method contained in every applet, see page 34
+	{	
+	// initialize labels and textfields
+	C	= new Button ("Convert");
+	ForC = new Label ("or enter a \"1\" if this is Farenheit");
+	opening = new Label ("In the first box enter a temperature ");
+      CorF = new Label ("In the second box enter a \"0\" if this is Celsius");
+	prompt = new Label ( "__________________________________________________ " );
+	inputT = new TextField ( 5 ); // 5 is the length of the textfield
+	input1 = new TextField ( 1 ); 
+	
+	// add labels and textfield to applet in this order
+	add ( opening );
+	add( inputT );
+	add (CorF);
+	add (ForC);
+	add (input1);
+	add( C );
+	add( prompt ); 	
+
+	
+	input1.addActionListener( this ); 	
+	C.addActionListener( this ); // listens for "return" key pressing, if done it calls actionPeformed().
+	}
+
+
+// Method to: print stuff
+	public void paint( Graphics c ) // c is an object of the Graphics Class????
+	{ 
+	
+	if(type != 0){c.drawString( fah + " Farenheit is " + f2c(fah)
+			  + " Celsius" , 10, 200 );
+				showStatus("Farenheit to Celsius Conversion");}
+	
+	if (type == 0){c.drawString( cel + " Celsius is " + c2f(cel)+
+				" Farenheit", 10, 200 );
+	 	showStatus("Celsius to Farenheit Conversion");}  
+	}
+
+
+	public void actionPerformed (ActionEvent e ) // ?????
+	{
+		
+		fah = Integer.parseInt( inputT.getText() );
+		cel = Integer.parseInt( inputT.getText() );
+		type = Integer.parseInt( input1.getText() );	
+		repaint();
+	}
+
+	
+
+// This method converts fahrenheit to celsius
+	public int f2c(int f)
+	{ return (f-32)*5/9; }
+
+
+
+// This method converts celsius to fahrenheit
+	public int c2f(int c)
+	{ return (c*9)/5+32; }
+}

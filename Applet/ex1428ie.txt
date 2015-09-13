@@ -1,0 +1,459 @@
+
+// Walter VanderHeide
+// IST 198
+// May 5, 1999
+// ex1428 -- IE4.0 version
+
+
+import java.applet.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class ex1428ie extends Applet
+		implements ActionListener
+{	
+	//arc dimensions
+final int xa=30,ya=30,wa=600;	// height = width = wa
+
+	// these two variables are used to slowdown the program
+	// sleep is the number of microseconds
+	// timer is a for loop counter
+int timer=200;
+int sleep = 50; 
+
+Graphics gcontext; // for graphics double buffering
+Image buffer;	// for graphics double buffering, see pg 739
+	
+
+AudioClip 	bang,clap,hare_win,neck,tie,tortise_win,exciting,
+		hare_lead,mark,set,tortise_lead;
+
+Image tortise,tortise2,hare,hare2,mountain; 
+
+int xh,xt, yh, yt; // xh = hare x postion, yt = tortise y postion, etc.
+int count=0; //counter used to control paint();
+
+	//flags--startf is set to true when "go" clicked
+	//	 --winf is set to true when race is won or over;
+boolean startf=false,winf=false; 
+
+Button start;
+
+Font font1;
+
+	// over-ride start to ensure mountain is drawen.
+public void start(){ gcontext.drawImage(mountain,0,0,this);}
+
+	// over-ride update to eliminate flicker
+	// graphics double buffering is also used to lessen flicker
+public void update(Graphics g){paint(g);}
+
+
+public void init()
+{
+setBackground(new Color(0,162,255));
+
+
+/**************************************/
+	// graphics double buffering stuff, see pg 739
+buffer=createImage(349,340);
+gcontext=buffer.getGraphics();
+
+gcontext.setColor(new Color(0,162,255));
+gcontext.fillRect(0,0,349,340);
+/***************************************/
+
+
+font1 = new Font ("SansSerif",Font.BOLD,16);
+setFont(font1);
+		
+	// initialize hare and tortise positions
+xh=xa;xt=xa;yh=(int)(wa/2);yt=(int)(wa/2);
+
+
+
+ 	// load the images  
+tortise = getImage( getDocumentBase(),"tortise.gif" );
+tortise2 = getImage( getDocumentBase(),"tortise2.gif" );
+hare    = getImage( getDocumentBase(),"hare.gif" );
+hare2   = getImage( getDocumentBase(),"hare2.gif" );
+mountain =getImage( getDocumentBase(),"mountain.gif" );
+
+
+
+	//load the sounds
+bang=getAudioClip(getDocumentBase(),"bang.wav");
+clap=getAudioClip(getDocumentBase(),"clap.wav");
+hare_win=getAudioClip(getDocumentBase(),"hare_win.wav");
+neck=getAudioClip(getDocumentBase(),"neck.wav");
+tie=getAudioClip(getDocumentBase(),"tie.wav");
+tortise_win=getAudioClip(getDocumentBase(),"tortise_win.wav");
+exciting=getAudioClip(getDocumentBase(),"exciting.wav");
+hare_lead=getAudioClip(getDocumentBase(),"hare_lead.wav");
+mark=getAudioClip(getDocumentBase(),"mark.wav");
+set=getAudioClip(getDocumentBase(),"set.wav");
+tortise_lead=getAudioClip(getDocumentBase(),"tortise_lead.wav");
+
+
+	
+start = new Button("Go/Reset");
+start.addActionListener(this);
+add(start);
+}// close init
+
+
+
+
+
+public void actionPerformed(ActionEvent e)
+{
+		// reset initial postions for
+		// to start game over.
+	xh=xa;
+	xt=xa;
+	yh=(int)(wa/2);
+	yt=(int)(wa/2); 		
+	winf=false;  // no one has won 
+	startf=true; //race is on thus,true
+	count = 1;  // used to control paint method
+	repaint();
+}//close action
+
+
+
+
+
+public void paint(Graphics g)
+{
+
+
+/**************TOP OF SECTION 1 **************************
+	Things in this section are done each time
+	paint is invoked.
+	
+	It draws the Arc, trees & forground.
+***********************************************************/
+
+count+=1; // count at the end of a race is around 300-500
+
+	//Draw image using graphics double buffering, see pg 739
+g.drawImage(buffer,0,0,this);
+gcontext.fillRect(0,0,349,340);
+gcontext.drawImage(mountain,0,0,this);
+
+//sleep
+	try{Thread.sleep((int)(sleep));}
+	catch(InterruptedException e){System.err.println(e.toString() );}
+	sleep = 50; // reset sleep to regular value
+
+
+
+
+/************* BOTTOM OF SECTION 1 ******************/
+
+
+
+/************ TOP OF SECTION 2 ***********************
+	This section is executed only during the 
+	initial call to paint.  Animals are drawn
+	at the start of course with distance between
+	them.
+*****************************************************/
+
+	// inital call to paint startf==0, so do this
+if (startf==false) 
+{	// draw the hare
+ g.drawImage(hare,xt+5, yt+10, this );
+	// draw the tortise
+g.drawImage( tortise, xh-30,yh+10, this );
+}
+
+/********************************************************
+			End of section 2
+*********************************************************/
+
+
+else // startf==true
+{
+/************ TOP OF SECTION 3 ***********************
+	This section is executed immediately after
+	"go" is pressed.  On successive calls to paint
+	this section is ignored.
+
+	This section does the fancy blinking animals and
+	fancy blinking "Go".
+******************************************************/
+
+
+if (count==2) //first paint after hitting "go", second time paint is
+		  // invoked thus count == 2 (count set to 1 in action method).
+{	
+
+
+	//mark.play();
+	//set.play();
+	g.drawString("ON YOUR MARKS",20,60);
+	g.drawString("GET SET!",25,80);
+//sleep
+	try{Thread.sleep((int)(sleep));}
+	catch(InterruptedException e){System.err.println(e.toString() );}
+	sleep = 50; // reset sleep to regular value
+
+
+
+	for(int abc=1;abc<=(int)(timer);abc++)
+	{
+
+		// make the tortise and hare blink until the gun is shoot
+		// using a modulus operator (%), every other time draw
+		// a plain white animal
+	if (abc%2==0)  // draw regular hare & tortise on even abc
+		{
+		g.drawImage(hare,xt+5, yt+10, this );
+		g.drawImage( tortise, xh-30,yh+10, this ); 
+		}
+	else 		// draw white hare & tortise on odd abc
+		{
+		g.drawImage( tortise2, xh-30,yh+10, this ); 
+		g.drawImage(hare2,xt+5, yt+10, this );
+		}
+	}//close abc for
+	
+	
+	bang.play();
+	
+
+
+
+			// blinking "GO"
+	for(int nn=1; nn<=(int)(timer/10); nn++)
+	{
+	g.drawString("GO!",25,100);g.setColor(Color.red);
+//sleep
+	try{Thread.sleep((int)(sleep/5));}
+	catch(InterruptedException e){System.err.println(e.toString() );}
+	
+
+
+	g.drawString("GO!",25,100);g.setColor(Color.white);
+//sleep
+	try{Thread.sleep((int)(sleep/5));}
+	catch(InterruptedException e){System.err.println(e.toString() );}
+	
+	}
+
+	g.setColor(Color.black);
+	position();//get new position xt, yt, xh, yh
+}//close if (count==2)
+
+/************ END OF SECTION 3 ***********************/
+
+
+
+
+
+/************ TOP OF SECTION 4 ***********************
+	Special fancy stuff is over.  Now each repaint will
+	enter this section.
+
+	Basically, animals are draw, comments are displayed,
+	and sounds are played.  This continues until one of
+	the racers reaches the finish line.
+***********************************************************/
+
+	// paint has been called twice or more
+else //( count>2 ) 
+{
+
+	if (count%2==0) // draw hare first--every other time
+	{
+	g.drawImage(hare,xh,yh, this );
+	g.drawImage( tortise, xt, yt, this );
+	}						
+			
+	else	// (count%2!=0)// draw tortise first--every other time
+	{ 
+	g.drawImage( tortise, xt, yt, this );
+	g.drawImage(hare,xh,yh, this );
+	}
+
+
+
+
+
+
+
+
+	//add comments, but only every 50th time paint is called
+	// for the first 3 comments			
+	if (count<=50 &count%25==0) //Every 25th time draw & play a message
+		{
+		sleep=sleep*12; //pause longer when comment is added
+
+		// if hare has a decent lead (xh-xt)
+		if 	  (xh-xt>15) 
+			{
+			g.drawString("The Hare has the lead",5,60);
+			hare_lead.play();
+			}
+		// if tortise has a decent lead
+		else if (xt-xh>15) 
+			{
+			g.drawString("It's the Tortise in the lead",5,60);
+			tortise_lead.play();
+			}
+		// no decent lead
+		else 
+			{
+			g.drawString("The racers are Neck & Neck",5,60);
+			neck.play();
+			}
+	}// close if (count%50==0) 			
+	else if (count==117)// do once @ count=117
+		{
+		sleep=sleep*12; //pause longer when comment is added
+		g.drawString("What an exciting race!!!",5,60);
+		exciting.play(); 
+		}
+	 //Every 100th time draw a message
+	//add comments, but only every 100th time paint is called
+	// for the comments after the first 3 comments			
+	else if (count>150 &count%110==0) //Every 110th time draw a message
+		{
+		sleep=sleep*12; //pause longer when comment is added
+
+		// if hare has a decent lead (xh-xt)
+		if 	  (xh-xt>15) 
+			{
+			g.drawString("The Hare has the lead",5,60);
+			hare_lead.play();
+			}
+		// if tortise has a decent lead
+		else if (xt-xh>15) 
+			{
+			g.drawString("It's the Tortise in the lead",5,60);
+			tortise_lead.play();
+			}
+		// no decent lead
+		else 
+			{
+			g.drawString("They're Neck & Neck",5,60);
+			neck.play();
+			}
+	}// close else if (count%100==0) 
+
+
+
+
+
+
+
+
+
+
+
+	//sleep
+	try{Thread.sleep((int)(sleep));}
+	catch(InterruptedException e){System.err.println(e.toString() );}
+	sleep = 50; // reset sleep to regular value
+		
+
+
+/************ end OF SECTION 4 ***********************/
+
+
+
+/************ Top OF SECTION 5 **************************
+	The race is over, winning status is displayed
+********************************************************/
+
+
+		
+if ( xh==(int)(wa/2) & xt==(int)(wa/2) )
+	{
+	g.drawString("It is a TIE!!!",10,60);
+	tie.play();
+	winf=true; // set to avoid calling position()
+	}
+
+else if ( xh==(int)(wa/2) )
+	{
+	g.drawString("Hare WINS!!!",10,60);
+	hare_win.play();
+	winf=true; // set to avoid calling position()
+	}	
+
+else if (xt==(int)(wa/2))
+	{
+	g.drawString("Tortise WINS!!!",10,60);
+	tortise_win.play();
+	winf=true; // set to avoid calling position()
+	}
+
+/****************End Section 5************************/
+
+
+
+} //close else( count>2 ) 
+
+/************ TOP OF SECTION 6 ***********************
+	This is executed everytime after the race is on.
+	If the race isn't over it calls for the
+	new positions
+*****************************************************/
+
+if ( winf!=true) position(); //get new position
+else if (winf==true){clap.play();}
+
+/****************End Section 6************************/
+
+
+
+} // close else //startf==true
+
+}//close paint
+
+
+public void position()
+{
+double randomT, randomH;
+int nextT, nextH;
+
+
+randomT=Math.random();//random number 0-1<
+
+if (randomT<0.5) nextT=3; //fast plod
+else if (randomT>=0.5 & randomT<0.7) nextT=-6; //slip
+else nextT=1; // slow plod
+
+xt+=nextT;
+if (xt>(int)(wa/2) ) xt=(int)(wa/2);
+if (xt<xa+10) xt=xa+10;
+yt=ya+(int)(wa/2)-(int)( Math.sqrt( (int)(wa/2)*(int)(wa/2)
+					-(xa+(int)(wa/2)-xt)
+					*(xa+(int)(wa/2)-xt)  ) );
+
+
+
+randomH=Math.random();
+
+if (randomH<0.2) nextH=0; //sleep
+else if (randomH>=0.2 & randomH<0.4) nextH=9;//big hop
+else if (randomH>=0.4 & randomH<0.5) nextH=-12; //big slip
+else if (randomH>=0.5 & randomH<0.8) nextH=1; //small hop
+else nextH=-2; //small slip
+
+xh+=nextH;
+if (xh>wa/2) xh=wa/2;
+if (xh<xa+10) xh=xa+10;
+yh=ya+(int)(wa/2)-(int)( Math.sqrt( (int)(wa/2)*(int)(wa/2)
+					-(xa+(int)(wa/2)-xh)
+					*(xa+(int)(wa/2)-xh)  ) );
+
+
+repaint();
+}//close position
+
+}//close class
+
+

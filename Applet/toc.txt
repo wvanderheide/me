@@ -1,0 +1,64 @@
+// This code is copied from the text book, 
+// see Fig 16-1, page 836
+//
+
+import java.awt.*;
+import java.awt.event.*;
+import java.net.*;
+import java.util.Hashtable;
+import java.applet.Applet;
+
+public class toc extends Applet
+             implements ItemListener {
+   private Hashtable sites;
+   private Choice siteChoice;
+   //Font font1;
+
+   public void init()
+   {
+	//font1 = new Font ("SansSerif",Font.BOLD,14);
+	//setFont(font1);  
+	
+	sites = new Hashtable();
+      siteChoice = new Choice();
+
+	setBackground(Color.white);
+
+      // look in HTML for parameters and add sites to HashTable
+      String title, location;
+      URL url;
+      int counter = 0;
+
+      while ( true ) {
+         title = getParameter( "title" + counter );
+
+         if ( title != null ) {
+            location = getParameter( "location" + counter );
+            
+            try {
+               url = new URL( location );
+               sites.put( title, url );
+               siteChoice.add( title );
+            }
+            catch ( MalformedURLException e ) {
+               e.printStackTrace();
+            }
+         }
+         else
+            break;
+
+         ++counter;  
+      }
+
+      //add( new Label( "Table of Contents:" ) );
+      siteChoice.addItemListener( this );
+      add( siteChoice );
+   }
+
+   public void itemStateChanged( ItemEvent e )
+   {
+      URL url = (URL) sites.get( e.getItem() );
+
+      getAppletContext().showDocument( url );
+   }
+}

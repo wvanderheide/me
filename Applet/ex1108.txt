@@ -1,0 +1,154 @@
+// Walter VanderHeide
+// IST 198
+// April 28. 1999
+// ex1108
+
+/***************************************************
+	This applet uses the ADT canvas1108
+	contained at the end of 1108 code
+***************************************************/
+
+
+import java.text.DecimalFormat;
+import java.applet.Applet;
+import java.awt.*;
+import java.awt.event.*;
+
+public class ex1108 extends Applet 
+
+     /*	AdjustmentListener is the interface use to 
+	handle scrollbar actions */
+
+	implements AdjustmentListener 
+{
+Scrollbar scrollWidth; 	// used to set the diameter of the circle
+canvas1108 c;		// the canvas to draw on
+public TextArea t1;
+String s=" ";		// used to initialize the TextArea t1
+Panel bottom;		// control the layout
+int red, green, blue;	// used to vary canvas color
+double r,d,c2,a;	// radius, diameter, circumference, and area
+
+DecimalFormat df = new DecimalFormat("#.00");
+
+
+
+public void init() 
+{
+
+
+bottom = new Panel();
+bottom.setLayout(new GridLayout(2,1) );
+
+
+
+c = new canvas1108();	// instaniate the c -- the constructor will set diameter to 300
+c.setSize( 400, 400 );  // set size to allow make radius of 200
+			// TextArea with no Scrollbars
+t1= new TextArea(s,4,20,TextArea.SCROLLBARS_NONE);
+t1.setEditable(false);	// can't be edited from the keyboard
+
+
+d=c.getdiameter();	//get inital diameter for inital display in TextArea
+r=d/2;			// calculate radius, circumference, and area
+c2=Math.PI*d;
+a=Math.PI*r*r;
+			//initialize TextArea
+t1.setText(" Radius is "+df.format(r)+ "\n Diameter is "+df.format(d)
+	+ "\n Circumference is "+df.format(c2) +"\n Area is "+df.format(a));
+
+
+
+
+red =(int)(Math.random()*255);  //red
+green=(int)(Math.random()*255);	//green
+blue=(int)(Math.random()*255);	//blue
+
+if (red==0 & green==0  & blue==0) red=255; 
+	/* Do some Exception Handling to ensure back ground 
+	can never be black, which is the same color as the circle */
+
+c.setBackground(new Color(red,green,blue)); //Canvas random color
+      
+	// instaniate scrollwidth as a horizontal scroll bar
+	// with an intial setting (radius = 150) of 300, 
+	// and a range 200-400, (radii 100-200)
+	// I don't know what the "1" is for????? see pg 598
+scrollWidth = new Scrollbar( Scrollbar.HORIZONTAL, 300,
+                                   1, 200, 400 );
+
+	// set up AdjustmentListener to listen to scrollWidth
+scrollWidth.addAdjustmentListener(this);
+
+add( c ); // add the canvas to the applet
+
+
+//scrollWidth.setBounds(0,200,200,15); // this only works when applet layout is null
+bottom.add( scrollWidth ); // add scrollWidth to the panel
+
+bottom.add(t1);		// add the textArea to the panel
+
+add(bottom);		// add the panel to the applet
+
+}//close init
+
+	
+
+	// when the scrollbar is adjusted this method is called
+public void adjustmentValueChanged( AdjustmentEvent e )
+{
+d=e.getValue();	//getValue() is the position of the scrollbar, initally 300; with a range 200-400
+
+		//calculate circle properties
+r=d/2;
+c2=Math.PI*d;
+a=Math.PI*r*r;
+
+		// setText of TextArea
+t1.setText(" Radius is "+df.format(r)+ "\n Diameter is "+df.format(d)
+	+ "\n Circumference is "+df.format(c2) +"\n Area is "+df.format(a));
+
+	// pass the current location of the scrollbar to the setdiameter method
+	// setdiameter in turn will call the canvas paint method to redraw the circle
+c.setdiameter( e.getValue() ); 
+}// adjustment
+
+
+}//close class
+
+
+/****************************************************
+		ADT canvas1108
+****************************************************/
+
+//Walter VanderHeide
+// A customized Canvas class
+// used by ex1108
+
+
+
+
+import java.awt.*;
+
+public class canvas1108 extends Canvas 
+{
+   
+public int diameter;
+
+
+public canvas1108()  // constructor
+	{setdiameter(300);}
+
+  
+public void paint( Graphics g )
+	{g.fillOval( 0, 0, diameter, diameter );  }
+
+
+public int getdiameter()
+	{return diameter;}
+
+public void setdiameter(int w)
+	{diameter=w;repaint();}
+
+}//close class
+

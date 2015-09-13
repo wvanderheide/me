@@ -1,0 +1,209 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>	
+	<title>Scripts 16-20</title>
+	<link rel="stylesheet" href="../StyleSheet1.css" type="text/css">
+</head>
+
+<body>
+
+<table width="95%"><tr><td>
+<!--Time and Date-->
+<p>
+<font color="white"><b>Script 16:</b></font> ALT for hyperlinked text.
+<p>Place the mouse pointer over the links below and notice the &quot;pop-ups.&quot;
+<p>
+<div id="overDiv" style="position:absolute; visibility:hide;z-index:1;"></div>
+<script LANGUAGE="JavaScript" SRC="overlib.js"></script>
+
+
+<li><a HREF="javascript:void(0);" onMouseOver="overlib('Nifty, ehh?')" onMouseOut="nd()">Plain popup</a>
+<li><a HREF="javascript:void(0);" onMouseOver="overlib('...and text here!', CAPTION, 'Caption here...')" onMouseOut="nd()">A caption</a>
+<li><a HREF="javascript:void(0);" onClick="overlib('&lt;a href=family.html&gt;Family&lt;/a&gt;', STICKY, CAPTION, 'Sticky')">Click to get <i>sticky</i> pop-up.</a>
+<li><a HREF="javascript:void(0);" onMouseOver="overlib('For example, a list:&lt;UL&gt;&lt;LI&gt;Item 1&lt;LI&gt;Item 2&lt;LI&gt;Item 3&lt;/UL&gt;')" onMouseOut="nd()">With html</a>
+<li><a HREF="javascript:void(0);" onMouseOver="overlib('Woo, on the other side!', LEFT)" onMouseOut="nd()">Other side of the mouse</a>
+<a HREF="javascript:void(0);" onMouseOver="overlib('Snapped to a 20 times 20 pixel grid.', SNAPX, 20, SNAPY, 20)" onMouseOut="nd()">
+<li>Snapped to a grid</a>
+<li><a HREF="javascript:void(0);" onMouseOver="overlib('We lock this one to position a specific position.', FIXX, 50, FIXY, 250)" onMouseOut="nd()">Fixed position</a>
+
+<!--Table Generator-->
+<p>
+<font color="white"><b>Script 17:</b></font> This script generates html table code.
+<p>
+<form>
+<input type="button" value="Table Code Generator" onClick="window.open('table_generator.html','table','toolbar=no,width=600,height=400,resizable=yes, scrollbars=yes')"><br>
+</form>
+
+<!--Search Engine-->
+<p><a name="Search"></a>
+<font color="white"><b>Script 18:</b></font> This is my own <i>&quot;front-end&quot;</i> for several search engines.  When you press the <i>Yahoo Search</i> button an &quot;onSubmit&quot; event happens that calls a script which &quot;validates&quot; the input before submitting it to the search engine. (The other submit buttons do not have validation.)
+<p>
+<script language="JavaScript1.2">
+	function Validation(obj){
+		if (obj.p.value.length <3){ 
+			alert("\"" + obj.p.value + "\" is too short, please enter at least 3 characters.\nThank-you!");
+			obj.p.focus();
+			return false;}
+		else{
+			alert(obj.p.value + " is valid.  Data will now be submitted to the search engine.");
+			return true;
+			}
+	}//end function
+</script>
+<form target="_new" action="http://search.yahoo.com/bin/search" onSubmit="return Validation(this)">
+<input type="text" name="p" value>
+<input type="submit" value="Yahoo Search">&nbsp;<input type="Reset">
+</form>
+
+<form target="_new" action="http://www.google.com/search">  
+        <input type="text" value name="q">	
+        <input type="submit" value="Google Search">&nbsp;<input type="Reset">        
+</form>
+
+<form target="_new" action="http://hotbot.lycos.com/">
+       <input type="text" name="MT" value>
+       <input type="submit" value="HOTBOT Search">&nbsp;<input type="Reset">        
+</form>
+
+<form target="_new" action="http://www.altavista.com/cgi-bin/query">
+       <input type="text" name="q">
+       <input type="submit" value="AltaVista Search">&nbsp;<input type="Reset">        
+</form>
+
+
+<!--Non-looping slide show-->
+<script language="JavaScript1.2" src="animator.js"></script>
+<p>
+<font color="white"><b>Script 19:</b></font> This script starts a slide-show when the pointer is placed over the image.  The slide show stops on the last slide.  In addition each slide is a unique link.
+<p>
+<a href="javascript:gotoshow()" ONMOUSEOVER="slideit()"><img alt="Click any slide show picture for more information" src="image1.jpg" name="slide" border="1" bordercolor="yellow" WIDTH="468" HEIGHT="60"></a>
+
+<script language="javascript">
+<!--
+// this script calls in functions from the anitmator.js file -- see header
+//configure the paths of the images, plus corresponding target links
+
+
+slideshowimages("image1.jpg","image2.jpg","image3.jpg","image4.jpg","image1.jpg","image2.jpg","image3.jpg","image4.jpg")
+
+
+slideshowlinks("../resume/index.asp", "../resume/index.asp","../resume/index.asp","js4.asp","../resume/index.asp", "../resume/index.asp","../resume/index.asp","js4.asp")
+
+//new window = true
+slideshowWindow(true, false, true,false,true, false, true,false)
+
+//configure the speed of the slideshow, in miliseconds
+var slideshowspeed=3000
+
+var whichlink=0
+var whichimage=0
+
+
+function slideit(){
+ document.images.slide.src=slideimages[whichimage].src
+ whichlink=whichimage
+ 
+ if (whichimage<slideimages.length-1){
+  whichimage++  
+  //reset whichimage to 0 when it reaches slideimages.length-1 --if you want to loop continously
+ setTimeout("slideit()",slideshowspeed) //recursive call!
+ }
+}//end function
+
+
+//-->
+</script>
+&nbsp; (Click &quot;The End&quot; slide to Refresh the page.)
+<!--end Non-looping slide show-->
+<!--List boxes-->
+<p>
+<font color="white"><b>Script 20:</b></font> Dynamic List Boxes. Making a selection in the first list dynamically allocates the contents of the second list.
+<p>
+<form name="LISTBOXES">
+<table cellpadding="3">
+ <tr>
+  <td align="center" colspan="2" valign="bottom">
+<script language="JavaScript1.2">  
+// Before all else, make sure IE is being used
+if (navigator.appName.indexOf("Microsoft") == -1) {
+	var msg = "<DIV ALIGN=LEFT>Your browser (" + navigator.appName + ")"
+	msg += " is not compatible with this script. Instead, you "
+	msg += "should use Microsoft Internet Explorer 4.0 or above."
+	document.write("<LI>")
+	document.write(msg)
+	document.write("</DIV></td></tr>")
+}
+else {
+	document.write("</td></tr>")
+	document.write(" <tr>  <td >")
+  	document.write("<select name = group onchange='NewGroup()'>")
+   	document.write("<option value=0>Scripts</option>")
+   	document.write("<option value=1>Applets</option>")
+   	document.write("<option value=2>Search</option>")
+  	document.write("</select>")
+ 	
+	document.write(" </td><td>")
+	 
+  	document.write("<select name=product size=1 onChange='go(this)'><option value='javascripts1.html'>Scripts Page 1</option><option value='javascripts2.html'>Scripts Page 2</option><option value='javascripts3.html'>Scripts Page 3</option><option value='javascripts4.html'>Scripts Page 4</option>")
+   document.write("</select>")
+   
+  document.write("</td></tr>")
+   }
+  </script>
+  
+  
+  </table>
+  
+  <script language="javascript">
+    function go(url){  
+	if (confirm("When you press OK you will link to " + url.value)) {location.href = url.value;}
+	  }
+  
+	var list = new Array(3)
+	var links = new Array(3)
+	var i
+	i=0
+	list[i]= new Array("Scripts Page 1","Scripts Page 2","Scripts Page 3","Scripts Page 4")
+
+	links[i]= new Array("js1.asp","js2.asp","js3.asp","js4.asp")
+	
+	i++
+	
+	list[i]= new Array("CH 1-5", "CH 6-8", "CH 9-10", "CH 11-14", "Others: 1", "Others: 2")
+	links[i]= new Array("../applet/applet1.asp","../applet/applet2.asp","../applet/applet3.asp","../applet/applet4.asp","../applet/applet5.asp","../applet/applet6.asp")
+	
+	i++
+	
+	list[i]= new Array("Yahoo","Google")
+    links[i]= new Array("http://yahoo.com","http://google.com")
+	
+	
+	function NewGroup()
+	{
+	 while (document.LISTBOXES.product.length>0){
+document.LISTBOXES.product.remove(0)
+}
+
+	//document.LISTBOXES.group.value= the index number ie list[0]
+	 var products = list[document.LISTBOXES.group.value] 
+	 //alert ("document.LISTBOXES.group.value =" + document.LISTBOXES.group.value)
+	 var links2 = links[document.LISTBOXES.group.value]
+	 for (i=0; i<products.length; i++)
+	 {
+	 element = document.createElement("OPTION")
+	 element.text = products[i]
+	 element.value = links2[i]
+	 document.LISTBOXES.product.add(element)
+	 }
+	 
+	}//end function
+  </script>
+ </form>
+<!-- End of LIST Boxes-->
+
+</td></tr></table>
+
+
+</body>
+</html>

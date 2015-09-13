@@ -1,0 +1,297 @@
+<html>
+<head>
+	<title>Table Generator</title>
+	
+<!-- Begin Script -->
+
+<script language="JavaScript">
+
+// Before all else, make sure IE is being used
+if (navigator.appName.indexOf("Microsoft") == -1) {
+	var msg = "Before you use the Table Generator, you should be aware that your browser (" + navigator.appName + ")"
+	msg += " may not be compatible with some of the features here. For the best performance, you "
+	msg += "should use Microsoft Internet Explorer 4.0 or above."
+	alert(msg)
+}
+
+// Start Generator Function
+function process() {
+	
+	// No errors
+	self.onerror = null
+	
+	// Set Variables
+	var rows = document.form.rows.value * 1
+	var cols = document.form.cols.value * 1
+	var width = document.form.width.value * 1
+	var border = document.form.border.value * 1
+	var cellpadding = document.form.cellpadding.value * 1
+	var align = document.form.align.value
+	var tdalign = document.form.tdalign.value
+	
+	var bgcolor = document.form.bgcolor.value
+	if (bgcolor == "" || bgcolor == null) { bgcolor = "white" }
+	
+	var valign = document.form.valign.value
+	
+	// Table tag creation
+	var table = "<table width=\"" + width + "\"\n"
+	table += "       border=\"" + border + "\"\n"
+	table += "       cellpadding=\"" + cellpadding + "\"\n"
+	table += "       align=\"" + align + "\"\n"
+	table += "       bgColor=\"" + bgcolor + "\"\n"
+	table += "\n<!-- Generated using Table Generator -->\n\n"
+	
+	// Calculate the width for <TD>
+	var tdwidth = width / cols
+	
+	// Start Main Loop
+	for (i = 1; i <= rows; i++) {
+		table += "<!-- Row " + i + " -->\n"
+		table += "<tr>\n"
+		
+		// TD Loop
+		for (t = 1; t <= cols; t++) {
+			table += "<td width=\"" + tdwidth + "\" align=\"" + tdalign + "\" valign=\"" + valign + "\">\n"
+			table += "[ Row " + i + ", Column " + t +" ]\n"
+			table += "</td>\n"
+		}
+		
+		table += "</tr>\n\n"
+	}
+	
+	// Finally, display the code
+	if (table.indexOf("NaN") != -1) {
+		table = "Sorry, there was an error generating your table.\n"
+		table += "Please check all the fields and then try again."
+	} else {
+		table += "</table>"
+	}
+	document.form.table.value = table
+
+	// As a nice feature, send the cursor to the code
+	document.form.table.focus() 
+}
+// End Generator Function
+
+
+// Begin Preview Function
+function preview() {
+	// Get table code
+	var tdata = document.form.table.value 
+	
+	// Open a new window
+	var preview = window.open("","preview","status=0,width=600,height=500,scrollbars=1")
+	
+	// Now write the window content
+	preview.document.write("<html><head><title>Table Preview</title></head>")
+	preview.document.write("<body>")
+	preview.document.write("<h3>Table Preview</h3>")
+	
+	// The actual table
+	preview.document.write(tdata)
+	
+	preview.document.write("</body></html>")
+}
+// End Preview Function
+
+// Script Selector
+// (IE Only)
+function hilight() {
+	if (navigator.appName.indexOf("Microsoft") != -1) {
+		document.form.table.select()
+	} else {
+		alert("Oops! This feature only works with Internet Explorer.\n\nSorry!")
+	}
+}
+// End Script Selector
+
+// Begin Form Clearer
+function clearit() {
+
+	// Make sure that they want to clear it
+	if (confirm("Are you sure you want to clear all the data that you've entered?")) {
+	
+		// Clear the form
+		document.form.reset()
+	
+		// Set focus back to first element
+		document.form.elements[0].focus()
+	} else {
+		document.form.table.focus()
+	}
+}
+// End Form Clearer
+
+</script>
+
+<!-- End Script -->
+
+
+<!-- Begin Style Sheets -->
+<style type="text/css"> 	BODY {
+ 		font: 15px Arial, Helvetica, sans-serif;
+		background-color: #000000;
+ 	}
+	TD { background-color: #b8b8b8;
+	font: 15px Arial, Helvetica, sans-serif;
+		border: 1px black solid;
+	 }
+ </style>
+<!-- End Style Sheets -->
+
+
+</head>
+
+<body>
+
+<form name="form"> 
+<!-- Begin table and form -->
+<table  align="center" border="0" cellspacing="0" cellpadding="10">
+
+<!-- Header -->
+<tr>
+<td width="100%" align="center" valign="middle" colspan="2">
+<b>Table Generator</b>
+</td>
+</tr>
+
+<!-- Width -->
+<tr>
+<td width="50%" align="left" valign="middle">
+Table Width:
+</td>
+<td width="50%" align="left" valign="middle">
+<input type="text" name="width" size="10" maxlength="4">
+</td>
+</tr>
+
+<!-- Cellpadding -->
+<tr>
+<td width="50%" align="left" valign="middle">
+Cell Padding:
+</td>
+<td width="50%" align="left" valign="middle">
+<input type="text" name="cellpadding" size="10" maxlength="4">
+</td>
+</tr>
+
+<!-- Rows -->
+<tr>
+<td width="50%" align="left" valign="middle">
+# of rows:
+</td>
+<td width="50%" align="left" valign="middle">
+<input type="text" name="rows" size="10" maxlength="4">
+</td>
+</tr>
+
+<!-- Columns -->
+<tr>
+<td width="50%" align="left" valign="middle">
+# of columns per row:
+</td>
+<td width="50%" align="left" valign="middle">
+<input type="text" name="cols" size="10" maxlength="4">
+</td>
+</tr>
+
+<!-- Border -->
+<tr>
+<td width="50%" align="left" valign="middle">
+Table Border (in pixels):
+</td>
+<td width="50%" align="left" valign="middle">
+<input type="text" name="border" size="10" maxlength="4">
+</td>
+</tr>
+
+<!-- BgColor -->
+<tr>
+<td width="50%" align="left" valign="middle">
+Background Color:
+</td>
+<td width="50%" align="left" valign="middle">
+<input type="text" name="bgcolor" size="10" maxlength="20">
+</td>
+</tr>
+
+<!-- Align -->
+<tr>
+<td width="50%" align="left" valign="middle">
+Table Alignment:
+</td>
+<td width="50%" align="left" valign="middle">
+<select name="align">
+<option value="left" selected>Left
+<option value="center">Center
+<option value="right">Right
+</select>
+</td>
+</tr>
+
+<!-- TD Align --> 
+<tr>
+<td width="50%" align="left" valign="middle">
+Table Cell Alignment:
+</td>
+<td width="50%" align="left" valign="middle">
+<select name="tdalign">
+<option value="left" selected>Left
+<option value="center">Center
+<option value="right">Right
+</select>
+</td>
+</tr>
+
+<!-- TD Vertical Align --> 
+<tr>
+<td width="50%" align="left" valign="middle">
+Table Cell Vertical Alignment:
+</td>
+<td width="50%" align="left" valign="middle">
+<select name="valign">
+<option value="middle" selected>Middle
+<option value="top">Top
+<option value="bottom">Bottom
+<option value="baseline">Baseline
+</select>
+</td>
+</tr>
+
+<!-- Creator Button -->
+<tr>
+<td width="100%" align="middle" valign="middle" colspan="2">
+<input type="button" onClick="process()" value="Create Code">
+</td>
+</tr>
+
+<!-- Results -->
+<tr>
+<td width="100%" align="center" valign="middle" colspan="2">
+<br>
+Table Code:<br>
+<textarea rows="10" cols="50" name="table" wrap="off">
+</textarea>
+</td>
+</tr>
+
+<!-- Preview Button -->
+<tr>
+<td width="100%" align="middle" valign="middle" colspan="2">
+<input type="button" onClick="preview()" value="Preview Table">
+&nbsp;
+<!-- Add to Clipboard -->
+<input type="button" onClick="hilight()" value="Select Code">
+&nbsp;
+<!-- Clear Form -->
+<input type="button" onClick="clearit()" value="Reset Generator">
+</td>
+</tr>
+
+
+</form>
+</table>
+<!-- End table and form -->
+</body>
+</html>

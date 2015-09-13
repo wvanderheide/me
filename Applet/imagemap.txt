@@ -1,0 +1,163 @@
+/* 	image map program
+	By clicking on various place in an 
+	object you can link to other websites
+*/
+
+import java.applet.Applet;
+import java.awt.*;
+import java.awt.event.*;
+import java.net.*;
+
+public class imagemap extends Applet
+             implements MouseListener, MouseMotionListener {
+Image picture, offi;
+Graphics offg;
+String abc, message;
+URL url;
+int xp=10,Y,x;
+
+
+
+public void init()
+{
+addMouseListener( this );
+addMouseMotionListener( this );
+
+picture = getImage( getDocumentBase(), "imagemap.gif" ); // load image into picture
+
+offi = createImage(610,190); /*create offscreen Image object, which will
+					 hold the dots to be drawn. */
+
+
+offg = offi.getGraphics(); //create graphics object
+
+
+		/* Together offi and offg mimic 
+		   Graphics g (in the paint method).  The first holds the 
+		   dots to be drawn and the later provides the methods 
+		   like drawImage.
+
+		"createImage()" instantiates an Image object.
+
+		"getGraphics()" creates a graphics context for drawing to
+		an offscreen image. 
+		
+		"getGraphics()" is an Image method		*/
+
+message = "Click on an Icon above to Link to another page";
+}//close init
+
+
+public void update(Graphics g1){paint(g1);}
+	//g1 is supplied automatically by repaint(), g1 then is passed to
+	//g in paint.
+
+public void paint(Graphics g)
+{
+offg.setColor(Color.blue);
+offg.fillRect(0,0,610,190); // clear offg
+offg.drawImage(picture,5,5,this); // I don't know how but somehow
+					// this stores "picture" into offi
+
+offg.setColor(Color.white); //make the message color white
+offg.drawString(" "+message,xp,160); // add a message to offg
+
+g.drawImage(offi,0,0,this); // draw the Image from the offi
+}//close paint
+
+
+
+   public void mouseMoved( MouseEvent e )
+   {  Y=e.getY();
+	x=e.getX();
+      translateLocation( x );
+	repaint();
+   }
+
+   public void mouseExited( MouseEvent e )
+   {
+      message = "Click on an Icon above to Link to another page";
+	xp=10;
+	repaint();
+   }
+
+
+
+public void mouseDragged( MouseEvent e ) {}
+public void mousePressed( MouseEvent e ) {}
+public void mouseReleased( MouseEvent e ) {}
+public void mouseEntered( MouseEvent e ) {}
+
+
+
+public void mouseClicked( MouseEvent e ) 
+{
+	if (Y<=141)
+	{
+     	 if ( x >= 0 && x <206)
+     	 	{
+		abc = "http://www.geocities.com/Yosemite/Trails/9514/chinju.html";
+		try 
+			{ url = new URL(abc);System.out.println("abc = "+abc);}
+
+		catch ( MalformedURLException ee ) 
+			{System.out.println("Malformed URL: " + abc);} 
+			
+		getAppletContext().showDocument(url);
+		}//close inner if block	
+
+     	 else if ( x >=206 && x < 386 )
+    	     	{
+		abc = "http://www.geocities.com/Yosemite/Trails/9514";
+		try 
+			{ url = new URL(abc);System.out.println("abc = "+abc);}
+
+		catch ( MalformedURLException ee ) 
+			{System.out.println("Malformed URL: " + abc);} 
+			
+		getAppletContext().showDocument(url);
+		}//close inner if block	     	 
+
+	 else if ( x >=386 && x <=600 )	{
+		abc = "http://www.geocities.com/Yosemite/Trails/9514/langleylds2.html";
+		try 
+			{ url = new URL(abc);System.out.println("abc = "+abc);}
+
+		catch ( MalformedURLException ee ) 
+			{System.out.println("Malformed URL: " + abc);} 
+			
+		getAppletContext().showDocument(url);
+		}//close inner if block	
+     	 }
+
+	else //Y>141
+	{message = "Click on an Icon above to Link to another page";
+		xp=10;}
+
+}//mouse clicked
+
+
+
+public void translateLocation( int x )
+{
+      
+	if (Y<=141)
+	{
+     	 if ( x >= 0 && x <206)
+     	  {message = "Korea Page";xp=50;}
+     	 else if ( x >=206 && x < 386)
+    	   {message = "Home Page";xp=255;}
+     	 else if ( x >=386 && x <=600 )
+        { message = "Langley Page";xp=450;}
+     	 }
+
+	else //Y>141
+	{message = "Click on an Icon above to Link to another page" ;xp=10;}
+
+   }
+
+
+
+
+}//close class
+

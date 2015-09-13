@@ -1,0 +1,61 @@
+
+// February 3, 1999
+// Chapter 2, Problem 11
+
+
+
+import java.applet.Applet;
+import java.awt.*;
+import java.awt.event.*;
+
+
+
+public class ex0211 extends Applet
+		implements ActionListener {
+
+		Label prompt1;
+		TextField input1;
+		Label prompt2;
+		TextField input2;
+		int flag = 0;
+		float miles,tmiles=0,gallons,tgallons=0,mpg,tmpg=0;
+
+	public void init()
+	{
+		prompt1 = new Label ( "Enter miles driven: " );
+		add( prompt1 );
+		input1 = new TextField ( 10 );
+		add( input1 );
+		input1.addActionListener( this );
+
+		prompt2 = new Label( "Enter gallons used (and press Enter): " );
+		input2 = new TextField( 10 );	
+		add( prompt2 );		
+		add( input2 );	
+		input2.addActionListener( this );
+		
+
+	}
+
+	public void paint( Graphics g )
+	{	if (flag!=0) 
+		{
+	   	mpg=miles/gallons;
+		tgallons = tgallons + gallons;
+		tmiles = tmiles + miles;
+		tmpg = tmiles/tgallons;
+		g.drawString ("Current tanks MPG: "+mpg, 100, 100 );
+		g.drawString ("Overall MPG: "+tmpg, 100, 115);
+		}
+		flag =1;
+
+
+	}
+
+	public void actionPerformed (ActionEvent e )
+	{
+		miles = Integer.parseInt( input1.getText() );
+		gallons = Integer.parseInt( input2.getText() );
+		repaint();		
+	}
+}

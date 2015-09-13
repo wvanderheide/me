@@ -1,0 +1,163 @@
+// Walter VanderHeide
+// February 24 1999
+// Exercise 20 of chapter 5
+
+
+import java.applet.Applet; 
+import java.awt.*;	
+import java.awt.event.*;
+
+public class ex0520 extends Applet
+		implements ActionListener
+{
+final int 	size = 5;
+Label 		personl, productl, salesl;
+Label		instructions1, instructions2, instructions3;
+TextField	person, product, sales;
+int		personv, productv; 	// array references
+float		salesv[][];  
+// variables of different types can have the same name!!
+
+
+
+public void init()
+{
+
+salesv = new float[7][6]; /* a 7 row ( 5 products, total, and ignore salesv[0][*]) 
+					by 6 column(4 sales people, total, and ignore salesv[*][0])  ) */
+
+salesv[0][1]=1;
+salesv[0][2]=2;
+salesv[0][3]=3;
+salesv[0][4]=4;
+
+
+personl = new Label ("Enter salesperson number*: ");
+productl = new Label ("Enter product number*:         ");
+salesl = new Label ("Enter total daily sales amount: ");
+person = new TextField (size);
+person.addActionListener(this);
+product = new TextField (size);
+product.addActionListener(this);
+sales = new TextField (size);
+sales.addActionListener(this);
+
+
+add (personl);
+add (person);
+add (productl);
+add (product);
+add (salesl);
+add (sales);
+}
+
+public void actionPerformed(ActionEvent e)
+{
+personv=Integer.parseInt(person.getText()); // there is a way to clear these?
+productv=Integer.parseInt(product.getText());
+salesv[productv][personv]=Float.parseFloat(sales.getText());
+person.setText(""); 	// clear data entry field
+product.setText(""); 	// clear data entry field
+sales.setText(""); 	// clear data entry field
+
+repaint();
+}
+
+
+public void paint( Graphics g)
+{
+total();  // function to total rows and columns
+
+cout(g,"Sales people 1-4");
+
+}
+
+
+
+
+
+public void cout(Graphics g,String header) 
+{	int x=30,y=120;
+
+	g.drawString(header,90,105);
+
+	for(int j=1; j<5; j++) 
+	{g.drawString(String.valueOf((int)salesv[0][j]),x,y);x+=50;}
+
+	g.drawString("Sum",x,y);
+
+	g.drawString("_ 1",0,145);
+	g.drawString("P  ",0,157);
+	g.drawString("R 2",0,170);
+	g.drawString("O  ",0,182);
+	g.drawString("D 3",0,195);
+	g.drawString("U  ",0,207);
+	g.drawString("C 4",0,220);
+	g.drawString("T  ",0,232);
+	g.drawString("S 5",0,245);
+	g.drawString("Sum",0,270);
+
+	g.drawString("* Note:  Valid enteries for salesperson are 1-4,",10,300);
+	g.drawString(" and valid enteries for product are 1-5.",10,320);
+	g.drawString("(Valid enteries are automatically added to the matrix)",10,340);
+
+	
+	
+	
+	for (int i=1; i<7; i++) //i for rows
+	{	x=30;
+		y+=25;
+			
+		for (int j=1; j<6; j++) //j for columns
+			{g.drawString(String.valueOf(salesv[i][j]),x,y);
+			 x+=50;}
+	}
+
+}
+
+
+
+
+
+
+public void total()
+{
+// reset totals to zero
+for (int i=1; i<7; i++)
+	{salesv[i][5]=0;}
+
+for (int i=1; i<6; i++)
+	{salesv[6][i]=0;}
+
+
+// calculate new totals
+for (int i=1; i<6; i++) 
+	{
+		
+		for (int j=1; j<5; j++) // total rows
+			{salesv[i][5]+=salesv[i][j];}
+	}
+
+
+
+for (int i=1; i<5; i++) 
+	{
+		
+		for (int j=1; j<6; j++) // total columns
+			{salesv[6][i]+=salesv[j][i];}
+	}
+
+
+// Grand total
+for (int i=1; i<5; i++)
+	{salesv[6][5]+=salesv[6][i];}
+
+
+}
+
+
+
+} //close class
+
+
+

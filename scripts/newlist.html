@@ -1,0 +1,95 @@
+<html>
+<head>
+
+<STYLE type="text/css">
+	<!--
+		BODY {font-size : 8pt; font-family : arial; color : black;}
+		td {font-size : 10pt; font-family : arial; color : black};
+          -->
+</STYLE>
+<script language="JavaScript1.2" src="list.js">
+</script>
+
+<script language="JavaScript">
+function init()
+{
+
+//instaniate the main list to which items (with or w/o) sublists with be added.
+var width= 112, height=22; //set dimensions of the list (each line of the list will have theses dimensions
+myList=new List(true,width,height,"#cccccc"); //true sets it to visable
+//myList.parLayer=document.layers.container;
+myList.setFont("<Font style=arial color=black size=+1>","</font>");
+
+//Create a "title" called MENU for the list
+myList.addItem("<font color=white><b>MENU</b></font>","navy"); 
+
+//Notice there are two functions --addItem, and addList.
+// addItem creates the menu entery (words) and the bgcolor of the entry
+// addList creates the menu entery (words) but it adds a list (has the arrow, next to it) to the menu
+
+
+//create the first item of the list
+first=new List(false,width,height);//false set list to invisable...must click arrow to see...not stating a color makes it transparent
+first.addItem("<a href=http://www.yahoo.com>yahoo</a>"); //"item1" appears when arrow is clicked
+first.addItem("item2");
+
+twolevels=new List(true,width,height);//false set list to invisable...must click arrow to see...not stating a color makes it transparent
+twolevels.addItem("<i>item1</i>"); //"item1" appears when arrow is clicked
+first.addList(twolevels,"item3");
+//add "first" item to "myList" ...with the name "First Item" appearing on menu
+
+myList.addList(first,"First Item"); 
+
+
+myList.build(5,5); //x and y position of "myList"
+}
+
+</script>
+
+<!--this is needed for IE browser,  you need an "item" for each 
+item in the list.  
+If you have 3 items in the list and 2 of those expand
+...then you need 5 "items"-->
+<STYLE TYPE="text/css">
+#lItem0 { position:absolute; }
+#lItem1 { position:absolute; }
+#lItem2 { position:absolute; }
+#lItem3 { position:absolute; }
+#lItem4 { position:absolute; }
+#lItem5 { position:absolute; }
+</STYLE>
+</head>
+
+
+<body onload="init();">
+<!--this DIV STUFF is needed for IE browser-->
+<DIV ID="lItem0" NAME="lItem0"></DIV>
+<DIV ID="lItem1" NAME="lItem1"></DIV>
+<DIV ID="lItem2" NAME="lItem2"></DIV>
+<DIV ID="lItem3" NAME="lItem3"></DIV>
+<DIV ID="lItem4" NAME="lItem4"></DIV>
+<DIV ID="lItem5" NAME="lItem5"></DIV>
+<P>&nbsp;</p>
+<P>&nbsp;</p><P>&nbsp;</p>
+<P>&nbsp;</p>
+<center>
+<table width=90% bgcolor=silver>
+<tr><td><p align="justify">
+Note:  The reason this menu is in a seperate window is because it is a dynamic 
+html thing, which uses a lot of code, and which must be placed on the screen 
+via x and y co-ordinates.  I'm not sure how screen size effects this placement
+so without placing the menu at 0 and 0, I'm not sure how my page would appear 
+on various monitor sizes.  The html of my page is programmed to expand to 
+the size of the monitor which would cause the list to look misplaced on bigger 
+or smaller monitors.  FOOD FOR THOUGHT!  
+</p>
+I figured it...add this code to the init function to obtain dynamic placement of
+menu. <P> if(isNav4) width = 3*window.innerWidth/4;
+  <P>else width = 3*document.body.clientWidth/4;
+<p>
+a redraw of the screen is needed after changeing the browser size to
+ get the menu to re-position when using the above code.
+
+</td></tr></table></center>
+</BODY>
+</HTML>

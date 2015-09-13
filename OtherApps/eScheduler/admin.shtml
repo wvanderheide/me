@@ -1,0 +1,17 @@
+<!--#include file="credit.inc"-->
+
+<!doctype html public "-//W3C//DTD HTML 4.01 Frameset//EN">
+<html>
+<head>
+<title>The eScheduler</title>
+</head>
+<frameset cols="200,*"  framespacing="0" frameborder="0" border="0">
+     <frame name="left" src="admin.asp?day=dd&month=mm&year=yyyy" scrolling="auto" frameborder="0" >
+     <frame name="right" src="adminview.asp" scrolling="auto" frameborder="0">
+<noframes>
+	<body><br><br>
+		<h1>If you are viewing this text, your browser lacks the ability to read frames.</h1>
+	</body>
+</noframes>
+</frameset>
+</html>

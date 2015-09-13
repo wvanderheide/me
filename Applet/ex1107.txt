@@ -1,0 +1,117 @@
+//Walter VanderHeide
+// ex1107.java
+
+/* This program uses the ADT ovalcanvas which
+is contained at the end of ex1107 code */
+
+import java.applet.Applet;
+import java.awt.*;
+import java.awt.event.*;
+
+public class ex1107 extends Applet 
+		implements ActionListener
+{
+   
+ovalcanvas c;
+Panel left,right,center;
+TextArea t1;
+Button draw;
+
+
+public void init() 
+{
+left = new Panel();
+right = new Panel();
+center= new Panel();
+
+t1= new TextArea(5,30);
+t1.setEditable(false);
+
+draw = new Button("DRAW");
+draw.addActionListener(this);
+
+
+c = new ovalcanvas();
+c.setSize( 200, 200 );
+c.setBackground( Color.pink);
+
+     
+//setLayout( null );  // No layout 
+
+
+c.setLocation( 0, 0 );
+
+left.add( c );
+center.add(draw);
+right.add(t1);
+
+add(left);
+add(center);
+add(right);
+
+}//close init
+
+
+public void actionPerformed(ActionEvent e)
+{
+int r,d;
+int c2,a;
+r=c.getOvalWidth()/2;
+d=r*2;
+c2=(int)(Math.PI*d);
+a=(int)(Math.PI*r*r);
+t1.setText(" Radius is "+r+ "\n Diameter is "+d
+	+ "\n Circumference is "+c2 +"\n Area is "+a);
+}//close action
+
+}//close paint
+
+
+/************************************************
+		ovalcanvas
+************************************************/
+
+
+// A customized Canvas class.
+import java.awt.*;
+
+public class ovalcanvas extends Canvas {
+   public static int WIDTH = 1, HEIGHT = 2;
+   private int ovalWidth,x=90,y=90;
+
+
+  
+   public void paint( Graphics g )
+   {  
+      g.fillOval( x, y, ovalWidth, ovalWidth );
+	
+   }
+
+
+public int getOvalWidth()
+{
+randomOvalWidth();
+return ovalWidth;
+}
+
+public void randomOvalWidth()
+{
+double randomH;
+
+randomH=Math.random();
+ovalWidth =(int)(150*randomH); //ovalwidth = diameter
+if (ovalWidth == 0) ovalWidth = 10;
+
+
+x =(int)(x*randomH);
+y =(int)(y*randomH);
+if (x == 0) x = 80;
+if (x == 0) y = 80;
+if( x+ovalWidth>200 ){x=0;}
+if(y+ovalWidth>200) y=0;
+
+repaint();
+   }
+
+}//close class
+

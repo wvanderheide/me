@@ -1,0 +1,32 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+
+<html>
+<head>
+	<title>The eScheduler - Instructions</title>
+	<link rel="stylesheet" href="stylesheets/calendar.css">
+</head>
+
+<body>
+<div align=right>View:&nbsp;<a href="javascript:history.back();"><span style="background : black; color : white;">&nbsp;Calendar&nbsp;</span></a></div>
+<br><br>
+Here is how it works.........
+
+<br><br>
+<ul>
+<li>To <span class=bg>add an item</span> to the calendar complete the form on the left of the <a href="admin.shtml" target="_top">administration page</a>. First pick the start date by clicking the date number on the calendar (if the event covers multiple days adjust the end date accordingly); next enter a title (less than 50 characters) for the task or event; optionally enter a detailed description (up to 255 characters) and an associated URL; and finally press the "add" button. 
+<br><br>
+<li>To <span class=bg>view any month</span> select the month from the drop down box located at the top of the calendar, and key in the associated year.
+<br><br>
+<li>To <span class=bg>remove a scheduled event</span> from the calendar, click it's associated check box, and then press the "Remove Checked Items" button located at the bottom of the calendar.  Items that correspond to multiple days are removed by clicking the checkbox associated with the first day of the event.
+
+<br><br>
+<li>To <span class=bg>edit an event</span> already scheduled simply click its event title and update the data in the resulting window. Items that correspond to multiple days are edited by clicking the event title of the first day of the associated event.
+
+
+<br><br>
+<li>To <span class=bg>view the details</span> of a scheduled event, click the event title of the first day of the event.
+</ul>
+
+</body>
+</html>

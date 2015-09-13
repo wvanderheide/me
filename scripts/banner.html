@@ -1,0 +1,31 @@
+<html>
+<head><title>Banner</title>
+<script lanuage="JavaScript" src="dynlayer.js"></script>
+<script lanuage="JavaScript" src="newsticker.js"></script>
+<script lanuage="JavaScript">
+		var i0 = '<a target=_new href=../intro/index.asp><img src="../images/wlogo.jpg" alt="Introduction" border=0></a>'
+		var i1 = '<center><a target=_new href=../family/index.asp><img src="../images/family.jpg"  title="family" border=0></a></center>'
+		var i2 = '<center><a target=_new href=../resume/index.asp><img src="../images/resume.jpg"  alt ="resume" border=0></a></center>'
+		
+		ticker = new NewsTicker(10,10,95,50)
+		ticker.addItem(i0)
+		ticker.addItem(i1)
+		ticker.addItem(i2)
+				
+		ticker.build()
+		
+		writeCSS(ticker.css)
+</script>
+
+</head>
+
+
+<body text="silver"  bgcolor="black" alink="#232323" 
+link=white vlink=white onLoad=ticker.activate()>
+
+
+<script language="JavaScript">
+	document.write(ticker.div)
+</script>
+</body>
+</html>

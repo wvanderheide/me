@@ -1,0 +1,345 @@
+<html>
+
+<!--
+	Programming and Design by Walter VanderHeide
+    	Hire me!!!!!
+-->
+
+
+<head><title>Valentine Story</title>
+
+<script language="JavaScript">
+
+function pop()
+{
+var kiss="making out"
+var name=document.myform.name.value;
+var phrase=document.myform.phrase.value;
+var act=document.myform.act.value;
+var aa="lovely";
+var aaa="erotic";
+var aaaa="foxy";
+var gender="(s)he";
+var name1=document.myform.name1.value;
+var name2=document.myform.name2.value;
+var place1=document.myform.place1.value;
+var place2=document.myform.place2.value;
+
+//Exception Handling SECTION
+if (name==""){name="me"}
+if (name2==""){name2="Axel Rose"}
+if (name1==""){name1="you"}
+if (phrase==""){phrase="I think I love you"}
+if (act==""){act="hold hands"}
+if (place1==""){place1="some city"}
+if (place2==""){place2="the park"}
+
+
+if (document.myform.he.value=="he" && document.myform.she.value=="")
+		{gender=document.myform.he.value}
+
+if (document.myform.he.value=="" && document.myform.she.value=="she")
+		{gender=document.myform.she.value}
+
+if (document.myform.he.value=="he" && document.myform.she.value=="")
+		{gender=document.myform.he.value}
+
+if (document.myform.a1.value=="gorgeous" && document.myform.a2.value=="")
+		{aa=document.myform.a1.value}
+
+if (document.myform.a1.value=="" && document.myform.a2.value=="stunning")
+		{aa=document.myform.a2.value}
+
+if (document.myform.a3.value=="sexy" && document.myform.a4.value=="")
+		{aaa=document.myform.a3.value}
+
+if (document.myform.a3.value=="" && document.myform.a4.value=="desirable")
+		{aaa=document.myform.a4.value}
+
+if (document.myform.a5.value=="beautiful" && document.myform.a6.value=="")
+		{aaaa=document.myform.a5.value}
+
+if (document.myform.a5.value=="" && document.myform.a6.value=="heavenly")
+		{aaaa=document.myform.a6.value}
+
+if (document.myform.kiss[0].checked == true )
+		{kiss="kissing"}
+
+if (document.myform.kiss[1].checked==true )
+		{kiss="cuddling"}
+
+
+//End of Exception Handling
+
+panel=window.open();
+
+//w/o the "panel" the document.write overwrites "???.html"
+// with the "panel" the writing happens on the new "window.open"
+
+panel.document.write("<html><body  text = white bgcolor=#C9030C><center><form><input type=button value='Close' onClick='javascript:parent.close();'></form></center>")
+panel.document.write("<font color= black size=+2><center><b><i>This is the Story of "+name+" and "+name1+"</i></center></b></font><p>")
+
+//YOu can set properties by browers type with a statement like this
+if (navigator.appName == "Netscape"){panel.document.write("<font color= black>WARNING:  This file is designed for MicroSoft Internet Explorer.  It may not load correctly in Netscape.  Please switch browsers.<p></font>")}
+ //else{panel.document.write("<font size=6>")}
+//panel.document.write("navigator.appName ="+navigator.appName+"<P>")
+
+
+panel.document.write("One beautiful summer day in "+place1+" "+name+" saw "+name1+" and thought "+gender+" must be the most "+aa+" person in the whole world.")
+panel.document.write(" As "+name+" continued to watch "+name1+" every move "+gender+" made seemed to increase "+name+"'s interest. " )
+panel.document.write(" "+name+" even commented to "+name2+" <i>Wow, can you believe how "+aa+" "+gender+" is?</i> " )
+panel.document.write(" Suddenly, "+name1+" approached "+name+" and said, <i>I noticed you staring at me and I just wanted to tell you that I think you are "+aaa+" </i>")
+panel.document.write(" <i>and I was wondering if you'd like to go to "+place2+" with me?</i>" )
+panel.document.write(" With a huge smile "+name+" blushed and said<i> "+phrase+"</i>.  Then off they went to "+place2+". ")
+panel.document.write(" When they got to "+place2+" all "+name+" wanted to do was "+act+". ")
+panel.document.write(" After a few minutes, they looked each other in the eyes and began "+kiss+" passionately.")
+panel.document.write(" And so that is how "+name+" and "+name1+" fell in love.")
+panel.document.write("<p> </p><p> </p><font size=-1><i>Send the STORY.HTML file to at least 10 people before Valentine's day and you will get a date with the Valentine of your choice!  If you don't forward it you will never find true romance.</i></font>")
+
+panel.document.write("<p><center><form><input type=button value='Close' onClick='javascript:parent.close();'></form></center>")
+
+panel.document.write("<p> </p><p> </p><p> </p><p> </p></body></html>")
+
+
+}//end pop
+
+</script>
+</head>
+
+
+<body link=#C9030C vlink=#C9030C alink=black bgcolor=white> <!--To have the form reset when the window is in focus add this
+ to the body tag
+onFocus="window.location.reload()" -->
+
+<!--Floating HEARTS-->
+<SCRIPT LANGUAGE="JavaScript1.2">
+
+<!-- Begin
+var no = 8; // number of hearts
+var speed = 10; // smaller number moves the hearts faster
+var heart = "heart.gif";
+var flag;
+var ns4up = (document.layers) ? 1 : 0;  // browser sniffer
+var ie4up = (document.all) ? 1 : 0;
+
+var dx, xp, yp;    // coordinate and position variables
+var am, stx, sty;  // amplitude and step variables
+var i, doc_width = 800, doc_height = 600;
+if (ns4up) {
+doc_width = self.innerWidth;
+doc_height = self.innerHeight;
+} else if (ie4up) {
+doc_width = document.body.clientWidth;
+doc_height = document.body.clientHeight;
+}
+dx = new Array();
+xp = new Array();
+yp = new Array();
+amx = new Array();
+amy = new Array();
+stx = new Array();
+sty = new Array();
+flag = new Array();
+for (i = 0; i < no; ++ i) {
+dx[i] = 0;                        // set coordinate variables
+xp[i] = Math.random()*(doc_width-30)+10;  // set position variables
+yp[i] = Math.random()*doc_height;
+amy[i] = 12+ Math.random()*20;         // set amplitude variables
+amx[i] = 10+ Math.random()*40;
+stx[i] = 0.02 + Math.random()/10; // set step variables
+sty[i] = 0.7 + Math.random();     // set step variables
+flag[i] = (Math.random()>0.5)?1:0;
+if (ns4up) {                      // set layers
+if (i == 0) {
+document.write("<layer name=\"dot"+ i +"\" left=\"15\" ");
+document.write("top=\"15\" visibility=\"show\"><img src=\"");
+document.write(heart+ "\" border=\"0\"></layer>");
+} else {
+document.write("<layer name=\"dot"+ i +"\" left=\"15\" ");
+document.write("top=\"15\" visibility=\"show\"><img src=\"");
+document.write(heart+ "\" border=\"0\"></layer>");
+}
+} else
+if (ie4up) {
+if (i == 0) {
+document.write("<div id=\"dot"+ i +"\" style=\"POSITION: ");
+document.write("absolute; Z-INDEX: "+ i +"; VISIBILITY: ");
+document.write("visible; TOP: 15px; LEFT: 15px;\"><img src=\"");
+document.write(heart+ "\" border=\"0\"></div>");
+} else {
+document.write("<div id=\"dot"+ i +"\" style=\"POSITION: ");
+document.write("absolute; Z-INDEX: "+ i +"; VISIBILITY: ");
+document.write("visible; TOP: 15px; LEFT: 15px;\"><img src=\"");
+document.write(heart+ "\" border=\"0\"></div>");
+}
+}
+}
+
+function snowNS() {  // Netscape main animation function
+for (i = 0; i < no; ++ i) {  // iterate for every dot
+if (yp[i] > doc_height-50) {
+xp[i] = 10+ Math.random()*(doc_width-amx[i]-30);
+yp[i] = 0;
+flag[i]=(Math.random()<0.5)?1:0;
+stx[i] = 0.02 + Math.random()/10;
+sty[i] = 0.7 + Math.random();
+doc_width = self.innerWidth;
+doc_height = self.innerHeight;
+}
+if (flag[i])
+dx[i] += stx[i];
+else
+dx[i] -= stx[i];
+if (Math.abs(dx[i]) > Math.PI) {
+yp[i]+=Math.abs(amy[i]*dx[i]);
+xp[i]+=amx[i]*dx[i];
+dx[i]=0;
+flag[i]=!flag[i];
+}
+document.layers["dot"+i].top = yp[i] + amy[i]*(Math.abs(Math.sin(dx[i])+dx[i]));
+document.layers["dot"+i].left = xp[i] + amx[i]*dx[i];
+
+}
+setTimeout("snowNS()", speed);
+}
+
+function snowIE() {  // IE main animation function
+for (i = 0; i < no; ++ i) {  // iterate for every dot
+if (yp[i] > doc_height-50) {
+xp[i] = 10+ Math.random()*(doc_width-amx[i]-30);
+yp[i] = 0;
+stx[i] = 0.02 + Math.random()/10;
+sty[i] = 0.7 + Math.random();
+flag[i]=(Math.random()<0.5)?1:0;
+doc_width = document.body.clientWidth;
+doc_height = document.body.clientHeight;
+}
+if (flag[i])
+dx[i] += stx[i];
+else
+dx[i] -= stx[i];
+if (Math.abs(dx[i]) > Math.PI) {
+yp[i]+=Math.abs(amy[i]*dx[i]);
+xp[i]+=amx[i]*dx[i];
+dx[i]=0;
+flag[i]=!flag[i];
+}
+
+document.all["dot"+i].style.pixelTop = yp[i] + amy[i]*(Math.abs(Math.sin(dx[i])+dx[i]));
+document.all["dot"+i].style.pixelLeft = xp[i] + amx[i]*dx[i];
+}
+setTimeout("snowIE()", speed);
+}
+
+if (ns4up) {
+snowNS();
+} else if (ie4up) {
+snowIE();
+}
+// End -->
+</script>
+
+<!--End floating HEARTS-->
+
+
+
+<center><font size =+2>The Story</font><br>
+<font size=-1>(Just in time for Valentines day)</font>
+<p>
+<table width =80% cellpadding=15 border=2>
+<TR><TD bgcolor=#C9030C><hr><font color=black>INSTRUCTIONS:  Fill in the form below 
+and press "submit" and a love story will be generated!<hr>
+</font>
+</td></tr></table>
+
+<p>
+
+<form name=myform>
+<table width=95%>
+<tr>
+<td bgcolor=#C9030C>
+What is your name?</td>
+<td bgcolor=#C9030C><INPUT TYPE="text" name="name" value=""></td></tr>
+<td bgcolor=silver>
+Who are you romantically interested in?</td>
+<td bgcolor=silver><INPUT TYPE="text" name="name1" value=""></td></tr>
+<tr><td bgcolor=#C9030C>Is this person a he or a she?</td><td bgcolor=#C9030C>
+<INPUT TYPE="checkbox" NAME="he"  value="" onClick="document.myform.he.value='he'">
+ he<br>
+<INPUT TYPE="checkbox" Name="she" value="" onClick="document.myform.she.value='she'">she
+</td></tr>
+<td bgcolor=silver>
+What is your best friends name?
+</td>
+<td bgcolor=silver><INPUT TYPE="text" name="name2" value="">
+</td></tr>
+<td bgcolor=#C9030C>
+What is your favorite city?
+</td>
+<td bgcolor=#C9030C><INPUT TYPE="text" name="place1" value="">
+</td></tr>
+
+<td bgcolor=silver>
+What is your favorite place in your favorite city?
+</td>
+<td bgcolor=silver><INPUT TYPE="text" name="place2" value="">
+</td></tr>
+<tr><td bgcolor=#C9030C>Select an adjective </td><td bgcolor=#C9030C>
+<INPUT TYPE="checkbox" NAME="a1"  value="" onClick="document.myform.a1.value='gorgeous'">
+ gorgeous<br>
+<INPUT TYPE="checkbox" Name="a2" value="" onClick="document.myform.a2.value='stunning'">stunning
+</td></tr>
+<tr><td bgcolor=silver>Select another adjective </td><td bgcolor=silver>
+<INPUT TYPE="checkbox" NAME="a3"  value="" onClick="document.myform.a3.value='sexy'">
+ sexy<br>
+<INPUT TYPE="checkbox" Name="a4" value="" onClick="document.myform.a4.value='desirable'">desirable
+</td></tr>
+<tr><td bgcolor=#C9030C>Select another adjective </td><td bgcolor=#C9030C>
+<INPUT TYPE="checkbox" NAME="a5"  value="" onClick="document.myform.a5.value='beautiful'">beautiful<br>
+<INPUT TYPE="checkbox" Name="a6" value="" onClick="document.myform.a6.value='heavenly'">heavenly
+</td></tr>
+
+
+<tr><td bgcolor=silver>Which do you prefer? </td><td bgcolor=silver>
+<INPUT TYPE="radio" NAME="kiss">kissing<br>
+<INPUT TYPE="radio" Name="kiss">cuddling
+</td></tr>
+
+<td bgcolor=#C9030C>
+What phrase do you say a lot?
+</td>
+<td bgcolor=#C9030C><INPUT TYPE="text" name="phrase" value="">
+</td></tr>
+
+<td bgcolor=silver>
+What is your favorite thing to do?
+</td>
+<td bgcolor=silver><INPUT TYPE="text" name="act" value="">
+</td></tr>
+
+
+</table>
+<input type="button" value="Submit" onClick="pop()">
+   <input type="button" value="refresh" onClick="window.location.reload()">
+</form>
+</center>
+
+
+<p> </P><p> </P>
+
+<table cellpadding=10>
+<tr><td bgcolor=black>
+<font color=white size = -1>
+©Graphic design and programming by Walter VanderHeide®
+<br>
+Need a web site?  Contact me:  <a href="http://www.geocities.com/vanderheide_w/resume.html" target=new><i>www.geocities.com/vanderheide_w</i></a></font>
+</td></tr>
+
+<tr><td><font size=-1>
+Created: February 04, 2000</font>
+
+</font>
+</td></tr></table>
+
+</body>
+</html>

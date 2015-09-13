@@ -1,0 +1,85 @@
+
+// February 3, 1999
+// Chapter 1, Problem 20
+
+
+
+import java.applet.Applet;
+import java.awt.*;
+import java.awt.event.*;
+
+
+
+public class ex0120 extends Applet
+		implements ActionListener {
+
+		Label prompt1,prompt2,prompt3;
+		TextField input1,input2,input3;
+		int number1, number2, number3, sum, ave, product, small, large;
+		
+
+	public void init()
+	{
+                prompt1 = new Label ( "Enter an integer                               " );
+		add( prompt1 );
+
+		input1 = new TextField ( 5 );
+		add( input1 );
+
+                prompt2 = new Label ( "Enter an integer                              " );
+		add( prompt2 );
+
+		input2 = new TextField ( 5 );
+		add( input2 );
+
+		prompt3 = new Label( "Enter an integer and press Enter" );
+		add( prompt3 );
+
+		input3 = new TextField( 5 );
+		input3.addActionListener( this );
+		add( input3 );
+	}
+
+
+	public void paint( Graphics g )
+	{
+	   g.drawString( "Below are sample statistics:", 80, 110 );
+	
+
+	// Calculate and print sum
+   	   sum = number1+number2+number3;
+	   g.drawString( "The sum is: " + sum, 100, 130);
+
+	// Calculate and print the average
+	   ave = sum/3;
+	   g.drawString( "The average is: " + ave + " (truncated)", 100, 150 );
+
+	// Calculate and print the product
+	   product= number1*number2*number3;
+	   g.drawString( "The product is: " + product, 100, 170 );
+
+	// Calculate and print the smallest
+	   if ( number1 <= number2 ) small=number1;
+	   if ( number2 < number1 ) small=number2;
+	   if ( number3 < small ) small=number3;
+	   g.drawString( "The smallest is: " + small, 100, 190);
+	
+	   
+	// Calculate and print the largest
+	   if ( number1 >= number2 ) large=number1;
+	   if ( number2 > number1 ) large=number2;
+	   if ( number3 > large ) large=number3;
+	   g.drawString( "The largest is: " + large, 100, 210);
+	
+	   
+			
+	}  
+	
+	public void actionPerformed (ActionEvent e )
+	{
+		number1 = Integer.parseInt( input1.getText() );
+		number2 = Integer.parseInt( input2.getText() );
+		number3 = Integer.parseInt( input3.getText() );
+		repaint();
+	}
+}

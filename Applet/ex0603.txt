@@ -1,0 +1,436 @@
+// Walter VanderHeide
+// IST 198
+// ex 06-03
+// March 24, 1999
+
+
+
+/*  NOTE:  This program uses class rational.  
+Class rational is included at the end */
+
+
+
+
+
+import java.awt.*;
+import java.awt.event.*;
+import java.applet.Applet;
+import java.text.DecimalFormat;
+
+
+public class ex0603 extends Applet implements ActionListener
+{
+
+	Panel no,w,et,s;
+
+	rational r;
+	Label promptn, promptd, promptn2, promptd2;
+	//Label promptr,promptact,promptans;
+	TextField inputn, inputd,inputn2, inputd2;
+	Button add, sub, mul, div;
+	int n,n2,d,d2,count=0;
+	int addflag=0,subflag=0,mulflag=0, divflag=0;
+	int align;
+	
+	
+  
+   public void init()
+   {
+
+	align = FlowLayout.LEFT;
+
+	w=new Panel();
+	//w.setBackground(Color.black);
+	w.setLayout(new GridLayout(2,4));
+
+	et=new Panel();
+	et.setLayout(new GridLayout(4,1));
+
+	
+		
+      	r=new rational();
+
+	
+	add = new Button(" + ");
+	add.addActionListener(this);
+	sub = new Button(" - ");
+	sub.addActionListener(this);
+	mul = new Button(" * ");
+	mul.addActionListener(this);
+	div = new Button(" / ");
+	div.addActionListener(this);
+
+	promptn=new Label("1. Numerator");
+	promptd=new Label("    1. Denominator");
+
+	promptn2=new Label("2. Numerator");
+	promptd2=new Label("    2. Denominator");
+
+	inputn=new TextField(5);
+	inputd=new TextField(5);
+
+	inputn2=new TextField(5);
+	inputd2=new TextField(5);
+	
+
+	w.add( promptn);
+	w.add( inputn);
+	w.add( promptd);
+	w.add( inputd);
+	w.add( promptn2);
+	w.add( inputn2 );
+	w.add( promptd2);
+	w.add( inputd2);	
+
+	et.add(add);
+	et.add(sub);
+	et.add(mul);
+	et.add(div);
+
+	setLayout( new BorderLayout());
+	add(w,BorderLayout.WEST);
+	add(et,BorderLayout.EAST);
+
+	setLayout(new FlowLayout(align));
+	validate();
+	
+   }
+
+
+   public void actionPerformed( ActionEvent e )
+   {
+	count+=1;
+
+	/*if (e.getSource() == e.inputd2 )
+	{
+	n=Integer.parseInt(inputn.getText());
+	d=Integer.parseInt(inputd.getText());
+	r.setFraction( n,d );
+	n = r.getN();
+	d = r.getD();
+
+
+	n2=Integer.parseInt(inputn2.getText());
+	d2=Integer.parseInt(inputd2.getText());
+	r.setFraction( n2,d2 );
+	n2 = r.getN();
+	d2 = r.getD();
+	}
+	*/
+
+
+	if (e.getSource() == add)
+	{
+	n=Integer.parseInt(inputn.getText());
+	d=Integer.parseInt(inputd.getText());
+	n2=Integer.parseInt(inputn2.getText());
+	d2=Integer.parseInt(inputd2.getText());
+
+	r.setFraction( n,d );
+	n = r.getN();
+	d = r.getD();
+
+	r.setFraction( n2,d2 );
+	n2 = r.getN();
+	d2 = r.getD();
+	
+	addflag=1; 
+	}
+
+	else if (e.getSource() == sub)
+	{
+	n=Integer.parseInt(inputn.getText());
+	d=Integer.parseInt(inputd.getText());
+	n2=Integer.parseInt(inputn2.getText());
+	d2=Integer.parseInt(inputd2.getText());
+
+	r.setFraction( n,d );
+	n = r.getN();
+	d = r.getD();
+
+	r.setFraction( n2,d2 );
+	n2 = r.getN();
+	d2 = r.getD();
+	
+	subflag=1;
+	}
+
+	else if (e.getSource() == mul)
+	{
+	n=Integer.parseInt(inputn.getText());
+	d=Integer.parseInt(inputd.getText());
+	n2=Integer.parseInt(inputn2.getText());
+	d2=Integer.parseInt(inputd2.getText());
+
+	r.setFraction( n,d );
+	n = r.getN();
+	d = r.getD();
+
+	r.setFraction( n2,d2 );
+	n2 = r.getN();
+	d2 = r.getD();
+
+	mulflag=1;
+	}
+
+	else if (e.getSource() == div)
+	{
+	n=Integer.parseInt(inputn.getText());
+	d=Integer.parseInt(inputd.getText());
+	n2=Integer.parseInt(inputn2.getText());
+	d2=Integer.parseInt(inputd2.getText());
+
+	r.setFraction( n,d );
+	n = r.getN();
+	d = r.getD();
+
+	r.setFraction( n2,d2 );
+	n2 = r.getN();
+	d2 = r.getD();
+	
+	divflag=1;
+	}
+
+	repaint();
+	
+   }
+ 
+   public void paint( Graphics g )
+   { // open paint method
+
+	DecimalFormat df = new DecimalFormat( "0.###" );
+
+	g.drawString("Enter two fractions below and choose an operation",10,10);
+
+	if (count > 0)
+	{ // outer if
+	   	
+	
+		g.drawString( "The first fraction, in reduced form, is "+n+"/"+d+" or "+df.format( (double)(n)/(double)(d) ),10,110);
+		g.drawString( "The second fraction, in reduced form, is "+n2+"/"+d2+" or "+df.format( (double)(n2)/(double)(d2) ),10,130);
+
+		if (addflag!=0) 
+		{
+		g.drawString( r.sum(n,d,n2,d2)
+				+" or "+df.format( (double)(r.getN())
+				/(double)(r.getD()) ),10,160);
+		addflag =0;
+		}
+		
+		else if (subflag!=0) 
+		{
+		g.drawString( r.diff(n,d,n2,d2)
+				+" or "+df.format( (double)(r.getN())
+				/(double)(r.getD()) ),10,160);
+		subflag =0;
+		}
+
+		else if (mulflag!=0) 
+		{
+		g.drawString( r.mul(n,d,n2,d2)
+				+" or "+df.format( (double)(r.getN())
+				/(double)(r.getD()) ),10,160);
+		mulflag =0;
+		}
+
+		else if (divflag!=0) 
+		{
+		g.drawString( r.div(n,d,n2,d2)
+				+" or "+df.format( (double)(r.getN())
+				/(double)(r.getD()) ),10,160);
+		divflag =0;
+		}
+
+		else
+		{
+		g.drawString("                                          ",10,160);
+		}
+
+           
+      	}//if
+
+
+
+   } // paint
+}// close class
+
+
+
+
+
+/******************************************************
+*******************************************************
+                  CLASS RATIONAL
+*******************************************************
+******************************************************/
+
+
+
+
+public class rational
+{
+private int numerator;
+private int denominator;
+   
+
+// rational constructor(s)
+
+public rational() { setFraction( 1, 1 ); }
+public rational(int num, int den) { setFraction( num, den ); }
+   
+   
+public void setFraction( int num, int den )
+{
+numerator = num;
+denominator = den;
+reduce();
+}
+
+
+public int getN(){return numerator;}
+
+public int getD(){return denominator;}
+
+public String sum(int x, int y, int a, int b)
+{
+numerator=x*b+y*a;
+denominator=b*y;
+reduce();
+return ( String.valueOf(x)+"/"+String.valueOf(y)+
+	" + "+String.valueOf(a)+"/"+String.valueOf(b)+" = "
+	+String.valueOf(numerator)+"/"+String.valueOf(denominator) );
+}
+
+public String diff(int x, int y, int a, int b)
+{
+numerator=x*b-y*a;
+denominator=b*y;
+reduce();
+return ( String.valueOf(x)+"/"+String.valueOf(y)+
+	" - "+String.valueOf(a)+"/"+String.valueOf(b)+" = "
+	+String.valueOf(numerator)+"/"+String.valueOf(denominator) );
+}
+
+public String mul(int x, int y, int a, int b)
+{
+numerator=x*a;
+denominator=b*y;
+reduce();
+return ( String.valueOf(x)+"/"+String.valueOf(y)+
+	" * "+String.valueOf(a)+"/"+String.valueOf(b)+" = "
+	+String.valueOf(numerator)+"/"+String.valueOf(denominator) );
+}
+
+public String div(int x, int y, int a, int b)
+{
+numerator=x*b;
+denominator=a*y;
+reduce();
+return ( String.valueOf(x)+"/"+String.valueOf(y)+
+	" / "+String.valueOf(a)+"/"+String.valueOf(b)+" = "
+	+String.valueOf(numerator)+"/"+String.valueOf(denominator));
+}
+
+
+
+/******************************************************
+*** Below is the function used to reduce fractions, ***
+*** Note this function will only reduce fractions   ***
+*** that are multiplies of 31 or less.  It is       ***
+*** based on the first 11 prime numbers. It could   ***
+*** easily be extended to include larger prime      ***
+*** numbers, but 31 seems to work fine for this     ***
+*** exercise.					    ***
+*******************************************************/
+
+private void reduce()
+{
+  if (numerator%2==0 & denominator%2==0)
+	{
+	while (numerator%2==0 & denominator%2==0)
+		{
+		numerator=numerator/2;
+		denominator=denominator/2;
+		}
+	}//end if
+
+  if (numerator%3==0 & denominator%3==0)
+	{
+	while (numerator%3==0 & denominator%3==0)
+		{
+		numerator=numerator/3;
+		denominator=denominator/3;
+		}
+	}//end if
+
+  if (numerator%5==0 & denominator%5==0)
+	{
+	while (numerator%5==0 & denominator%5==0)
+		{
+		numerator=numerator/5;
+		denominator=denominator/5;
+		}
+	}//end if
+
+  if (numerator%7==0 & denominator%7==0)
+	{
+	while (numerator%7==0 & denominator%7==0)
+		{
+		numerator=numerator/7;
+		denominator=denominator/7;
+		}
+	}//end if
+
+
+  if (numerator%11==0 & denominator%11==0)
+	{
+	while (numerator%11==0 & denominator%11==0)
+		{
+		numerator=numerator/11;
+		denominator=denominator/11;
+		}
+	}//end if
+
+
+  if (numerator%13==0 & denominator%13==0)
+	{
+	while (numerator%13==0 & denominator%13==0)
+		{
+		numerator=numerator/13;
+		denominator=denominator/13;
+		}
+	}//end if
+
+  if (numerator%17==0 & denominator%17==0)
+	{
+	while (numerator%17==0 & denominator%17==0)
+		{
+		numerator=numerator/17;
+		denominator=denominator/17;
+		}
+	}//end if
+
+
+  if (numerator%19==0 & denominator%19==0)
+	{
+	while (numerator%19==0 & denominator%19==0)
+		{
+		numerator=numerator/19;
+		denominator=denominator/19;
+		}
+	}//end if
+
+
+  if (numerator%31==0 & denominator%31==0)
+	{
+	while (numerator%31==0 & denominator%31==0)
+		{
+		numerator=numerator/31;
+		denominator=denominator/31;
+		}
+	}//end if
+
+}
+
+   
+}// close class

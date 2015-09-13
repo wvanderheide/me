@@ -1,0 +1,278 @@
+@media print
+{
+    .hideFromPrinter
+    {
+        display: none;
+    }
+}
+
+/* tags */
+BODY
+{
+    font-size: 12px;
+    font-family: arial;
+    color: silver;
+    background-color: #232323;
+}
+
+TD
+{
+    font-size: 13px;
+    font-family: arial;
+    color: silver;
+}
+
+div
+{
+    font-size: 11px;
+    font-family: arial;
+    color: white;
+}
+
+
+small
+{
+    font-size: 11px;
+    font-family: arial;
+    color: silver;
+}
+
+input
+{
+    font-size: 12px;
+    font-family: arial;
+    color: black;
+}
+
+a
+{
+    color: white;
+}
+
+a:link
+{
+    color: white;
+}
+
+a:active
+{
+    color: silver;
+}
+
+
+/*
+The problem with having a "visited" style is that then the hover doesn't work after a link is visited. -- IF VISITED IS DEFINED AFTER HOVER, THE SOLUTION IS TO DEFINE HOVER LAST LIKE I DID HERE */
+a:visited
+{
+    color: white;
+}
+
+a:hover
+{
+    color: red;
+    text-decoration: none;
+}
+
+/* table.tablesorter */
+table.tablesorter
+{
+    text-align: left;
+}
+
+table.tablesorter thead tr .header
+{
+    background-image: url(/me/images/bg.gif);
+    background-repeat: no-repeat;
+    background-position: center right;
+    cursor: pointer;
+}
+
+table.tablesorter thead tr .headerSortUp
+{
+    background-image: url(/me/images/asc.gif);
+}
+
+table.tablesorter thead tr .headerSortDown
+{
+    background-image: url(/me/images/desc.gif);
+}
+
+table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSortUp
+{
+}
+
+/* IDs */
+#AlbumList
+{
+    padding-right: 4px;
+    padding-left: 4px;
+    scrollbar-face-color: silver;
+    font-weight: normal;
+    font-size: 11px;
+    padding-bottom: 0px;
+    scrollbar-highlight-color: #ffffff;
+    overflow: auto;
+    width: 100%;
+    scrollbar-shadow-color: #333333;
+    color: silver;
+    scrollbar-3dlight-color: #ffffff;
+    scrollbar-arrow-color: #ffffff;
+    padding-top: 0px;
+    scrollbar-track-color: #ffffff;
+    font-family: Verdana,Tahoma;
+    scrollbar-darkshadow-color: #000000;
+    position: relative;
+    height: 451px;
+    font-size: 11px;
+    font-family: arial;
+}
+
+
+/* Selectors */
+
+.big
+{
+    font-size: 22px;
+    font-family: arial;
+    color: white;
+}
+
+.small
+{
+    font-size: 11px;
+    font-family: arial;
+    color: silver;
+}
+
+.TD
+{
+    font-size: 13px;
+    font-family: arial;
+    color: silver;
+}
+
+.TDRed
+{
+    font-size: 13px;
+    font-family: arial;
+    color: red;
+    font-weight: bold;
+}
+
+.caption
+{
+    font-size: 18px;
+    font-family: arial;
+    color: white;
+    font-weight: 700;
+    font-style: italic;
+}
+
+.title
+{
+    font-size: 12px;
+    font-family: arial;
+    color: white;
+    font-weight: 700;
+}
+
+.FakeLink
+{
+    text-decoration: underline;
+    color: white;
+    cursor: pointer;
+}
+
+
+.smScollingDiv
+{
+    border: solid 2px silver;
+    font-family: Verdana,Tahoma;
+    font-weight: normal;
+    font-size: 11px;
+    color: black;
+    overflow: auto;
+    width: 722px;
+    height: 180px;
+    position: relative;
+    background-color: #232323;
+    padding-right: 0px;
+    padding-left: 0px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+}
+
+.FamilyScollingDiv
+{
+    font-family: Verdana,Tahoma;
+    font-weight: normal;
+    font-size: 11px;
+    color: black;
+    overflow: auto;
+    width: 722px;
+    height: 280px;
+    position: relative;
+    background-color: #232323;
+    padding-right: 0px;
+    padding-left: 0px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+}
+
+.RockClimbingScollingDiv
+{
+    font-family: Verdana,Tahoma;
+    font-weight: normal;
+    font-size: 11px;
+    color: black;
+    overflow: auto;
+    width: 722px;
+    height: 500px;
+    position: relative;
+    background-color: #232323;
+    padding-right: 0px;
+    padding-left: 0px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+}
+
+.VideoScollingDiv
+{
+    font-family: Verdana,Tahoma;
+    font-weight: normal;
+    font-size: 11px;
+    color: black;
+    overflow: auto;
+    width: 722px;
+    height: 405px;
+    position: relative;
+    background-color: #232323;
+    padding-right: 0px;
+    padding-left: 0px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+}
+
+
+.AppletScollingDiv
+{
+    font-family: Verdana,Tahoma;
+    font-weight: normal;
+    font-size: 11px;
+    color: black;
+    overflow: auto;
+    width: 600px;
+    height: 430px;
+    position: relative;
+    background-color: #232323;
+    padding-right: 0px;
+    padding-left: 0px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+}
+
+.ridge
+{
+    border: ridge 2px silver;
+}
+

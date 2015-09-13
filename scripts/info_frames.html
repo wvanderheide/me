@@ -1,0 +1,39 @@
+<HTML>
+<HEAD>
+
+<STYLE type="text/css">
+	<!--
+		BODY {font-size : 10pt; font-family : arial; color : silver;}
+		small {font-size : 6pt; font-family : arial; color : white;}
+		div {font-size : 6pt; font-family : arial; color : white;}
+		big {font-size : 12pt; font-family : arial; color : red};
+          -->
+</STYLE>
+<SCRIPT LANGUAGE="JavaScript">
+
+
+<!-- Begin
+var blank = " "; // blank page
+
+function showInfo(description) {
+
+//the 'with' statement establishes the default object for a set of statements.  In this case "parent.bottom" is the default object.
+with (parent.bottom) {
+// with out the .open and .close method calls below the text added by mousing over the image or text in 
+// topframe.html is just added to, but with them the window is cleared each time
+document.open(); 
+document.write("<html><body>" + description + "</body></html>");
+document.close(); 
+   }
+}
+// End -->
+</SCRIPT>
+</HEAD>
+
+<frameset cols="50%,*" framespacing=0 frameborder="no" border ="0">
+  <frame src="topframe.html" name="topframe" scrolling=no>
+  <frame src="javascript:parent.blank" scrolling=no name="bottom">
+<!--"parent" refers to the frameset window that contains that frame-->
+</frameset>
+</BODY>
+</HTML>

@@ -1,0 +1,37 @@
+<html>
+<head><style type="text/css">
+	<!--
+		BODY {font-size : 10pt; font-family : arial; color : silver;}
+		small {font-size : 6pt; font-family : arial; color : white;}
+		div {font-size : 6pt; font-family : arial; color : white;}
+		big {font-size : 12pt; font-family : arial; color : red};
+          -->
+</style>
+<script LANGUAGE="JavaScript">
+	if (window == top) location.href = "info_frames.html"; // break out of inherited frames!!!
+</script>
+</head>
+
+<body bgcolor="black" text="silver">
+
+<li><font size="2" color="Red">View the source of this frame set to see how the right side is set to blank using <i><b>javascript:parent.blank, as well as to see href=&quot;javascript:void(0);&quot;. </b></i></font>
+
+<br>
+<br>
+<a href="javascript:void(0);" target="_top" onMouseOver="javascript:parent.showInfo('&lt;p&gt;&nbsp;&lt;/p&gt;&lt;p&gt;&nbsp;&lt;/p&gt;&lt;p align=justify&gt;&lt;b&gt;&lt;font color=red&gt;This text &lt;/font&gt; will remain now until you click the text or mouseover the image&lt;/p&gt;');" onMouseUp="parent.showInfo('');"><font color="silver" size="-2"><center><b>Walter VanderHeide</b></center></font></a>
+
+<br>
+<a href="javascript:void(0);" target="_top" onMouseOver="javascript:parent.showInfo('&lt;p&gt;&nbsp;&lt;/p&gt;&lt;p&gt;&nbsp;&lt;/p&gt;&lt;p align=justify&gt;&lt;b&gt;&lt;font color=silver&gt;This text&lt;/font&gt; will remain only as long as the mouse is on the image.&lt;/p&gt;');" onMouseOut="parent.showInfo('');">
+<img src="intro3.jpg" border="0" ALT="Walter VandrHeide" WIDTH="195" HEIGHT="281"></a>
+
+
+<p><font size="-1">
+Put your cursor on the image or text above and watch the right-hand frame.<font>
+
+<center>
+<form>
+<input type="button" value="Close" onClick="javascript:parent.close();">
+</form>
+</center>
+</body>
+</html>

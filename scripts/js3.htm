@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Scripts 11-15</title>
+	<link rel="stylesheet" href="../StyleSheet1.css" type="text/css">
+</head>
+
+<body>
+
+<table width=95%><tr><td>
+
+<!--Full screen and FRAMES -->
+<p>
+<font color = white><b>Script 11:</b></font> 
+This script introduces three new concepts:  The full-screen window, javascript:void(0), and javascript:parent.blank (see notes on resulting full-screen window).
+<p>
+<script language="JavaScript">
+function fullScreen(theURL) 
+{
+window.open(theURL, '', 'fullscreen=yes, scrollbars=auto');
+}
+</script>
+
+<form>
+<input type=button value="Full Screen"
+ onClick="javascript:fullScreen('info_frames.html');">
+</form>
+<!--END Full screen and FRAMES-->
+
+
+<!--Collapsible List -->
+<p>
+<font color = white><b>Script 12:</b></font> 
+Collapsible list.
+
+<form>
+<input type=button value="View"
+onclick="window.open('newlist.html','LIST','toolbar=no,width=300,height=300,resizable=yes')"><br>
+</form>
+
+<!--END Collapsible list-->
+
+
+
+<!-- Script 13 -->
+<p>
+<font color = white><b>Script 13:</b></font> This script is a way to "abuse" the fullscreen window setting of <i><b>window.open(theURL, '', 'fullscreen=yes, scrollbars=auto')</b></i> by opening an html page as fullscreen that has an onload event of <i><b>window.resizeTo(outerWidth, outerHeight)</b></i>.  What results in IE is a chromeless window that cannot be closed!  <i>(That is why it is unlucky script 13).</i>
+
+<form>
+<script language="JavaScript">
+function fullScreen10(){
+	panel10 = window.open('chromeless.html', '', 'fullscreen=yes, scrollbars=auto')
+}//end function
+	if(navigator.appName=="Netscape" && parseInt(navigator.appVersion)>=3){
+		document.write("Switch to an IE browser as this script will not work in NetScape.")
+		}
+	else {
+	document.write("<input type='button' name='xx' value='Virsus Like Window' onClick='fullScreen10();'>")}
+</script>
+</forM>
+<p>
+
+<!--End Script 13 -->
+
+
+
+
+
+<!--Form Story-->
+<p>
+<font color = white><b>Script 14:</b></font> 
+This script uses a form to gather data, then generates a story using the gathered data.<p>
+
+<form>
+<input type=button value="Form/Story"
+ onClick="window.open('valentine.html')">
+</form>
+<!--End Form Story-->
+
+
+<!--Script 15 -->
+<p>
+<font color = white><b>Script 15:</b></font> Menu Bar that uses DHTML layers.
+<p>
+
+<form>
+<input type=button value=" View Menu Bar "
+onclick="window.open('menubar.html','LIST','toolbar=no,width=400,height=200,resizable=yes')"><br>
+</form>
+
+</td></tr></table>
+
+</body>
+</html>

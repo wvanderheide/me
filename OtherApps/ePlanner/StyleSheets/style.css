@@ -1,0 +1,32 @@
+<style type="text/css">
+<!--
+BODY {font-size : 10pt; font-family : arial; color : black;}
+TD {font-size : 10pt; font-family : arial; color : black;}
+.test {font-size : 10pt; font-family : arial; color : black;}
+
+a{text-decoration: underline; font-size : 10pt; font-family : arial; font-weight : 500}
+
+A:link {color : #670003;  }
+A:visited {color : #670003;}
+A:active {color : #000000;}
+a:hover{text-decoration:none; color:"#999966";}
+
+
+a b{text-decoration: underline; font-size : 10pt; font-family : arial; font-weight : 500}
+A:link b {color : #999966;  }
+A:visited b {color : #999966;}
+A:active b{color : #999966;}
+a:hover b{text-decoration:none; color:"#670003";}
+
+
+.inputclass2 {font-size : 6pt; font-family : arial; color : #999966;  font-weight : 700;}
+
+.inputclass {font-size : 8pt; font-family : arial; color : #999966; background : "#670003"; font-weight : 700;}
+
+small.crossedoff {font-size : 10pt; font-family : arial; color : #999966; text-decoration : line-through; cursor : crosshair;}
+
+.attention {font-size : 10pt; font-family : arial; color : #990000; background : #cccccc; cursor : crosshair;}
+
+
+-->
+</style>
