@@ -3030,8 +3030,12 @@
                     <li>July 25 - Reb Slab, Red Red Whine, Red Dwarf, and Leave it to Bearer with Ken F.</li>
                     <li>August 1 -K'nex, Barbie, GI Joe, Lincoln Logs with Ken F</li>
                     <li>August 2 - West Slabs of Oly, solo.  Nightmare bushwack walk off two gullys over to the south heading west.</li>
-		    <li>August 19 - Quarry (indoor):  Climbed 5.10a (for warm up), 5.10a to get lead cert, 5.10c. 5.10b, 5.11 a, 5.9</li>
-		    <li>August 22 - Ken F and I climbed at P.A's Mother:  Exposed Clevage (lead once, TR once), R.R. Crossing (TR),High Hopes (lead)</li>
+		            <li>August 19 - Quarry (indoor):  Climbed 5.10a (for warm up), 5.10a to get lead cert, 5.10c. 5.10b, 5.11 a, 5.9</li>
+		             <li>August 22 - Ken F and I climbed at P.A's Mother:  Exposed Clevage (lead once, TR once), R.R. Crossing (TR),High Hopes (lead)</li>
+                    <li>Sept 3 - Joined the Quarry, climbed with Ken F</li>
+                    <li>Sept 4 - Climbed at Quarry with Jacob B</li>
+                    <li>Sept 7 - Quarry with Ken F</li>
+                    <li>Sept 14 - Quarry with Ken F</li>
                  </ol>
             </td>
           </tr>
