@@ -3036,6 +3036,8 @@
                     <li>Sept 4 - Climbed at Quarry with Jacob B</li>
                     <li>Sept 7 - Quarry with Ken F</li>
                     <li>Sept 14 - Quarry with Ken F</li>
+                    <li>Sept 17 - Quarry with Ken F</li>
+                    <li>Sept 19 - Green Jello and Green Monster with Ken F</li>
                  </ol>
             </td>
           </tr>
