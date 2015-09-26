@@ -8,141 +8,141 @@
 
 <html>
 <head>
-	<script language="javascript" type="text/javascript" src="../jquery-1.4.1.min.js"></script>
-	<script language="javascript" type="text/javascript" src="../jquery.tablesorter.min.js"></script>
-	<script type="text/javascript">
-		$(document).ready(function () {
-			$("#myTable").tablesorter();
+    <script language="javascript" type="text/javascript" src="../jquery-1.4.1.min.js"></script>
+    <script language="javascript" type="text/javascript" src="../jquery.tablesorter.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#myTable").tablesorter();
 
-			$("#SeeRockClimbingTbl").click(function () {
-			    $("#RockClimbingTbl").fadeIn('slow');
-			});
+            $("#SeeRockClimbingTbl").click(function () {
+                $("#RockClimbingTbl").fadeIn('slow');
+            });
 
-			$("#RockPicClose").click(function () {
-			    $("#RockClimbingTbl").fadeOut('slow');
-			});
-					});
-	</script>
-	<script language="C#" runat="server">        
-		private void Page_Load(object sender, System.EventArgs e)
-		{
-			//don't forget to set the <title> tag in the HTML
-			UC_LeftNav1.P_GraphicName = "hiking";
-			UC_LeftNav1.P_ImageName = "image11";
+            $("#RockPicClose").click(function () {
+                $("#RockClimbingTbl").fadeOut('slow');
+            });
+        });
+    </script>
+    <script language="C#" runat="server">        
+        private void Page_Load(object sender, System.EventArgs e)
+        {
+            //don't forget to set the <title> tag in the HTML
+            UC_LeftNav1.P_GraphicName = "hiking";
+            UC_LeftNav1.P_ImageName = "image11";
 
-			UC_Header1.P_HeaderTitle = "Mountaineering & Rock Climbing Log";
-			UC_Header1.P_HeaderText = "Click 'Peaks' or 'Rock Climbs' to see lists.";
-			UC_Footer1.P_LastModified = "August 22, 2015";
+            UC_Header1.P_HeaderTitle = "Mountaineering & Rock Climbing Log";
+            UC_Header1.P_HeaderText = "Click 'Peaks' or 'Rock Climbs' to see lists.";
+            UC_Footer1.P_LastModified = "August 22, 2015";
 
-			//Set Five Tabs properties
-			UC_FiveTabs1.P_MainAreaScrolls = "auto";
-			UC_FiveTabs1.P_FiveTabSelected = "1"; //this doesn't work when not in a code behind
-			UC_FiveTabs1.P_FiveTabsHeight = "100%";
+            //Set Five Tabs properties
+            UC_FiveTabs1.P_MainAreaScrolls = "auto";
+            UC_FiveTabs1.P_FiveTabSelected = "1"; //this doesn't work when not in a code behind
+            UC_FiveTabs1.P_FiveTabsHeight = "100%";
 
-			//tab labels
-			UC_FiveTabs1.P_Tab1Name = "Introduction";
+            //tab labels
+            UC_FiveTabs1.P_Tab1Name = "Introduction";
             UC_FiveTabs1.P_Tab2Name = "Peaks";
             UC_FiveTabs1.P_Tab3Name = "Rock Climbs";
 
 
-			//Peak Count
-			int UniqueCount = 159;
-			int TotalCount = 290;
+            //Peak Count
+            int UniqueCount = 160;
+            int TotalCount = 291;
 
-			//tab content
-			UC_FiveTabs1.P_Tab1Text = ltTheBody.Text;
+            //tab content
+            UC_FiveTabs1.P_Tab1Text = ltTheBody.Text;
             UC_FiveTabs1.P_Tab2Text = ltPeakLog.Text.Replace("?&*UniqueCount?&*", UniqueCount.ToString()).Replace("?&*TotalCount?&*", TotalCount.ToString());
             UC_FiveTabs1.P_Tab3Text = ltRockClimbLog.Text;
 
 
-			//tab visibile
-			UC_FiveTabs1.P_Tab4Visible = false;
-			UC_FiveTabs1.P_Tab5Visible = false;
-			UC_FiveTabs1.P_Tab6Visible = false;
-		}
-	</script>
-	<title>Mountaineering</title>
-	<script language="javascript" type="text/javascript" src="../JScript1.js"></script>
-	<link rel="stylesheet" href="../StyleSheet1.css" type="text/css" />
+            //tab visibile
+            UC_FiveTabs1.P_Tab4Visible = false;
+            UC_FiveTabs1.P_Tab5Visible = false;
+            UC_FiveTabs1.P_Tab6Visible = false;
+        }
+    </script>
+    <title>Mountaineering</title>
+    <script language="javascript" type="text/javascript" src="../JScript1.js"></script>
+    <link rel="stylesheet" href="../StyleSheet1.css" type="text/css" />
 </head>
 <body>
-	<form id="Form1" method="post" runat="server">
-		<noscript>
-			<meta http-equiv="REFRESH" content="0; URL= ../intro/index.aspx">
-		</noscript>
-		<div style="display: none; background-color: Silver; color: Black; border: dotted 1px white; width: 800px; z-index: 1000; position: absolute; left: 5; top: 5"
-			id="DivCountTotal">
-			<div style="text-align: left; padding: 2px 1px 1px 3px; color: Black">
-				Since I have climbed a lot of these mountains more than once, <b>total count</b>
-				is an approximation of the number of times I've climbed mountains. It's not 100%
+    <form id="Form1" method="post" runat="server">
+        <noscript>
+            <meta http-equiv="REFRESH" content="0; URL= ../intro/index.aspx">
+        </noscript>
+        <div style="display: none; background-color: Silver; color: Black; border: dotted 1px white; width: 800px; z-index: 1000; position: absolute; left: 5; top: 5"
+            id="DivCountTotal">
+            <div style="text-align: left; padding: 2px 1px 1px 3px; color: Black">
+                Since I have climbed a lot of these mountains more than once, <b>total count</b>
+                is an approximation of the number of times I've climbed mountains. It's not 100%
             accurate because I'm not sure I have included every mountain I have ever climbed
             in this list, nor have I recorded everytime I have climbed a mountain. For example
             Old Rag, and Big Schloss are guesses, as are others.
-			</div>
-		</div>
-		<div style="display: none; background-color: Silver; color: Black; border: dotted 1px white; width: 800px; z-index: 1000; position: absolute; left: 5; top: 5"
-			id="DivCountDiff">
-			<div style="text-align: left; padding: 2px 1px 1px 3px; color: Black">
-				Note: The "<i>Climber's Logs I've Signed</i>" count on <b>SummitPost.org</b> doesn't
+            </div>
+        </div>
+        <div style="display: none; background-color: Silver; color: Black; border: dotted 1px white; width: 800px; z-index: 1000; position: absolute; left: 5; top: 5"
+            id="DivCountDiff">
+            <div style="text-align: left; padding: 2px 1px 1px 3px; color: Black">
+                Note: The "<i>Climber's Logs I've Signed</i>" count on <b>SummitPost.org</b> doesn't
             necessarily include the same mountains as this list. The summitpost count is "mountains
             & rocks" plus "routes" plus "canyons".
             <table border="1" bgcolor="black">
-				<tr>
-					<td valign="top">The count HERE includes 14 mountains not found on Summit Post:
+                <tr>
+                    <td valign="top">The count HERE includes 14 mountains not found on Summit Post:
                         <ol>
-							<li>Bear's Hump</li>
-							<li>Victoria Peak (hong kong)</li>
-							<li>Chimney Rock NC</li>
-							<li>Mt. Tuscarora <i>(summit post has Tuscarora as part of Mt. Wolverine)</i></li>
-							<li>Peak 420</li>
-							<li>Monte Cristo <i>(summit post has Monte Cristo as part of Mt. Superior)</i></li>
-							<li>Cathedral Rock</li>
-							<li>Red Top Mountain</li>
-							<li>Roberts Horn</li>
-							<li>Peak 9990</li>
-							<li>East Peak</li>
-							<li>Peak 10009</li>
-							<li>First Gemini</li>
-							<li>Second Gemini</li>
-						</ol>
-					</td>
-					<td valign="top">This count omits 3 mountain:
+                            <li>Bear's Hump</li>
+                            <li>Victoria Peak (hong kong)</li>
+                            <li>Chimney Rock NC</li>
+                            <li>Mt. Tuscarora <i>(summit post has Tuscarora as part of Mt. Wolverine)</i></li>
+                            <li>Peak 420</li>
+                            <li>Monte Cristo <i>(summit post has Monte Cristo as part of Mt. Superior)</i></li>
+                            <li>Cathedral Rock</li>
+                            <li>Red Top Mountain</li>
+                            <li>Roberts Horn</li>
+                            <li>Peak 9990</li>
+                            <li>East Peak</li>
+                            <li>Peak 10009</li>
+                            <li>First Gemini</li>
+                            <li>Second Gemini</li>
+                        </ol>
+                    </td>
+                    <td valign="top">This count omits 3 mountain:
                         <ol>
-							<li>Juniper Peak, NV -- didn't summit but counted on SummitPost to remember it. Was up there again Oct 2013 when we climbed the Solar Slab route and walked off down Oak Creek Canyon..</li>
-							<li>Eichorn Pinnacle (Yosemite National Park)</li>
-							<li>Royal Arches (Yosemite National Park) </li>
-						</ol>
-					</td>
-				</tr>
-			</table>
-				So, The count here should equal 12 more than summitpost.org (without areas/routes/canyons). SummitPost has X number of mountains (without areas/routes/canyons).
+                            <li>Juniper Peak, NV -- didn't summit but counted on SummitPost to remember it. Was up there again Oct 2013 when we climbed the Solar Slab route and walked off down Oak Creek Canyon..</li>
+                            <li>Eichorn Pinnacle (Yosemite National Park)</li>
+                            <li>Royal Arches (Yosemite National Park) </li>
+                        </ol>
+                    </td>
+                </tr>
+            </table>
+                So, The count here should equal 12 more than summitpost.org (without areas/routes/canyons). SummitPost has X number of mountains (without areas/routes/canyons).
             X minus 3 omitted here, plus 14 extra mountains (included here), plus
             1 Canyon (Grand Canyon, here but not on summitpost) equals the count here.
-			</div>
-		</div>
-		<table cellspacing="3" cellpadding="3" border="0" width="100%">
-			<tr>
-				<td width="1%" align="center" valign="top">
-					<uc1:UC_LeftNav ID="UC_LeftNav1" runat="server"></uc1:UC_LeftNav>
-				</td>
-				<td valign="top" width="99%" style="padding-left: 25px">
-					<uc1:UC_Header ID="UC_Header1" runat="server"></uc1:UC_Header>
-					<!-- PAGE STUFF	-->
-					<br />
-					<!-- Change the width on the table below to resize the tabs area -->
-					<table cellspacing="3" cellpadding="3" border="0" width="100%" align="left">
-						<tr>
-							<td>
-								<uc1:UC_FiveTabs ID="UC_FiveTabs1" runat="server"></uc1:UC_FiveTabs>
-							</td>
-						</tr>
-					</table>
-					<!-- END Page Stuff -->
-				</td>
-			</tr>
-		</table>
-		<uc1:UC_Footer ID="UC_Footer1" runat="server"></uc1:UC_Footer>
-		<asp:Literal ID="ltTheBody" runat="server" Visible="false">
+            </div>
+        </div>
+        <table cellspacing="3" cellpadding="3" border="0" width="100%">
+            <tr>
+                <td width="1%" align="center" valign="top">
+                    <uc1:UC_LeftNav ID="UC_LeftNav1" runat="server"></uc1:UC_LeftNav>
+                </td>
+                <td valign="top" width="99%" style="padding-left: 25px">
+                    <uc1:UC_Header ID="UC_Header1" runat="server"></uc1:UC_Header>
+                    <!-- PAGE STUFF	-->
+                    <br />
+                    <!-- Change the width on the table below to resize the tabs area -->
+                    <table cellspacing="3" cellpadding="3" border="0" width="100%" align="left">
+                        <tr>
+                            <td>
+                                <uc1:UC_FiveTabs ID="UC_FiveTabs1" runat="server"></uc1:UC_FiveTabs>
+                            </td>
+                        </tr>
+                    </table>
+                    <!-- END Page Stuff -->
+                </td>
+            </tr>
+        </table>
+        <uc1:UC_Footer ID="UC_Footer1" runat="server"></uc1:UC_Footer>
+        <asp:Literal ID="ltTheBody" runat="server" Visible="false">
     <table width="100%">
         <tr>
             <td>          
@@ -197,8 +197,8 @@
             </td>
         </tr>
     </table>
-		</asp:Literal>
-		<asp:Literal ID="ltPeakLog" runat="server" Visible="false">
+        </asp:Literal>
+        <asp:Literal ID="ltPeakLog" runat="server" Visible="false">
        <table width="100%">
             <tr>
                 <td width="80%">An incomplete list of mountains I have summited.&nbsp;&nbsp;
@@ -226,7 +226,31 @@
                         Location</td>
                 </tr>  
                  </thead>
-        <tbody>       
+        <tbody>              
+                <tr>
+                    <td valign="top">
+                        Mount Timpanogos</td>
+                    <td  valign="top">
+                        11,749 ft<br />(3,581 m)</td>
+                    <td valign="top">
+                    <ol>
+                        <li>September 16, 1995 -- Aspen Grove Trail</li>
+                        <li>September 3, 2005 -- Aspen Grove Trail</li>
+                        <li>August 4, 2007 -- Timponooke Trail on summit at
+                            <nobr>5:28 am</nobr></li>
+                        <li>August 9, 2008 -- via the snowfield</li>
+                        <li>October 24, 2009 -- Aspen Grove Trail</li>
+                        <li>April 17, 2010 -- Everest Ridge</li>                            
+                        <li>June 25, 2011 -- Primrose Cirque</li>                       
+                        <li>October 26, 2012 -- As part of full traverse</li>
+                        <li>July 7, 2015 -- Aspen Grove Trail</li>
+                        <li>September 25, 2015 Aspen Grove Trail</li>
+                    </ol>
+                    </td>
+                    <td valign="top">
+                        40.38460N / 111.636W<br />
+                        <b>USA/Utah</b></td>
+                </tr>      
             <tr>
                     <td valign="top">
                         Mount Lineham</td>
@@ -296,30 +320,7 @@
                     <td valign="top">
                         40.70700N / 111.7592W <br />
                         <b>USA/Utah</b></td>
-                </tr>  
-                <tr>
-                    <td valign="top">
-                        Mount Timpanogos</td>
-                    <td  valign="top">
-                        11,749 ft<br />(3,581 m)</td>
-                    <td valign="top">
-                    <ol>
-                        <li>September 16, 1995 -- Aspen Grove Trail</li>
-                        <li>September 3, 2005 -- Aspen Grove Trail</li>
-                        <li>August 4, 2007 -- Timponooke Trail on summit at
-                            <nobr>5:28 am</nobr></li>
-                        <li>August 9, 2008 -- via the snowfield</li>
-                        <li>October 24, 2009 -- Aspen Grove Trail</li>
-                        <li>April 17, 2010 -- Everest Ridge</li>                            
-                        <li>June 25, 2011 -- Primrose Cirque</li>                       
-                        <li>October 26, 2012 -- As part of full traverse</li>
-                        <li>July 7, 2015 -- Aspen Grove Trail</li>
-                    </ol>
-                    </td>
-                    <td valign="top">
-                        40.38460N / 111.636W<br />
-                        <b>USA/Utah</b></td>
-                </tr>  
+                </tr>   
   		<tr>
                     <td valign="top">
                         Squaw Peak</td>
@@ -2718,8 +2719,8 @@
         </table>
         1 foot = 0.3048 meters :: 1 meter = 3.2808399 feet
         <br />
-		</asp:Literal>        
-		<asp:Literal ID="ltRockClimbLog" runat="server" Visible="false">
+        </asp:Literal>
+        <asp:Literal ID="ltRockClimbLog" runat="server" Visible="false">
         <table width="100%">
           <tr>
             <td>    
@@ -3043,6 +3044,6 @@
           </tr>
         </table>        
         </asp:Literal>
-	</form>
+    </form>
 </body>
 </html>
