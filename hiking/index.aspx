@@ -47,7 +47,7 @@
 
             //Peak Count
             int UniqueCount = 160;
-            int TotalCount = 291;
+            int TotalCount = 292;
 
             //tab content
             UC_FiveTabs1.P_Tab1Text = ltTheBody.Text;
@@ -226,7 +226,44 @@
                         Location</td>
                 </tr>  
                  </thead>
-        <tbody>              
+        <tbody>   
+              
+  		<tr>
+                    <td valign="top">
+                        Squaw Peak</td>
+                    <td  valign="top">
+                        7,876 ft<br />(2,401 m)</td>
+                    <td valign="top">
+			<ol>
+                        <li>June 17, 2006</li>
+                        <li>November 25, 2006</li>
+                        <li>December 26, 2007</li>
+                        <li>September 27, 2008</li>
+                        <li>December 27, 2008</li>
+                        <li>May 2, 2009</li>
+                        <li>October 18, 2009</li>
+                        <li>January 2, 2010</li>
+                        <li>February 28, 2010</li>
+                    	<li>November 26, 2010</li>
+			<li>June 5, 2011</li>
+		        <li>August 28, 2011</li>
+		        <li>February 26, 2012</li>
+		        <li>November 10, 2012</li>
+                        <li>February 10, 2013</li>
+                        <li>October 8, 2013</li>
+                        <li>March 16, 2014</li>
+                        <li>December 9, 2014</li>
+			<li>April 19, 2015</li>
+			<li>July 5, 2015</li>
+                <li>Oct 4, 2015</li>
+			</ol>
+                    </td>
+                    <td valign="top">
+                        40.272N / 111.616W
+                        <br />
+                        <b>USA/Utah</b></td>
+                </tr>  
+                       
                 <tr>
                     <td valign="top">
                         Mount Timpanogos</td>
@@ -320,41 +357,7 @@
                     <td valign="top">
                         40.70700N / 111.7592W <br />
                         <b>USA/Utah</b></td>
-                </tr>   
-  		<tr>
-                    <td valign="top">
-                        Squaw Peak</td>
-                    <td  valign="top">
-                        7,876 ft<br />(2,401 m)</td>
-                    <td valign="top">
-			<ol>
-                        <li>June 17, 2006</li>
-                        <li>November 25, 2006</li>
-                        <li>December 26, 2007</li>
-                        <li>September 27, 2008</li>
-                        <li>December 27, 2008</li>
-                        <li>May 2, 2009</li>
-                        <li>October 18, 2009</li>
-                        <li>January 2, 2010</li>
-                        <li>February 28, 2010</li>
-                    	<li>November 26, 2010</li>
-			<li>June 5, 2011</li>
-		        <li>August 28, 2011</li>
-		        <li>February 26, 2012</li>
-		        <li>November 10, 2012</li>
-                        <li>February 10, 2013</li>
-                        <li>October 8, 2013</li>
-                        <li>March 16, 2014</li>
-                        <li>December 9, 2014</li>
-			<li>April 19, 2015</li>
-			<li>July 5, 2015</li>
-			</ol>
-                    </td>
-                    <td valign="top">
-                        40.272N / 111.616W
-                        <br />
-                        <b>USA/Utah</b></td>
-                </tr>  
+                </tr> 
 		<tr>
 		<td valign="top">
                         White Butte</td>
@@ -3041,6 +3044,10 @@
                     <li>Sept 19 - Green Jello and Green Monster with Ken F</li>
                     <li>Sept 21 - Quarry with Ken F</li>
                     <li>Sept 23 - Quarry with Ken F</li>
+                    <li>Sept 28 - Quarry with Ken F</li>
+                    <li>Sept 30 - Quarry with Ken F</li>
+                    <li>Oct 7 - Quarry with Jacob B</li>
+                    <li>Oct 9 - Quarry with Ken F</li>
                  </ol>
             </td>
           </tr>
