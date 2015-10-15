@@ -46,8 +46,8 @@
 
 
             //Peak Count
-            int UniqueCount = 160;
-            int TotalCount = 292;
+            int UniqueCount = 159;
+            int TotalCount = 291;
 
             //tab content
             UC_FiveTabs1.P_Tab1Text = ltTheBody.Text;
@@ -1282,23 +1282,7 @@
                          40.66220N / 111.6458W
                         <br />
                         <b>USA/Utah</b></td>
-                </tr>
-                <tr>
-                    <td valign="top">
-                        Mt. Olympus</td>
-                    <td  valign="top">
-                        9,026 ft<br />(2,751 m)</td>
-                    <td valign="top">
-                    <ol>
-                       <li>May 10, 2008</li>
-                       <li>December 9, 2011</li>
-                    </ol></td>
-                    <td>
-                         40.65700N / 111.77W
-                        <br />
-                        <b>USA/Utah</b></td>
-                </tr>
-                          
+                </tr>                          
                 <tr>
                     <td valign="top">
                        Mt. Whitney
