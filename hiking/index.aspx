@@ -3032,6 +3032,10 @@
                     <li>Sept 30 - Quarry with Ken F</li>
                     <li>Oct 7 - Quarry with Jacob B</li>
                     <li>Oct 9 - Quarry with Ken F</li>
+                    <li>Oct 14 - Quarry with Ken F</li>
+                    <li>Oct 16 - Quarry with Ken F</li>
+                    <li>Oct 19 - Quarry with Ken F</li>
+                    <li>Oct 21 - Quarry with Ken F</li>
                  </ol>
             </td>
           </tr>
