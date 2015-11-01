@@ -3036,6 +3036,10 @@
                     <li>Oct 16 - Quarry with Ken F</li>
                     <li>Oct 19 - Quarry with Ken F</li>
                     <li>Oct 21 - Quarry with Ken F</li>
+                    
+                    <li>Oct 28 - Quarry with Ken F</li>
+                    <li>Oct 30 - Quarry with Ken F</li>
+                    <li>Nov 1 - Brain Full of Spiders on Bad Bananas wall Rock Canyon with Danny Lay, as two pitches.</li>
                  </ol>
             </td>
           </tr>
