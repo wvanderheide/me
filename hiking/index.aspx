@@ -3040,6 +3040,15 @@
                     <li>Oct 28 - Quarry with Ken F</li>
                     <li>Oct 30 - Quarry with Ken F</li>
                     <li>Nov 1 - Brain Full of Spiders on Bad Bananas wall Rock Canyon with Danny Lay, as two pitches.</li>
+
+                    <li>Nov 2 - Quarry with Ken F</li>
+                    <li>Nov 4 - Quarry Bouldering solo</li>
+                    <li>Nov 6 - Quarry with Ken F</li>
+                    <li>Nov 9 - Quarry with Ken F</li>
+                    <li>Nov 14 - Quarry with Ana (belayer only)</li>
+                    <li>Nov 16 - Quarry with Ken F</li>
+                    <li>Nov 18 - Quarry with Ken F</li>
+		    <li>Nov 21 - Dirtcicle (ice) with Brad Meyers (4 laps)</li>
                  </ol>
             </td>
           </tr>
