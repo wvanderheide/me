@@ -3049,6 +3049,15 @@
                     <li>Nov 16 - Quarry with Ken F</li>
                     <li>Nov 18 - Quarry with Ken F</li>
 		    <li>Nov 21 - Dirtcicle (ice) with Brad Meyers (4 laps)</li>
+                    <li>Nov 23 - Quarry with Glenn Merril</li>
+                    <li>Nov 25 - Quarry with Ray Loveless, then again with Ken F</li>
+		    <li>Nov 27 - Stairway (ice) with Brad Meyers (2 laps on center route, free solo the little right side, 3 laps left (tallest) route)</li>
+                    <li>Nov 30 - Quarry with Ken F</li>
+                    <li>Dec 2 - Quarry with Ken F</li>
+                    <li>Dec 5 - CCC with Brad Meyers (ice)</li>
+                    <li>Dec 7 - Quarry with Glenn M</li>
+                    <li>Dec 9 - Quarry with Ken F</li>
+                    <li>Dec 12 - Quarry with Ken F</li>
                  </ol>
             </td>
           </tr>
