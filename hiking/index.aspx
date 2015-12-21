@@ -3058,6 +3058,7 @@
                     <li>Dec 7 - Quarry with Glenn M</li>
                     <li>Dec 9 - Quarry with Ken F</li>
                     <li>Dec 12 - Quarry with Ken F</li>
+                    <li>Dec 16 - Quarry with Ken F</li>
                  </ol>
             </td>
           </tr>
