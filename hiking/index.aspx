@@ -3059,6 +3059,9 @@
                     <li>Dec 9 - Quarry with Ken F</li>
                     <li>Dec 12 - Quarry with Ken F</li>
                     <li>Dec 16 - Quarry with Ken F</li>
+                    <li>Dec 21 - Quarry with Ken F</li>
+                    <li>Dec 23 - Quarry with Ken F</li>
+		    <li>Dec 26 - Ice, Stairway, with Brad M</li>
                  </ol>
             </td>
           </tr>
