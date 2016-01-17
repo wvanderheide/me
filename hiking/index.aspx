@@ -32,7 +32,7 @@
 
             UC_Header1.P_HeaderTitle = "Mountaineering & Rock Climbing Log";
             UC_Header1.P_HeaderText = "Click 'Peaks' or 'Rock Climbs' to see lists.";
-            UC_Footer1.P_LastModified = "August 22, 2015";
+            UC_Footer1.P_LastModified = "Jan 17, 2016";
 
             //Set Five Tabs properties
             UC_FiveTabs1.P_MainAreaScrolls = "auto";
@@ -2780,7 +2780,7 @@
                     </tr>
                 </table>
                 <h2>Rock Climbing Log</h2>
-                <a href="#pre2010">Pre-2010</a> | <a href="#2010">2010</a> | <a href="#2011">2011</a> | <a href="#2012">2012</a> | <a href="#2013">2013</a> | <a href="#2014">2014</a> | <a href="#2015">2015</a>
+                <a href="#pre2010">Pre-2010</a> | <a href="#2010">2010</a> | <a href="#2011">2011</a> | <a href="#2012">2012</a> | <a href="#2013">2013</a> | <a href="#2014">2014</a> | <a href="#2015">2015</a> | <a href="#2016">2016</a>
                 <br />
                 <br />
                 <a id="pre2010"></a>1981 – 2009 (Approximation logged Nov 15, 2013)
@@ -3062,6 +3062,18 @@
                     <li>Dec 21 - Quarry with Ken F</li>
                     <li>Dec 23 - Quarry with Ken F</li>
 		    <li>Dec 26 - Ice, Stairway, with Brad M</li>
+		    <li>Dec 28 - Quarry with Ken F</li>
+                 </ol>
+
+
+                
+                <a id="2016"></a>2016 
+                <ol>
+		    <li>Jan 2 - GWI, with Brad M</li>
+		    <li>Jan 6 - Quarry with Ken F</li>
+		    <li>Jan 8 - Quarry with Ken F</li>
+		    <li>Jan 11 - Quarry with Ken F</li>
+		    <li>Jan 13 - Quarry with Ken F</li>
                  </ol>
             </td>
           </tr>
