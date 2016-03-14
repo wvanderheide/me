@@ -32,7 +32,7 @@
 
             UC_Header1.P_HeaderTitle = "Mountaineering & Rock Climbing Log";
             UC_Header1.P_HeaderText = "Click 'Peaks' or 'Rock Climbs' to see lists.";
-            UC_Footer1.P_LastModified = "Jan 17, 2016";
+            UC_Footer1.P_LastModified = "March 13, 2016";
 
             //Set Five Tabs properties
             UC_FiveTabs1.P_MainAreaScrolls = "auto";
@@ -3063,18 +3063,34 @@
                     <li>Dec 23 - Quarry with Ken F</li>
 		    <li>Dec 26 - Ice, Stairway, with Brad M</li>
 		    <li>Dec 28 - Quarry with Ken F</li>
-                 </ol>
+            </ol>
 
-
-                
-                <a id="2016"></a>2016 
-                <ol>
-		    <li>Jan 2 - GWI, with Brad M</li>
-		    <li>Jan 6 - Quarry with Ken F</li>
-		    <li>Jan 8 - Quarry with Ken F</li>
-		    <li>Jan 11 - Quarry with Ken F</li>
-		    <li>Jan 13 - Quarry with Ken F</li>
-                 </ol>
+            <a id="2016"></a>2016 
+            <ol>
+		        <li>Jan 2 - GWI, with Brad M</li>
+		        <li>Jan 6 - Quarry with Ken F</li>
+		        <li>Jan 8 - Quarry with Ken F</li>
+		        <li>Jan 11 - Quarry with Ken F</li>
+		        <li>Jan 13 - Quarry with Ken F</li>
+		        <li>Jan 18 - Quarry with Ken F</li>
+		        <li>Jan 20 - Quarry with Ken F</li>
+		        <li>Jan 23 - Ouray Ice with Brad M</li>
+		        <li>Jan 24 - Ouray Ice with Justin Matis</li>
+		        <li>Jan 27 - Quarry with Mike</li>
+		        <li>Jan 29 - Quarry with Richard Hilton</li>
+		        <li>Feb 1 - Quarry with Ken F</li>
+		        <li>Feb 6 - Stairway to Heavan Ice with Rob Allen and Mike Gibby</li>
+		        <li>Feb 8 - Quarry with Ken F</li>
+		        <li>Feb 12 - Quarry with Richard Hilton</li>
+		        <li>Feb 13 - Quarry with Ana, Paulina and Jakub</li>
+		        <li>Feb 15 - GWI ice with Mike Gibby</li>
+		        <li>Feb 15 - Quarry with Ken F</li>
+		        <li>Feb 17 - Quarry with Ken F</li>
+		        <li>Feb 22 - Quarry with Ken F</li>
+		        <li>Feb 24 - Quarry with Ken F</li>
+		        <li>March 8 - Quarry with Ana</li>
+		        <li>March 10 - Quarry Bouldering alone</li>
+            </ol>
             </td>
           </tr>
         </table>        
