@@ -3090,6 +3090,8 @@
 		        <li>Feb 24 - Quarry with Ken F</li>
 		        <li>March 8 - Quarry with Ana</li>
 		        <li>March 10 - Quarry Bouldering alone</li>
+		        <li>March 14 - Quarry with Ken F</li>
+		        <li>March 16 - Quarry with Glenn M</li>
             </ol>
             </td>
           </tr>
