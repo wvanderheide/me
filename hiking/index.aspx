@@ -3092,6 +3092,12 @@
 		        <li>March 10 - Quarry Bouldering alone</li>
 		        <li>March 14 - Quarry with Ken F</li>
 		        <li>March 16 - Quarry with Glenn M</li>
+		        <li>March 23 - Quarry with Ken F</li>
+		        <li>March 25 - Quarry with Richard Hilton</li>
+		        <li>March 28 - Quarry with Ken F</li>
+		        <li>March 30 - Quarry with Ken F</li>
+		        <li>April 1 - Quarry with Fred Williams</li>
+		        <li>April 2 - Rock Canyon with Brad. Green Jello, Green Monster, and Hamster Forever</li>
             </ol>
             </td>
           </tr>
