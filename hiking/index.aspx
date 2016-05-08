@@ -3098,6 +3098,16 @@
 		        <li>March 30 - Quarry with Ken F</li>
 		        <li>April 1 - Quarry with Fred Williams</li>
 		        <li>April 2 - Rock Canyon with Brad. Green Jello, Green Monster, and Hamster Forever</li>
+		        <li>April 4 - Quarry with Ken F</li>
+		        <li>April 6 - Quarry with Ken F</li>
+		        <li>April 11 - Quarry with Ken F</li>
+		        <li>April 17 - Quarry with Derek and Cori</li>
+		        <li>April 20 - Quarry with Derek and Cori</li>
+		        <li>April 21 - Quarry with Jeff and Brad</li>
+		        <li>April 25 - Quarry with Jeff, Brad, and Mike</li>
+		        <li>April 28 - Quarry with Alan Moore.  Brad belayed me on the green 5.10d and I got it clean</li>
+		        <li>May 2 - Quarry with Jeff, Brad, and Mike</li>
+		        <li>May 3 - Quarry with Alan Moore</li>
             </ol>
             </td>
           </tr>
