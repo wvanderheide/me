@@ -3105,9 +3105,16 @@
 		        <li>April 20 - Quarry with Derek and Cori</li>
 		        <li>April 21 - Quarry with Jeff and Brad</li>
 		        <li>April 25 - Quarry with Jeff, Brad, and Mike</li>
-		        <li>April 28 - Quarry with Alan Moore.  Brad belayed me on the green 5.10d and I got it clean</li>
+		        <li>April 28 - Quarry with Alan Moore.  Brad belayed me on the lead climb (green 5.10d) and I got it clean</li>
 		        <li>May 2 - Quarry with Jeff, Brad, and Mike</li>
-		        <li>May 3 - Quarry with Alan Moore</li>
+		        <li>May 3 - Quarry with Alan Moore <b style="color:red">I continued to get two days a week in at the Quarry, so I'm not going to track it anymore!!!</b></li>
+                <li>July 16 - Brad Meyers and I climbed Steorts Ridge in BCC</li>
+                <li>July 30 - Brad Meyers and I climbed Western Front, and first pitch (the one below Wizardly Way) on Trilogy Buttress</li>
+                <li>Aug 21 - Sundial Peak via the 11th hour route with Mike Halls</li>
+                <li>Aug 27 - Portable Darkness on Devils Castle with Mike Halls</li>
+                <li>Sept 10 - DJW Memorial, and Main Crack on Ed and Terry Wall Rock Canyon wiht Mike Halls</li>
+                <li>Sept 15 - I have now lead 4 different 11a’s (some multiple times), and two of them I did on-sight.  I feel like I can safely say 11a lead at the gym is my level, and 11d on top-rope.</li>
+                <li>Sept 17 - Maple Canyon with Mike Halls:  Dizzy Channel, Grecian Highway, Crime Scene(? Bridge Area?), Hematomia (? Bridge Area?), Man Muncher (Box Canyon)</li>
             </ol>
             </td>
           </tr>
