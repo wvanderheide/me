@@ -3115,6 +3115,10 @@
                 <li>Sept 10 - DJW Memorial, and Main Crack on Ed and Terry Wall Rock Canyon wiht Mike Halls</li>
                 <li>Sept 15 - I have now lead 4 different 11a’s (some multiple times), and two of them I did on-sight.  I feel like I can safely say 11a lead at the gym is my level, and 11d on top-rope.</li>
                 <li>Sept 17 - Maple Canyon with Mike Halls:  Dizzy Channel, Grecian Highway, Crime Scene(? Bridge Area?), Hematomia (? Bridge Area?), Man Muncher (Box Canyon)</li>
+                <li>Sept 24 & 25 - Moonlight Buttress - Zion Canyon - Aid climbed with Danny Lay.</li>
+                <li>Oct 1 – P1 and 2 of Western Front, then the third pitch of Feral Debutantes, Rock Canyon with Billy Hanncock.</li>
+                <li>Oct 15 – Trilogy Buttress in Rock Canyon, with Brad Meyers</li>
+                <li>Oct 22 – Pentapitch in LCC with Brad Meyers, skipped P5</li>
             </ol>
             </td>
           </tr>
