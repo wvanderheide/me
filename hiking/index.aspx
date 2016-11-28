@@ -3119,6 +3119,10 @@
                 <li>Oct 1 – P1 and 2 of Western Front, then the third pitch of Feral Debutantes, Rock Canyon with Billy Hanncock.</li>
                 <li>Oct 15 – Trilogy Buttress in Rock Canyon, with Brad Meyers</li>
                 <li>Oct 22 – Pentapitch in LCC with Brad Meyers, skipped P5</li>
+
+                <li>Nov 24 – Cookie Monster, and P6 of Cat in the Hat at Red Rock, followed by P1 and 2 of Dark Shadows with Daniel Lay</li>
+		<li>Nov 25 - P1-P4 (as three pitches) of Triassics Sands on the Black Velvet Wall with Daniel Lay</li>
+		<li>Nov 26 - Friedas's Flake on lower Solar Slab as two pitches followed by p3 and P4 of Johnny Vegas as one Pitch, with Daniel Lay</li>
             </ol>
             </td>
           </tr>
