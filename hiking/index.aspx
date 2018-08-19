@@ -3157,6 +3157,30 @@
 		    
 		    
 		    
+		      <a id="2018"></a>2018 
+            <ol>
+		        <li>Jan 7 - Stairway to Heaven and White Nightmare - with Jeff Rose/li>
+		    <li>Feb 10 - Dirtcicle with Mike Gibby</li>
+		    <li>Feb 11 - Dirtcicle with Mike Gibby</li>>
+		    <li>Feb 17 - Dirtcicle and Highway to Heaven with Jeff Rose</li>
+		    <li>Feb 24 - Donercicle/Highway to Heaven with Mike Gibby</li>
+		    <li>March 3 - Squashead P1 lead, belayed by one of two brothers names unknown</li>
+		    <li>March 7 - Highway to Heaven/CCC (P2)/Donercicle with Brent Zimmerman</li>
+		    <li>March 10 - Dirtcicle with Mike Gibby</li>
+		    <li>March 11 - Squashhead p1&2 with Jeff Rose</li>
+		    <li>March 17 - Highway to Heaven/CCC (P2) with Mike Gibby</li>
+		    <li>April 3 - Frozen in Time (aka Sundial Falls), WI3, with John Pettijon (forst bite two fingers)</li>
+		    <li></li>
+		    <li></li>
+		    <li></li>
+		    <li></li>
+		    <li></li>
+		    <li></li>
+		    <li></li>
+		    <li></li>
+            </ol>
+		    
+		    
             </td>
           </tr>
         </table>        
