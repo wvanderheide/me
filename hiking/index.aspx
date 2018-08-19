@@ -3146,11 +3146,12 @@
 		    <li>May 28 - 7 pitches on Cosmic Dust Lazers with Brad Meyers</li>
 		    <li>August 3(?) - Quarry on Jeff Roses guest pass</li>
 		    <li>August 10 - Joined the Quarry (account from Frozen for a couple months, then cancelled in the summer of 2017.</li>
-		    <li>August 19(?) - Rock Canyon with Jeff Rose</li>
-		    <li></li>
-		    <li></li>
-		    <li></li>
-		    <li></li>
+		    <li>August 20(?) - Rock Canyon with Jeff Rose.  Might have been Green Monster area and Tinker Toys(?)</li>
+		    <li>August 27(?) - Rock Canyon with Jeff Rose.  Might have been The Hidden area(?)</li>
+		    <li>Sept 30 - White Rocks (UT west Desert) with Jeff Rose</li>
+		    <li>Oct 8 - Addenage at RC with Jeff Rose</li>
+		    <li>Dec 2 - Dirtcicle with Mike Gibby</li>
+		    <li>Dec 10 - Dirtcicle with Jeff Rose</li>
             </ol>
 		    
 		    
