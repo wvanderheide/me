@@ -3097,7 +3097,7 @@
 		        <li>March 28 - Quarry with Ken F</li>
 		        <li>March 30 - Quarry with Ken F</li>
 		        <li>April 1 - Quarry with Fred Williams</li>
-		        <li>April 2 - Rock Canyon with Brad. Green Jello, Green Monster, and Hamster Forever</li>
+		        <li>April 2 - Rock Canyon with Brad from the Quarry. Green Jello, Green Monster, and Hamster Forever</li>
 		        <li>April 4 - Quarry with Ken F</li>
 		        <li>April 6 - Quarry with Ken F</li>
 		        <li>April 11 - Quarry with Ken F</li>
@@ -3105,6 +3105,8 @@
 		        <li>April 20 - Quarry with Derek and Cori</li>
 		        <li>April 21 - Quarry with Jeff and Brad</li>
 		        <li>April 25 - Quarry with Jeff, Brad, and Mike</li>
+		    <li>April 28 - Started climbing at the Quarry with Alan Moore, and Mike Hall.  Mike faded away in September 2016, and Alan lasted until May 15, 2017 but would never learn to lead climb or lead belay.</li>
+		    
 		        <li>April 28 - Quarry with Alan Moore.  Brad belayed me on the lead climb (green 5.10d) and I got it clean</li>
 		        <li>May 2 - Quarry with Jeff, Brad, and Mike</li>
 		        <li>May 3 - Quarry with Alan Moore <b style="color:red">I continued to get two days a week in at the Quarry, so I'm not going to track it anymore!!!</b></li>
@@ -3128,6 +3130,32 @@
 		    <li>Dec 29 - Stairway to Heavan (ICE) with Ken Wood</li>
 		    <li>Dec 31 - Great White Icicle with Brad Meyers</li>
             </ol>
+		    
+		      <a id="2017"></a>2017
+            <ol>
+		        <li>Jan 7 - Millers Thriller with Brad Meyers</li>
+		        <li>Jan 28 - Ouray (4 climbs) with Brad Meyers</li>
+		        <li>Jan 29 - Ouray (7 climbs) with Brad Meyers</li>
+		        <li>Jan 30 - Ouray (5 climbs) with Brad Meyers</li>
+		    <li>Feb 4 - Donercicle with Mike Gibby</li>
+		    <li>March 4 - Climbed at the Quarry with a possible new lead partner kid named Hayes Campbell . March 29 he passed his lead test, and April 18 we climbed for the last time as he moved away shortly after that.</li>
+		    <li>March 11 - Addenage and Curious George at RC with Hayes Campbell</li>
+		    <li>May 3 - Quarry, lead climbing, with some guy named Austin who texted me from an add I posted on the board.</li>
+		    <li>May 10 - Quarry again with Austin</li>
+		    <li>May 15 - Froze my Quarry pass as Alan quit and I haven't found a steady partner.</li>
+		    <li>May 28 - 7 pitches on Cosmic Dust Lazers with Brad Meyers</li>
+		    <li>August 3(?) - Quarry on Jeff Roses guest pass</li>
+		    <li>August 10 - Joined the Quarry (account from Frozen for a couple months, then cancelled in the summer of 2017.</li>
+		    <li>August 19(?) - Rock Canyon with Jeff Rose</li>
+		    <li></li>
+		    <li></li>
+		    <li></li>
+		    <li></li>
+            </ol>
+		    
+		    
+		    
+		    
             </td>
           </tr>
         </table>        
