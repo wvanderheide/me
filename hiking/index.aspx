@@ -3170,14 +3170,14 @@
 		    <li>March 11 - Squashhead p1&2 with Jeff Rose</li>
 		    <li>March 17 - Highway to Heaven/CCC (P2) with Mike Gibby</li>
 		    <li>April 3 - Frozen in Time (aka Sundial Falls), WI3, with John Pettijon (forst bite two fingers)</li>
-		    <li></li>
-		    <li></li>
-		    <li></li>
-		    <li></li>
-		    <li></li>
-		    <li></li>
-		    <li></li>
-		    <li></li>
+		    <li>April 6 - Highway to Heaven and Little Donercicle with Brent Zimmerman</li>
+		    <li>May 5 - Jagged Edge with Brent Zimmerman</li>
+		    <li>May 18 -Barbarian route on the Circus Wall in Snow Canyon with Mike Gibby. Thousand Pints of Lite with Brent Zimmerman/Mike Gibby.</li>
+		    <li>May 19 - Green Valley Gap and Beaver Dam Mtns Road area called Sunset Alley with Brent Zimmerman/Mike Gibby.</li>
+		    <li>May 20 - Past Lives on Prophesy Wall with Brent Zimmerman/Mike Gibby.</li>
+		    <li>July 15 - Bear Hollow in Echo Canyon with Jeff Rose</li>
+		    <li>July 22 - Red Wonder Wall with Jeff Rose</li>
+		    <li>August 18 - Rasberry Dream, Hall of Flags, 29, Fern Gully, Insane in the Membrane AF Canyon with Jeff Rose and Darren Knezek</li>
             </ol>
 		    
 		    
