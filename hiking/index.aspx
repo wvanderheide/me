@@ -3178,6 +3178,9 @@
 		    <li>May 20 - Past Lives on Prophesy Wall with Brent Zimmerman/Mike Gibby.</li>
 		    <li>July 15 - Bear Hollow in Echo Canyon with Jeff Rose</li>
 		    <li>July 22 - Red Wonder Wall with Jeff Rose</li>
+		    <li>July 29 - Rock Canyon. Curious George (I lead it twice), then at The Wild (I did two route, 
+				Call of the Wild, and Welcome to the Jungle), 
+				 and I TRed Monkey Bars at the Zoo. With Jeff Rose</li>
 		    <li>August 18 - Rasberry Dream, Hall of Flags, 29, Fern Gully, Insane in the Membrane AF Canyon with Jeff Rose and Darren Knezek</li>
             </ol>
 		    
