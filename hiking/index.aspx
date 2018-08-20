@@ -2780,7 +2780,8 @@
                     </tr>
                 </table>
                 <h2>Rock Climbing Log</h2>
-                <a href="#pre2010">Pre-2010</a> | <a href="#2010">2010</a> | <a href="#2011">2011</a> | <a href="#2012">2012</a> | <a href="#2013">2013</a> | <a href="#2014">2014</a> | <a href="#2015">2015</a> | <a href="#2016">2016</a>
+                <a href="#pre2010">Pre-2010</a> | <a href="#2010">2010</a> | <a href="#2011">2011</a> | <a href="#2012">2012</a> | <a href="#2013">2013</a> | <a href="#2014">2014</a> | <a href="#2015">2015</a> 
+| <a href="#2016">2016</a> | <a href="#2017">2017</a> | <a href="#2018">2018</a>
                 <br />
                 <br />
                 <a id="pre2010"></a>1981 – 2009 (Approximation logged Nov 15, 2013)
@@ -3105,11 +3106,13 @@
 		        <li>April 20 - Quarry with Derek and Cori</li>
 		        <li>April 21 - Quarry with Jeff and Brad</li>
 		        <li>April 25 - Quarry with Jeff, Brad, and Mike</li>
-		    <li>April 28 - Started climbing at the Quarry with Alan Moore, and Mike Hall.  Mike faded away in September 2016, and Alan lasted until May 15, 2017 but would never learn to lead climb or lead belay.</li>
+		        <li>April 28 - Quarry with Alan Moore.  Brad belayed me on the lead climb (green 5.10d) and I got it clean. 
+			<i>Started climbing at the Quarry with Alan Moore, and Mike Hall.  
+			Mike faded away in September 2016, and Alan lasted until May 15, 2017 but would never learn to lead climb or lead belay.</i></li>
 		    
-		        <li>April 28 - Quarry with Alan Moore.  Brad belayed me on the lead climb (green 5.10d) and I got it clean</li>
 		        <li>May 2 - Quarry with Jeff, Brad, and Mike</li>
-		        <li>May 3 - Quarry with Alan Moore <b style="color:red">I continued to get two days a week in at the Quarry, so I'm not going to track it anymore!!!</b></li>
+		        <li>May 3 - Quarry with Alan Moore <span style="color:red">I continued to get two days a week in at the Quarry, 
+			so I'm not going to track it anymore!!!</span></li>
                 <li>July 16 - Brad Meyers and I climbed Steorts Ridge in BCC</li>
                 <li>July 30 - Brad Meyers and I climbed Western Front, and first pitch (the one below Wizardly Way) on Trilogy Buttress</li>
                 <li>Aug 21 - Sundial Peak via the 11th hour route with Mike Halls</li>
@@ -3138,18 +3141,16 @@
 		        <li>Jan 29 - Ouray (7 climbs) with Brad Meyers</li>
 		        <li>Jan 30 - Ouray (5 climbs) with Brad Meyers</li>
 		    <li>Feb 4 - Donercicle with Mike Gibby</li>
-		    <li>March 4 - Climbed at the Quarry with a possible new lead partner kid named Hayes Campbell . March 29 he passed his lead test, and April 18 we climbed for the last time as he moved away shortly after that.</li>
-		    <li>March 11 - Addenage and Curious George at RC with Hayes Campbell</li>
-		    <li>May 3 - Quarry, lead climbing, with some guy named Austin who texted me from an add I posted on the board.</li>
-		    <li>May 10 - Quarry again with Austin</li>
-		    <li>May 15 - Froze my Quarry pass as Alan quit and I haven't found a steady partner.</li>
+		       <li>March 11 - Addenage and Curious George at Rock Canyon with Hayes Campbell.  Hayes answered my Quarry add for a lead partner, but needed some training.
+				First climbed with him March 4 at the Quarry. March 22 he failed the belay portion of the lead test as I climbed to fast.
+			 March 29 he passed the test (climbing and belaying). April 18 we climbed for the last time as he moved away shortly after that.</li>
+		    <li>May 3 & 10 - Quarry, lead climbing, with some guy named Austin who texted me from an add I posted on the board. <span style="color:red">May 15 - Froze my Quarry pass as Alan Moore quit and I no longer had a steady partner.  After a month or two I cancelled it as I never found a partner.</span></li>
 		    <li>May 28 - 7 pitches on Cosmic Dust Lazers with Brad Meyers</li>
-		    <li>August 3(?) - Quarry on Jeff Roses guest pass</li>
-		    <li>August 10 - Joined the Quarry (account from Frozen for a couple months, then cancelled in the summer of 2017.</li>
+		    <li>August 3 - Quarry on Jeff Roses guest pass. <span style="color:red">August 10, 2017, rejoined the Quarry and started climbing twice a week, regularly with Jeff Rose.</span></li>
 		    <li>August 20(?) - Rock Canyon with Jeff Rose.  Might have been Green Monster area and Tinker Toys(?)</li>
 		    <li>August 27(?) - Rock Canyon with Jeff Rose.  Might have been The Hidden area(?)</li>
 		    <li>Sept 30 - White Rocks (UT west Desert) with Jeff Rose</li>
-		    <li>Oct 8 - Addenage at RC with Jeff Rose</li>
+		    <li>Oct 8 - Addenage at Rock Canyon with Jeff Rose</li>
 		    <li>Dec 2 - Dirtcicle with Mike Gibby</li>
 		    <li>Dec 10 - Dirtcicle with Jeff Rose</li>
             </ol>
@@ -3159,9 +3160,9 @@
 		    
 		      <a id="2018"></a>2018 
             <ol>
-		        <li>Jan 7 - Stairway to Heaven and White Nightmare - with Jeff Rose/li>
+		        <li>Jan 7 - Stairway to Heaven and White Nightmare - with Jeff Rose</li>
 		    <li>Feb 10 - Dirtcicle with Mike Gibby</li>
-		    <li>Feb 11 - Dirtcicle with Mike Gibby</li>>
+		    <li>Feb 11 - Dirtcicle with Mike Gibby</li>
 		    <li>Feb 17 - Dirtcicle and Highway to Heaven with Jeff Rose</li>
 		    <li>Feb 24 - Donercicle/Highway to Heaven with Mike Gibby</li>
 		    <li>March 3 - Squashead P1 lead, belayed by one of two brothers names unknown</li>
